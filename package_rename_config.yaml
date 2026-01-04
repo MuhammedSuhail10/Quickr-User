@@ -1,0 +1,9 @@
+package_rename_config:
+  android:
+    app_name: Solofy-Vendor
+    package_name: com.quickr.user_app
+
+  ios:
+    app_name: Solofy-Vendor
+    bundle_name: com.quickr.user_ios
+    package_name: com.quickr.user_ios
