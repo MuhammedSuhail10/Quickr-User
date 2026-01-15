@@ -12,7 +12,8 @@ part of 'failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$MainFailure {
@@ -21,40 +22,34 @@ mixin _$MainFailure {
   TResult when<TResult extends Object?>({
     required TResult Function(String errorMsg) customError,
     required TResult Function(String errorMsg) genericError,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String errorMsg)? customError,
     TResult? Function(String errorMsg)? genericError,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String errorMsg)? customError,
     TResult Function(String errorMsg)? genericError,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CustomError value) customError,
     required TResult Function(GenericError value) genericError,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CustomError value)? customError,
     TResult? Function(GenericError value)? genericError,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CustomError value)? customError,
     TResult Function(GenericError value)? genericError,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
@@ -66,8 +61,9 @@ mixin _$MainFailure {
 /// @nodoc
 abstract class $MainFailureCopyWith<$Res> {
   factory $MainFailureCopyWith(
-          MainFailure value, $Res Function(MainFailure) then) =
-      _$MainFailureCopyWithImpl<$Res, MainFailure>;
+    MainFailure value,
+    $Res Function(MainFailure) then,
+  ) = _$MainFailureCopyWithImpl<$Res, MainFailure>;
   @useResult
   $Res call({String errorMsg});
 }
@@ -86,15 +82,16 @@ class _$MainFailureCopyWithImpl<$Res, $Val extends MainFailure>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? errorMsg = null,
-  }) {
-    return _then(_value.copyWith(
-      errorMsg: null == errorMsg
-          ? _value.errorMsg
-          : errorMsg // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? errorMsg = null}) {
+    return _then(
+      _value.copyWith(
+            errorMsg: null == errorMsg
+                ? _value.errorMsg
+                : errorMsg // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -102,8 +99,9 @@ class _$MainFailureCopyWithImpl<$Res, $Val extends MainFailure>
 abstract class _$$CustomErrorImplCopyWith<$Res>
     implements $MainFailureCopyWith<$Res> {
   factory _$$CustomErrorImplCopyWith(
-          _$CustomErrorImpl value, $Res Function(_$CustomErrorImpl) then) =
-      __$$CustomErrorImplCopyWithImpl<$Res>;
+    _$CustomErrorImpl value,
+    $Res Function(_$CustomErrorImpl) then,
+  ) = __$$CustomErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String errorMsg});
@@ -114,22 +112,23 @@ class __$$CustomErrorImplCopyWithImpl<$Res>
     extends _$MainFailureCopyWithImpl<$Res, _$CustomErrorImpl>
     implements _$$CustomErrorImplCopyWith<$Res> {
   __$$CustomErrorImplCopyWithImpl(
-      _$CustomErrorImpl _value, $Res Function(_$CustomErrorImpl) _then)
-      : super(_value, _then);
+    _$CustomErrorImpl _value,
+    $Res Function(_$CustomErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? errorMsg = null,
-  }) {
-    return _then(_$CustomErrorImpl(
-      errorMsg: null == errorMsg
-          ? _value.errorMsg
-          : errorMsg // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? errorMsg = null}) {
+    return _then(
+      _$CustomErrorImpl(
+        errorMsg: null == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -248,8 +247,9 @@ abstract class CustomError implements MainFailure {
 abstract class _$$GenericErrorImplCopyWith<$Res>
     implements $MainFailureCopyWith<$Res> {
   factory _$$GenericErrorImplCopyWith(
-          _$GenericErrorImpl value, $Res Function(_$GenericErrorImpl) then) =
-      __$$GenericErrorImplCopyWithImpl<$Res>;
+    _$GenericErrorImpl value,
+    $Res Function(_$GenericErrorImpl) then,
+  ) = __$$GenericErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String errorMsg});
@@ -260,22 +260,23 @@ class __$$GenericErrorImplCopyWithImpl<$Res>
     extends _$MainFailureCopyWithImpl<$Res, _$GenericErrorImpl>
     implements _$$GenericErrorImplCopyWith<$Res> {
   __$$GenericErrorImplCopyWithImpl(
-      _$GenericErrorImpl _value, $Res Function(_$GenericErrorImpl) _then)
-      : super(_value, _then);
+    _$GenericErrorImpl _value,
+    $Res Function(_$GenericErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? errorMsg = null,
-  }) {
-    return _then(_$GenericErrorImpl(
-      errorMsg: null == errorMsg
-          ? _value.errorMsg
-          : errorMsg // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? errorMsg = null}) {
+    return _then(
+      _$GenericErrorImpl(
+        errorMsg: null == errorMsg
+            ? _value.errorMsg
+            : errorMsg // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 

@@ -7,8 +7,10 @@ import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/app_theme.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/theme/theme_cubit.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
+import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
 import 'package:quickr_user_flutter_app/domain/core/di/injection.dart';
 import 'package:quickr_user_flutter_app/presentation/splash_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/start_screen/start_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ThemeCubit()), //Theme
+        BlocProvider(create: (context) => HomeBloc()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
@@ -33,7 +36,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: '',
             onGenerateRoute: AppRoute.onGenerateRoute,
-            initialRoute: SplashScreen.routeName,
+            initialRoute: StartScreen.routeName,
             theme: AppTheme.getTheme(AppThemeMode.light),
             builder: (context, child) {
               return MediaQuery(

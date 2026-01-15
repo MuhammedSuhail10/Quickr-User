@@ -5,4 +5,13 @@ class AppAssets {
 
   static const appIcon = '$basePngDir/app_icon.png';
   static const logo = '$basePngDir/logo.png';
+  static const startImage = '$basePngDir/start_image.png';
+  static const home = '$basePngDir/home.png';
+  static const homeActive = '$basePngDir/home_active.png';
+  static const service = '$basePngDir/service.png';
+  static const serviceActive = '$basePngDir/service_active.png';
+  static const cart = '$basePngDir/cart.png';
+  static const cartActive = '$basePngDir/cart_active.png';
+  static const profile = '$basePngDir/profile.png';
+  static const profileActive = '$basePngDir/profile_active.png';
 }

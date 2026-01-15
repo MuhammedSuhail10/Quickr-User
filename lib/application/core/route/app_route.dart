@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:quickr_user_flutter_app/application/core/app_details.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/logger.dart';
+import 'package:quickr_user_flutter_app/presentation/home/main_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/splash_screen.dart';
-
+import 'package:quickr_user_flutter_app/presentation/start_screen/start_screen.dart';
 
 class AppRoute {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -13,8 +14,12 @@ class AppRoute {
     final arguments = (settings.arguments as Map<String, dynamic>?);
 
     switch (settings.name) {
+      case StartScreen.routeName:
+        return pushRoute(settings, const StartScreen());
 
-      
+      case MainScreen.routeName:
+        return pushRoute(settings, const MainScreen());
+
       case SplashScreen.routeName:
       default:
         return pushRoute(settings, const SplashScreen());
