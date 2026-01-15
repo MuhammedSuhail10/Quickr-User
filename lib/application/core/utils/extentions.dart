@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
+import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/theme/theme_cubit.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 
@@ -12,194 +13,95 @@ extension BuildContextX on BuildContext {
   AppThemeMode get theme1 => read<ThemeCubit>().state.themeMode;
 
   TextStyle get body =>
-      GoogleFonts.poppins(textStyle: Theme.of(this).textTheme.bodyMedium!);
+      Theme.of(this).textTheme.bodyMedium!.copyWith(fontFamily: AppFonts.body);
   Size get getSize => MediaQuery.sizeOf(this);
 
   TextStyle get textStyle1 {
-    switch (theme1) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.bodyMedium!.copyWith(color: ColorResources.textColor),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.bodyMedium!.copyWith(color: ColorResources.white),
-        );
-    }
+    final base = Theme.of(
+      this,
+    ).textTheme.bodyMedium!.copyWith(fontFamily: AppFonts.body);
+
+    return theme == AppThemeMode.light
+        ? base.copyWith(color: ColorResources.textColor)
+        : base.copyWith(color: ColorResources.white);
   }
 
   TextStyle get textStyle2 {
-    switch (theme1) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.bodySmall!.copyWith(color: ColorResources.primary),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.bodySmall!.copyWith(color: ColorResources.primary),
-        );
-    }
+    return Theme.of(this).textTheme.bodySmall!.copyWith(
+      fontFamily: AppFonts.body,
+      color: ColorResources.primary,
+    );
   }
 
   TextStyle get heading {
     switch (theme) {
       case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
+        return Theme.of(this).textTheme.headlineSmall!.copyWith(
+          fontFamily: AppFonts.heading,
+          color: ColorResources.textColor,
         );
       case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.white),
+        return Theme.of(this).textTheme.headlineSmall!.copyWith(
+          fontFamily: AppFonts.heading,
+          color: ColorResources.white,
         );
     }
   }
 
   TextStyle get hintText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.bodySmall!.copyWith(color: ColorResources.grey),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.bodySmall!.copyWith(color: ColorResources.grey),
-        );
-    }
+    return Theme.of(this).textTheme.bodySmall!.copyWith(
+      fontFamily: AppFonts.body,
+      color: ColorResources.grey,
+    );
   }
 
   TextStyle get resetText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-    }
+    return Theme.of(this).textTheme.headlineSmall!.copyWith(
+      fontFamily: AppFonts.heading,
+      color: ColorResources.textColor,
+    );
   }
 
   TextStyle get whiteText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.white),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.white),
-        );
-    }
+    return Theme.of(this).textTheme.headlineSmall!.copyWith(
+      fontFamily: AppFonts.heading,
+      color: ColorResources.white,
+    );
   }
 
   TextStyle get primaryText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-    }
+    return Theme.of(this).textTheme.headlineSmall!.copyWith(
+      fontFamily: AppFonts.heading,
+      color: ColorResources.textColor,
+    );
   }
 
   TextStyle get secondaryText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-    }
+    return Theme.of(this).textTheme.headlineSmall!.copyWith(
+      fontFamily: AppFonts.heading,
+      color: ColorResources.textColor,
+    );
   }
 
   TextStyle get redText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.red),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.red),
-        );
-    }
+    return Theme.of(this).textTheme.headlineSmall!.copyWith(
+      fontFamily: AppFonts.heading,
+      color: ColorResources.red,
+    );
   }
 
   TextStyle get policyText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.textColor),
-        );
-    }
+    return Theme.of(this).textTheme.headlineSmall!.copyWith(
+      fontFamily: AppFonts.body,
+      color: ColorResources.textColor,
+    );
   }
 
   TextStyle get subTitleText {
-    switch (theme) {
-      case AppThemeMode.light:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.grey),
-        );
-      case AppThemeMode.dark:
-        return GoogleFonts.poppins(
-          textStyle: Theme.of(
-            this,
-          ).textTheme.headlineSmall!.copyWith(color: ColorResources.grey),
-        );
-    }
+    return Theme.of(this).textTheme.headlineSmall!.copyWith(
+      fontFamily: AppFonts.body,
+      color: ColorResources.grey,
+    );
   }
 }
 

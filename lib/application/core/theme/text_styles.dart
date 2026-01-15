@@ -6,8 +6,13 @@ import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/theme/theme_cubit.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 
-final baseTextStyle = GoogleFonts.poppins();
-final baseHeadingStyle = GoogleFonts.poppins();
+class AppFonts {
+  static const String body = 'Garet';
+  static const String heading = 'MomoTrustDisplay';
+}
+
+const baseTextStyle = TextStyle(fontFamily: AppFonts.body);
+const baseHeadingStyle = TextStyle(fontFamily: AppFonts.heading);
 
 final _scaleWidth = AppDetails.screenSize.width / AppDetails.designWidth;
 
@@ -40,7 +45,8 @@ extension TextStyleX on TextStyle {
 
   TextStyle get underline => copyWith(decoration: TextDecoration.underline);
 
-  TextStyle get poppins => GoogleFonts.poppins(textStyle: this);
+  TextStyle get bodyFont => copyWith(fontFamily: AppFonts.body);
+  TextStyle get headingFont => copyWith(fontFamily: AppFonts.heading);
 
   TextStyle get white => copyWith(color: ColorResources.white);
   TextStyle get red => copyWith(color: ColorResources.red);
@@ -53,9 +59,9 @@ extension TextStyleX on TextStyle {
 class ThemeTextStyles {
   static TextStyle getPrimaryTextStyle(BuildContext context) {
     final themeMode = context.watch<ThemeCubit>().state.themeMode;
-    final baseStyle = GoogleFonts.poppins(
-      textStyle: Theme.of(context).textTheme.titleSmall,
-    );
+    final baseStyle = Theme.of(
+      context,
+    ).textTheme.titleSmall!.copyWith(fontFamily: AppFonts.body);
 
     switch (themeMode) {
       case AppThemeMode.light:
@@ -67,9 +73,9 @@ class ThemeTextStyles {
 
   static TextStyle getSecondaryTextStyle(BuildContext context) {
     final themeMode = context.watch<ThemeCubit>().state.themeMode;
-    final baseStyle = GoogleFonts.poppins(
-      textStyle: Theme.of(context).textTheme.titleSmall,
-    );
+    final baseStyle = Theme.of(
+      context,
+    ).textTheme.titleSmall!.copyWith(fontFamily: AppFonts.body);
 
     switch (themeMode) {
       case AppThemeMode.light:

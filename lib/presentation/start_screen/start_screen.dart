@@ -3,7 +3,9 @@ import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'dart:ui';
 
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
+import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/presentation/home/main_screen.dart';
 
 class StartScreen extends StatelessWidget {
@@ -135,12 +137,9 @@ class StartScreen extends StatelessWidget {
                                 ),
                                 elevation: 0,
                               ),
-                              child: const Text(
+                              child:  Text(
                                 'Start Exploring',
-                                style: TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                style: context.heading.w400.s26.white
                               ),
                             ),
                           ),

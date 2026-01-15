@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -52,15 +54,41 @@ class HomeScreen extends StatelessWidget {
                 crossAxisSpacing: 12,
                 childAspectRatio: 1,
                 children: [
-                  _buildServiceCard('Plumber', '🔧', Colors.teal.shade300),
-                  _buildServiceCard('Electrician', '⚡', Colors.teal.shade300),
-                  _buildServiceCard('Cook', '👨‍🍳', Colors.teal.shade400),
-                  _buildServiceCard('Plumber', '🔧', Colors.teal.shade300),
-                  _buildServiceCard('Electrician', '⚡', Colors.teal.shade300),
+                  _buildServiceCard(
+                    'Plumber',
+                    '🔧',
+                    Colors.teal.shade300,
+                    context,
+                  ),
+                  _buildServiceCard(
+                    'Electrician',
+                    '⚡',
+                    Colors.teal.shade300,
+                    context,
+                  ),
+                  _buildServiceCard(
+                    'Cook',
+                    '👨‍🍳',
+                    Colors.teal.shade400,
+                    context,
+                  ),
+                  _buildServiceCard(
+                    'Plumber',
+                    '🔧',
+                    Colors.teal.shade300,
+                    context,
+                  ),
+                  _buildServiceCard(
+                    'Electrician',
+                    '⚡',
+                    Colors.teal.shade300,
+                    context,
+                  ),
                   _buildServiceCard(
                     'More\nServices',
                     '➕',
                     Colors.teal.shade400,
+                    context,
                   ),
                 ],
               ),
@@ -152,7 +180,12 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildServiceCard(String title, String emoji, Color color) {
+  Widget _buildServiceCard(
+    String title,
+    String emoji,
+    Color color,
+    BuildContext context,
+  ) {
     return Container(
       decoration: BoxDecoration(
         color: color,
@@ -176,11 +209,7 @@ class HomeScreen extends StatelessWidget {
             right: 12,
             child: Text(
               title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
+              style: context.textStyle1.w300.s14.white,
               textAlign: TextAlign.center,
             ),
           ),
