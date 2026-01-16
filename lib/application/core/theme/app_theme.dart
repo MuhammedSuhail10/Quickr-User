@@ -15,8 +15,8 @@ class AppTheme {
   }
 
   static ThemeData get _lightTheme => ThemeData(
-        scaffoldBackgroundColor: ColorResources.white,
-        textTheme: TextTheme(
+        scaffoldBackgroundColor: ColorResources.scaffoldBackground,
+        textTheme: const TextTheme(
           bodyMedium: baseTextStyle,
           headlineSmall: baseHeadingStyle,
         ),
@@ -28,7 +28,7 @@ class AppTheme {
       );
   static ThemeData get _darkTheme => ThemeData(
         scaffoldBackgroundColor: const Color(0xFF191B20),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyMedium: baseTextStyle,
           headlineSmall: baseHeadingStyle,
         ),
@@ -40,7 +40,7 @@ class AppTheme {
       );
   static ThemeData get _premiumTheme => ThemeData(
         scaffoldBackgroundColor: const Color(0xFF211D1D),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyMedium: baseTextStyle,
           headlineSmall: baseHeadingStyle,
         ),

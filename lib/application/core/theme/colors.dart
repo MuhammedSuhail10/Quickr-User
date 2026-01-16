@@ -14,9 +14,8 @@ class ColorResources {
     // end: Alignment.bottomRight,
   );
 
-  static const primary = Color(0xFF2E75B5);
-  static const lightBlue = Color(0xFFE4F2FF);
-  static const secondary = Color(0xFF3A725E);
+  static const primary = Color(0XFF3A725E);
+  static final secondary = const Color(0xFF3A725E).withOpacity(0.6);
   static const textColor = Color(0xFF000000);
   static const white = Color(0xFFFFFFFF);
   static const scaffoldBackground = Color(0xFFFFFFFF);

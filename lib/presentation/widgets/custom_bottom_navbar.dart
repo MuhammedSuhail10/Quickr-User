@@ -55,12 +55,12 @@ class CustomBottomNavigationBar extends StatelessWidget {
         vertical: isTablet ? 8 : 0,
       ),
       decoration: BoxDecoration(
-        color: ColorResources.secondary,
+        color: ColorResources.primary,
         // borderRadius: const BorderRadius.only(
         //   topLeft: Radius.circular(20),
         //   topRight: Radius.circular(20),
         // ),
-        border: Border.all(color: ColorResources.secondary),
+        border: Border.all(color: ColorResources.primary),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
