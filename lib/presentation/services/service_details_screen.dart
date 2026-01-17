@@ -20,7 +20,7 @@ class ServiceDetailsScreen extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+            icon: const Icon(Icons.arrow_back_ios, color: ColorResources.black),
             onPressed: () => Navigator.pop(context),
           ),
         ),
@@ -29,7 +29,7 @@ class ServiceDetailsScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(
-              icon: const Icon(Icons.help_outline, color: Colors.black),
+              icon: const Icon(Icons.help_outline, color: ColorResources.black),
               onPressed: () {},
             ),
           ),
@@ -114,10 +114,7 @@ class ServiceDetailsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Align(
               alignment: Alignment.bottomLeft,
-              child: Text(
-                services[index],
-                style: context.textStyle1.w300.s12
-              ),
+              child: Text(services[index], style: context.textStyle1.w300.s12),
             ),
           ),
         );
