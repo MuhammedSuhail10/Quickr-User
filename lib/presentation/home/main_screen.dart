@@ -5,6 +5,9 @@ import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
 import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
 import 'package:quickr_user_flutter_app/presentation/home/home_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/orders/order_main_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/profile_main_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_main_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/custom_bottom_navbar.dart';
 
 class MainScreen extends StatefulWidget {
@@ -75,11 +78,11 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [
+    final List<Widget> pages = [
       const HomeScreen(),
-      const HomeScreen(),
-      const HomeScreen(),
-      const HomeScreen(),
+      const ServiceMainScreen(),
+      const OrderMainScreen(),
+      const ProfileMainScreen(),
     ];
 
     return BlocBuilder<HomeBloc, HomeState>(
@@ -107,7 +110,7 @@ class _MainScreenState extends State<MainScreen> {
           },
           child: Scaffold(
             key: scaffoldKey,
-            body: IndexedStack(index: selectedIndex, children: _pages),
+            body: IndexedStack(index: selectedIndex, children: pages),
             bottomNavigationBar: CustomBottomNavigationBar(
               selectedIndex: selectedIndex,
               onItemSelected: onItemTapped,

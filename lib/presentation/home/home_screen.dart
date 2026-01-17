@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -45,29 +47,11 @@ class HomeScreen extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildListDelegate([
                 // Service Categories Grid
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 12,
-                  crossAxisSpacing: 12,
-                  childAspectRatio: 0.9,
-                  children: [
-                    _buildServiceCard('Plumber', AppAssets.plumber, context),
-                    _buildServiceCard(
-                      'Electrician',
-                      AppAssets.electrician,
-                      context,
-                    ),
-                    _buildServiceCard('Cook', null, context),
-                    _buildServiceCard('Plumber', AppAssets.plumber, context),
-                    _buildServiceCard(
-                      'Electrician',
-                      AppAssets.electrician,
-                      context,
-                    ),
-                    _buildServiceCard('More\nServices', null, context),
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    AppRoute.pushNamed(ServiceDetailsScreen.routeName);
+                  },
+                  child: _buildServiceCards(context),
                 ),
                 gap24,
                 // Top Services Section
@@ -155,51 +139,76 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildServiceCard(
-    String title,
-    String? imagePath,
-    BuildContext context,
-  ) {
-    return Container(
-      decoration: BoxDecoration(
-        color: imagePath == null ? ColorResources.secondary : null,
-        borderRadius: BorderRadius.circular(25),
-        image: imagePath != null
-            ? DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover)
-            : null,
-      ),
-      child: Column(
-        children: [
-          const Spacer(),
-          // Shadow container for title
-          imagePath != null
-              ? Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 6,
-                    horizontal: 12,
-                  ),
-                  decoration: BoxDecoration(
-                    color: ColorResources.black.withOpacity(0.35),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(25),
-                      bottomRight: Radius.circular(25),
+  Widget _buildServiceCards(BuildContext context) {
+    // Define all services in a list
+    final services = [
+      {'title': 'Plumber', 'imagePath': AppAssets.plumber},
+      {'title': 'Electrician', 'imagePath': AppAssets.electrician},
+      {'title': 'Cook', 'imagePath': null},
+      {'title': 'Plumber', 'imagePath': AppAssets.plumber},
+      {'title': 'Electrician', 'imagePath': AppAssets.electrician},
+      {'title': 'More\nServices', 'imagePath': null},
+    ];
+
+    return GridView.count(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: 3,
+      mainAxisSpacing: 12,
+      crossAxisSpacing: 12,
+      childAspectRatio: 0.9,
+      children: services.map((service) {
+        final title = service['title'] as String;
+        final imagePath = service['imagePath'];
+
+        return Container(
+          decoration: BoxDecoration(
+            color: imagePath == null ? ColorResources.secondary : null,
+            borderRadius: BorderRadius.circular(25),
+            image: imagePath != null
+                ? DecorationImage(
+                    image: AssetImage(imagePath),
+                    fit: BoxFit.cover,
+                  )
+                : null,
+          ),
+          child: Column(
+            children: [
+              const Spacer(),
+              // Shadow container for title
+              imagePath != null
+                  ? Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 6,
+                        horizontal: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: ColorResources.black.withOpacity(0.35),
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(25),
+                          bottomRight: Radius.circular(25),
+                        ),
+                      ),
+                      child: Text(
+                        title,
+                        style: context.textStyle1.w300.s14.white,
+                      ),
+                    )
+                  : Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          title,
+                          style: context.textStyle1.w300.s14.white,
+                        ),
+                      ),
                     ),
-                  ),
-                  child: Text(title, style: context.textStyle1.w300.s14.white),
-                )
-              : Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(
-                      title,
-                      style: context.textStyle1.w300.s14.white,
-                    ),
-                  ),
-                ),
-        ],
-      ),
+            ],
+          ),
+        );
+      }).toList(),
     );
   }
 }

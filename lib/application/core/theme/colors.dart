@@ -15,10 +15,11 @@ class ColorResources {
   );
 
   static const primary = Color(0XFF3A725E);
-  static final secondary = const Color(0xFF3A725E).withOpacity(0.6);
+  static final secondary = const Color(0XFF3A725E).withOpacity(0.6);
   static const textColor = Color(0xFF000000);
-  static const white = Color(0xFFFFFFFF);
+  static const secondaryColor = Color(0xFFD9D9D9);
   static const scaffoldBackground = Color(0xFFFFFFFF);
+  static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
   static const grey = Color(0xFF979797);
   static const borderColor = Color(0xFFE4EBFF);

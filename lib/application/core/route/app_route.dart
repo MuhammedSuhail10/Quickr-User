@@ -3,6 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:quickr_user_flutter_app/application/core/app_details.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/logger.dart';
 import 'package:quickr_user_flutter_app/presentation/home/main_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_details_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/splash_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/start_screen/start_screen.dart';
 
@@ -19,6 +20,9 @@ class AppRoute {
 
       case MainScreen.routeName:
         return pushRoute(settings, const MainScreen());
+
+      case ServiceDetailsScreen.routeName:
+        return pushRoute(settings, const ServiceDetailsScreen());
 
       case SplashScreen.routeName:
       default:

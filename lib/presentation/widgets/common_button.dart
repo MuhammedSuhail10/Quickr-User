@@ -12,6 +12,7 @@ class CommonButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final BorderRadius? borderRadius;
   final Color? borderColor;
+  final double? borderWidth;
   final double? elevation;
   final TextStyle? textStyle;
   final double? width;
@@ -30,6 +31,7 @@ class CommonButton extends StatelessWidget {
     this.padding,
     this.borderRadius,
     this.borderColor,
+    this.borderWidth,
     this.elevation,
     this.textStyle,
     this.width,
@@ -51,8 +53,8 @@ class CommonButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: effectiveBorderRadius,
           border: Border.all(
-            color: borderColor ?? ColorResources.secondary,
-            width: 0.5,
+            color: borderColor ?? ColorResources.primary,
+            width: borderWidth ?? 0.5,
           ),
           boxShadow: hideShadow != true
               ? [
