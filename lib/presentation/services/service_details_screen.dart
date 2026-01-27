@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_selection_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
 class ServiceDetailsScreen extends StatelessWidget {
@@ -16,6 +18,7 @@ class ServiceDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorResources.white,
         elevation: 0,
+        surfaceTintColor: ColorResources.transparent,
         leadingWidth: 40,
         leading: Padding(
           padding: const EdgeInsets.only(left: 16.0),
@@ -62,24 +65,26 @@ class ServiceDetailsScreen extends StatelessWidget {
                     gap16,
                     // Services Grid
                     _buildServiceCards(),
+                    gap100,
                   ],
                 ),
               ),
             ),
           ),
-
-          // Book Now Button
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: CommonButton(
-              text: 'Book Now',
-              onPressed: () {},
-              backgroundColor: ColorResources.secondary,
-              textStyle: context.textStyle1.w600.s24.white,
-            ),
-          ),
         ],
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: CommonButton(
+          text: 'Book Now',
+          onPressed: () {
+            AppRoute.pushNamed(ServiceSelectionScreen.routeName);
+          },
+          backgroundColor: ColorResources.secondary,
+          textStyle: context.textStyle1.w600.s24.white,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 

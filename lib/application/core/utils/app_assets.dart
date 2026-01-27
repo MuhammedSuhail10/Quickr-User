@@ -17,4 +17,6 @@ class AppAssets {
   static const plumber = '$basePngDir/plumber.png';
   static const electrician = '$basePngDir/electrician.png';
   static const search = '$basePngDir/search.png';
+  static const edit = '$basePngDir/edit.png';
+  static const delete = '$basePngDir/delete.png';
 }

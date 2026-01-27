@@ -47,6 +47,8 @@ extension TextStyleX on TextStyle {
   TextStyle get bodyFont => copyWith(fontFamily: AppFonts.body);
   TextStyle get headingFont => copyWith(fontFamily: AppFonts.heading);
 
+  TextStyle get primary => copyWith(color: ColorResources.primary);
+  TextStyle get secondary => copyWith(color: ColorResources.secondary);
   TextStyle get white => copyWith(color: ColorResources.white);
   TextStyle get red => copyWith(color: ColorResources.red);
   TextStyle get lightGray => copyWith(color: ColorResources.lightGray);

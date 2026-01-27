@@ -5,7 +5,7 @@ import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart'
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
-import 'package:quickr_user_flutter_app/presentation/home/main_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/auth/login_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
 class StartScreen extends StatelessWidget {
@@ -119,7 +119,7 @@ class StartScreen extends StatelessWidget {
                             text: 'Start Exploring',
                             onPressed: () {
                               AppRoute.pushNamedAndRemoveUntil(
-                                MainScreen.routeName,
+                                LoginScreen.routeName,
                               );
                             },
                           ),

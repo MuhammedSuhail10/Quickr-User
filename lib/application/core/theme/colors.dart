@@ -19,6 +19,7 @@ class ColorResources {
   static const textColor = Color(0xFF000000);
   static const secondaryColor = Color(0xFFD9D9D9);
   static const scaffoldBackground = Color(0xFFFFFFFF);
+  static const scaffoldBackground2 = Color(0xFFD9D9D9);
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
   static const grey = Color(0xFF979797);
@@ -26,7 +27,7 @@ class ColorResources {
   static const primaryShadow = Color(0xFF70A2CF);
   static const secondaryShadow = Color(0xFF616161);
   static const dividerColor = Color(0xFFA4B6DD);
-  static const textFieldBorderColor = Color(0xFFD8D8D8);
+  static const textFieldBorderColor = Color(0xFF3A725E);
   static const textFieldColor = Color(0xFFFBFBFB);
   static const green = Color(0xFF00B72E);
   static const red = Color(0xFFFF383C);

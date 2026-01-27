@@ -2,8 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:quickr_user_flutter_app/application/core/app_details.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/logger.dart';
+import 'package:quickr_user_flutter_app/presentation/auth/login_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/auth/otp_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/auth/registration_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/home/main_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/orders/order_main_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/edit_email_address.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/edit_phone_number.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/profile_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/profile_update_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/saved_addresses_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/add_new_address.dart';
+import 'package:quickr_user_flutter_app/presentation/services/booking_success_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/extra_information_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/location_selecting_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_booking_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/services/service_details_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_selection_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/splash_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/start_screen/start_screen.dart';
 
@@ -23,6 +38,51 @@ class AppRoute {
 
       case ServiceDetailsScreen.routeName:
         return pushRoute(settings, const ServiceDetailsScreen());
+
+      case LoginScreen.routeName:
+        return pushRoute(settings, const LoginScreen());
+
+      case OtpScreen.routeName:
+        return pushRoute(settings, const OtpScreen());
+
+      case RegistrationScreen.routeName:
+        return pushRoute(settings, const RegistrationScreen());
+
+      case ServiceSelectionScreen.routeName:
+        return pushRoute(settings, const ServiceSelectionScreen());
+
+      case ServiceBookingScreen.routeName:
+        return pushRoute(settings, const ServiceBookingScreen());
+
+      case AddNewAddress.routeName:
+        return pushRoute(settings, const AddNewAddress());
+
+      case ExtraInformationScreen.routeName:
+        return pushRoute(settings, const ExtraInformationScreen());
+
+      case BookingSuccessScreen.routeName:
+        return pushRoute(settings, const BookingSuccessScreen());
+
+      case OrderMainScreen.routeName:
+        return pushRoute(settings, const OrderMainScreen());
+
+      case SavedAddressesScreen.routeName:
+        return pushRoute(settings, const SavedAddressesScreen());
+
+      case ProfileScreen.routeName:
+        return pushRoute(settings, const ProfileScreen());
+
+      case EditPhoneNumber.routeName:
+        return pushRoute(settings, const EditPhoneNumber());
+
+      case EditEmailAddress.routeName:
+        return pushRoute(settings, const EditEmailAddress());
+
+      case ProfileUpdateScreen.routeName:
+        return pushRoute(settings, const ProfileUpdateScreen());
+
+      case LocationSelectingScreen.routeName:
+        return pushRoute(settings, const LocationSelectingScreen());
 
       case SplashScreen.routeName:
       default:
@@ -82,16 +142,13 @@ class AppRoute {
 
   /// Pop Until + Refresh Route With Arguments
   static void popUntilAndReplaceWithArgs(
-    bool Function(Route<dynamic>) predicate,
+    bool Function(Route<dynamic>) predicate, {
     Object? arguments,
-  ) {
+  }) {
     final navigator = AppDetails.globalNavigatorKey.currentState!;
-
     navigator.popUntil(predicate);
-
-    // Now replace the top-most route with arguments
     navigator.pushReplacementNamed(
-      SplashScreen.routeName,
+      ServiceDetailsScreen.routeName,
       arguments: arguments,
     );
   }
