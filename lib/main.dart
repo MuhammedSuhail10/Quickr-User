@@ -3,12 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dropdown_alert/dropdown_alert.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quickr_user_flutter_app/application/auth/auth_bloc.dart';
 import 'package:quickr_user_flutter_app/application/core/app_details.dart';
 import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/app_theme.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/theme/theme_cubit.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
+import 'package:quickr_user_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:quickr_user_flutter_app/domain/core/di/injection.dart';
 import 'package:quickr_user_flutter_app/presentation/start_screen/start_screen.dart';
 
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
           providers: [
             BlocProvider(create: (context) => ThemeCubit()), //Theme
             BlocProvider(create: (context) => HomeBloc()),
+            BlocProvider(create: (context) => AuthBloc(sl<IAuthFacade>())),
           ],
           child: BlocBuilder<ThemeCubit, ThemeState>(
             builder: (context, state) {

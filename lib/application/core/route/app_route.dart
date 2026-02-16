@@ -27,7 +27,7 @@ class AppRoute {
     Logger.logWarning(
       'Route Name: ${settings.name},  Arguments: ${settings.arguments}, ArgumentType: ${settings.arguments.runtimeType}',
     );
-    final arguments = (settings.arguments as Map<String, dynamic>?);
+    final args = (settings.arguments as Map<String, dynamic>?);
 
     switch (settings.name) {
       case StartScreen.routeName:
@@ -43,7 +43,10 @@ class AppRoute {
         return pushRoute(settings, const LoginScreen());
 
       case OtpScreen.routeName:
-        return pushRoute(settings, const OtpScreen());
+        return pushRoute(
+          settings,
+          OtpScreen(phoneNumber: args?['phoneNumber']),
+        );
 
       case RegistrationScreen.routeName:
         return pushRoute(settings, const RegistrationScreen());

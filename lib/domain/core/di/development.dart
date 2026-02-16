@@ -1,5 +1,3 @@
-
-
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/logger.dart';
 import 'package:quickr_user_flutter_app/domain/core/di/env.dart';
@@ -14,10 +12,7 @@ class DevelopmentEnv extends Env {
   /// Parameters:
   /// - [env]: The name of the environment.
   DevelopmentEnv(String env)
-      : super(
-          domainUrl: 'http://192.168.29.8:8080',
-          env: env,
-        ) {
+    : super(domainUrl: 'https://fixifybackend.pythonanywhere.com', env: env) {
     Logger.logInfo('App Started In Development Mode');
   }
 

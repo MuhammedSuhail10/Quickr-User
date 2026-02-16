@@ -1,0 +1,38 @@
+import 'package:injectable/injectable.dart';
+import 'package:quickr_user_flutter_app/application/core/service/dio_client.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/typedefs.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/urls.dart';
+import 'package:quickr_user_flutter_app/domain/auth/i_auth_facade.dart';
+import 'package:quickr_user_flutter_app/domain/auth/models/otp_response.dart';
+import 'package:quickr_user_flutter_app/domain/auth/models/verify_response.dart';
+import 'package:quickr_user_flutter_app/domain/core/base/run_safely.dart';
+
+@LazySingleton(as: IAuthFacade)
+class IAuthFacadeImpl implements IAuthFacade {
+  final DioClient dioClient;
+  final RunSafely runSafely;
+
+  IAuthFacadeImpl({required this.dioClient, required this.runSafely});
+
+  @override
+  ResultFuture<OTPResponse> sendOtp({required String mobile}) {
+    return runSafely.runSafely(() async {
+      final response = await dioClient.post(
+        Urls.sendOtp,
+        data: {'phone': mobile},
+      );
+      return OTPResponse.fromJson(response.data as Map<String, dynamic>);
+    });
+  }
+
+  @override
+  ResultFuture<VerifyResponse> verifyOtp({required String mobile, required String otp}) {
+    return runSafely.runSafely(() async {
+      final response = await dioClient.post(
+        Urls.verifyOtp,
+        data: {'phone': mobile, 'otp': otp},
+      );
+      return VerifyResponse.fromJson(response.data as Map<String, dynamic>);
+    });
+  }
+}

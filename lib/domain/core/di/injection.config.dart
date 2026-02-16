@@ -15,6 +15,11 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../../application/core/service/dio_client.dart' as _i536;
+import '../../../infrastructure/auth/i_auth_facade_impl.dart' as _i720;
+import '../../../infrastructure/auth_local/i_auth_local_facade_impl.dart'
+    as _i950;
+import '../../auth/i_auth_facade.dart' as _i551;
+import '../../auth_local/i_auth_local_facade.dart' as _i568;
 import '../base/run_safely.dart' as _i530;
 import 'app_injection_module.dart' as _i975;
 import 'local_notification_serveice.dart' as _i793;
@@ -41,7 +46,16 @@ Future<_i174.GetIt> init(
   );
   gh.lazySingleton<_i530.RunSafely>(() => _i530.RunSafely());
   gh.lazySingleton<_i361.Dio>(() => appInjectionModule.dio);
+  gh.lazySingleton<_i568.IAuthLocalFacade>(
+    () => _i950.IAuthLocalFacadeImpl(gh<_i460.SharedPreferences>()),
+  );
   gh.lazySingleton<_i536.DioClient>(() => _i536.DioClient(gh<_i361.Dio>()));
+  gh.lazySingleton<_i551.IAuthFacade>(
+    () => _i720.IAuthFacadeImpl(
+      dioClient: gh<_i536.DioClient>(),
+      runSafely: gh<_i530.RunSafely>(),
+    ),
+  );
   return getIt;
 }
 
