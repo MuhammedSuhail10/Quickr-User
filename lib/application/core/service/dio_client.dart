@@ -8,6 +8,8 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/logger.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/urls.dart';
+import 'package:quickr_user_flutter_app/domain/auth_local/i_auth_local_facade.dart';
+import 'package:quickr_user_flutter_app/domain/core/di/injection.dart';
 import 'package:quickr_user_flutter_app/domain/core/exception/custom_exception.dart';
 
 @lazySingleton
@@ -201,11 +203,13 @@ class LoggingInterceptor extends InterceptorsWrapper {
     RequestInterceptorHandler handler,
   ) async {
     DateTime now = DateTime.now().toUtc();
-    // String? token = box.read(AppConstants.token);
+    final authLocalFacade = sl<IAuthLocalFacade>();
+    final token = authLocalFacade.getAccessToken();
+
     options.headers.addAll({
       'Timestamp': now.millisecondsSinceEpoch,
       'Content-Type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer ',
+      'Authorization': 'Bearer ${token ?? ''}',
       'Access-Control-Allow-Origin': '*',
       'Accept': 'application/json',
       'Device-Type': Platform.isAndroid

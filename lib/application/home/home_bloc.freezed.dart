@@ -19,28 +19,28 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getHomeData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? getHomeData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getHomeData,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(GetHomeData value) getHomeData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(GetHomeData value)? getHomeData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(GetHomeData value)? getHomeData,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -66,20 +66,20 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-    _$StartedImpl value,
-    $Res Function(_$StartedImpl) then,
-  ) = __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$GetHomeDataImplCopyWith<$Res> {
+  factory _$$GetHomeDataImplCopyWith(
+    _$GetHomeDataImpl value,
+    $Res Function(_$GetHomeDataImpl) then,
+  ) = __$$GetHomeDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-    _$StartedImpl _value,
-    $Res Function(_$StartedImpl) _then,
+class __$$GetHomeDataImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetHomeDataImpl>
+    implements _$$GetHomeDataImplCopyWith<$Res> {
+  __$$GetHomeDataImplCopyWithImpl(
+    _$GetHomeDataImpl _value,
+    $Res Function(_$GetHomeDataImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of HomeEvent
@@ -88,18 +88,18 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$GetHomeDataImpl implements GetHomeData {
+  const _$GetHomeDataImpl();
 
   @override
   String toString() {
-    return 'HomeEvent.started()';
+    return 'HomeEvent.getHomeData()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$GetHomeDataImpl);
   }
 
   @override
@@ -107,24 +107,28 @@ class _$StartedImpl implements _Started {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({required TResult Function() started}) {
-    return started();
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeData,
+  }) {
+    return getHomeData();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? started}) {
-    return started?.call();
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeData,
+  }) {
+    return getHomeData?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getHomeData,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (getHomeData != null) {
+      return getHomeData();
     }
     return orElse();
   }
@@ -132,70 +136,59 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(GetHomeData value) getHomeData,
   }) {
-    return started(this);
+    return getHomeData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(GetHomeData value)? getHomeData,
   }) {
-    return started?.call(this);
+    return getHomeData?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(GetHomeData value)? getHomeData,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (getHomeData != null) {
+      return getHomeData(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements HomeEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class GetHomeData implements HomeEvent {
+  const factory GetHomeData() = _$GetHomeDataImpl;
 }
 
 /// @nodoc
 mixin _$HomeState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  ApiStatus get getHomeStatus => throw _privateConstructorUsedError;
+  HomeResponse? get homeResponse => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $HomeStateCopyWith<HomeState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
+  @useResult
+  $Res call({
+    ApiStatus getHomeStatus,
+    HomeResponse? homeResponse,
+    String? errorMessage,
+  });
 }
 
 /// @nodoc
@@ -210,101 +203,151 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? getHomeStatus = null,
+    Object? homeResponse = freezed,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(
+      _value.copyWith(
+            getHomeStatus: null == getHomeStatus
+                ? _value.getHomeStatus
+                : getHomeStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
+            homeResponse: freezed == homeResponse
+                ? _value.homeResponse
+                : homeResponse // ignore: cast_nullable_to_non_nullable
+                      as HomeResponse?,
+            errorMessage: freezed == errorMessage
+                ? _value.errorMessage
+                : errorMessage // ignore: cast_nullable_to_non_nullable
+                      as String?,
+          )
+          as $Val,
+    );
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-    _$InitialImpl value,
-    $Res Function(_$InitialImpl) then,
-  ) = __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$HomeStateImplCopyWith<$Res>
+    implements $HomeStateCopyWith<$Res> {
+  factory _$$HomeStateImplCopyWith(
+    _$HomeStateImpl value,
+    $Res Function(_$HomeStateImpl) then,
+  ) = __$$HomeStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    ApiStatus getHomeStatus,
+    HomeResponse? homeResponse,
+    String? errorMessage,
+  });
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-    _$InitialImpl _value,
-    $Res Function(_$InitialImpl) _then,
+class __$$HomeStateImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateImpl>
+    implements _$$HomeStateImplCopyWith<$Res> {
+  __$$HomeStateImplCopyWithImpl(
+    _$HomeStateImpl _value,
+    $Res Function(_$HomeStateImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? getHomeStatus = null,
+    Object? homeResponse = freezed,
+    Object? errorMessage = freezed,
+  }) {
+    return _then(
+      _$HomeStateImpl(
+        getHomeStatus: null == getHomeStatus
+            ? _value.getHomeStatus
+            : getHomeStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
+        homeResponse: freezed == homeResponse
+            ? _value.homeResponse
+            : homeResponse // ignore: cast_nullable_to_non_nullable
+                  as HomeResponse?,
+        errorMessage: freezed == errorMessage
+            ? _value.errorMessage
+            : errorMessage // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$HomeStateImpl implements _HomeState {
+  const _$HomeStateImpl({
+    required this.getHomeStatus,
+    this.homeResponse,
+    this.errorMessage,
+  });
+
+  @override
+  final ApiStatus getHomeStatus;
+  @override
+  final HomeResponse? homeResponse;
+  @override
+  final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState.initial()';
+    return 'HomeState(getHomeStatus: $getHomeStatus, homeResponse: $homeResponse, errorMessage: $errorMessage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$HomeStateImpl &&
+            (identical(other.getHomeStatus, getHomeStatus) ||
+                other.getHomeStatus == getHomeStatus) &&
+            (identical(other.homeResponse, homeResponse) ||
+                other.homeResponse == homeResponse) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, getHomeStatus, homeResponse, errorMessage);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({required TResult Function() initial}) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? initial}) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
+      __$$HomeStateImplCopyWithImpl<_$HomeStateImpl>(this, _$identity);
 }
 
-abstract class _Initial implements HomeState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _HomeState implements HomeState {
+  const factory _HomeState({
+    required final ApiStatus getHomeStatus,
+    final HomeResponse? homeResponse,
+    final String? errorMessage,
+  }) = _$HomeStateImpl;
+
+  @override
+  ApiStatus get getHomeStatus;
+  @override
+  HomeResponse? get homeResponse;
+  @override
+  String? get errorMessage;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

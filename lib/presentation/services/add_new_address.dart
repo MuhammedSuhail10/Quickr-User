@@ -110,7 +110,6 @@ class _AddNewAddressState extends State<AddNewAddress> {
                   borderRadius: 16,
                 ),
                 gap16,
-
                 // Phone Number field
                 Text(
                   'Alternate Number (Optional)',

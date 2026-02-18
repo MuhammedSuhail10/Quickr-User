@@ -19,4 +19,5 @@ class AppAssets {
   static const search = '$basePngDir/search.png';
   static const edit = '$basePngDir/edit.png';
   static const delete = '$basePngDir/delete.png';
+  static const logout = '$basePngDir/logout.png';
 }

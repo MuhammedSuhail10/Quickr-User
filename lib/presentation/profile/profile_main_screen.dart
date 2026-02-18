@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
-import 'package:quickr_user_flutter_app/presentation/auth/login_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/orders/order_main_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/profile_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/saved_addresses_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/widgets/logout_bottomsheet.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
 class ProfileMainScreen extends StatelessWidget {
@@ -49,6 +50,9 @@ class ProfileMainScreen extends StatelessWidget {
 
           // Logout Button Section
           _buildLogoutButton(context),
+          gap20,
+          // Version Number
+          _buildVersionInfo(context),
         ],
       ),
     );
@@ -173,7 +177,12 @@ class ProfileMainScreen extends StatelessWidget {
     return CommonButton(
       text: 'Logout',
       onPressed: () {
-        AppRoute.pushNamed(LoginScreen.routeName);
+        showModalBottomSheet<bool>(
+          context: context,
+          backgroundColor: Colors.transparent,
+          isScrollControlled: true,
+          builder: (context) => const LogoutConfirmationBottomSheet(),
+        );
       },
       backgroundColor: ColorResources.secondary,
       textStyle: context.textStyle1.w600.s24.white,
@@ -219,6 +228,25 @@ class ProfileMainScreen extends StatelessWidget {
         thickness: 1,
         color: ColorResources.textColor.withOpacity(0.2),
       ),
+    );
+  }
+
+  Widget _buildVersionInfo(BuildContext context) {
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final version = snapshot.data!.version;
+          final buildNumber = snapshot.data!.buildNumber;
+          return Center(
+            child: Text(
+              'Version $version ($buildNumber)',
+              style: context.textStyle1.w400.s12,
+            ),
+          );
+        }
+        return const SizedBox.shrink();
+      },
     );
   }
 }
