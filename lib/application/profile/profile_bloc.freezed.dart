@@ -20,29 +20,68 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfileData,
-    required TResult Function(String phone, int otp) updatePhoneRequest,
+    required TResult Function(String phone) updatePhoneRequest,
     required TResult Function(String phone, int otp) updatePhoneVerify,
-    required TResult Function(String email, int otp) updateEmailRequest,
+    required TResult Function(String email) updateEmailRequest,
     required TResult Function(String email, int otp) updateEmailVerify,
     required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getProfileData,
-    TResult? Function(String phone, int otp)? updatePhoneRequest,
+    TResult? Function(String phone)? updatePhoneRequest,
     TResult? Function(String phone, int otp)? updatePhoneVerify,
-    TResult? Function(String email, int otp)? updateEmailRequest,
+    TResult? Function(String email)? updateEmailRequest,
     TResult? Function(String email, int otp)? updateEmailVerify,
     TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfileData,
-    TResult Function(String phone, int otp)? updatePhoneRequest,
+    TResult Function(String phone)? updatePhoneRequest,
     TResult Function(String phone, int otp)? updatePhoneVerify,
-    TResult Function(String email, int otp)? updateEmailRequest,
+    TResult Function(String email)? updateEmailRequest,
     TResult Function(String email, int otp)? updateEmailVerify,
     TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +92,17 @@ mixin _$ProfileEvent {
     required TResult Function(UpdateEmailRequest value) updateEmailRequest,
     required TResult Function(UpdateEmailVerify value) updateEmailVerify,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -62,6 +112,12 @@ mixin _$ProfileEvent {
     TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -71,6 +127,12 @@ mixin _$ProfileEvent {
     TResult Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -141,11 +203,24 @@ class _$GetProfileDataImpl implements GetProfileData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfileData,
-    required TResult Function(String phone, int otp) updatePhoneRequest,
+    required TResult Function(String phone) updatePhoneRequest,
     required TResult Function(String phone, int otp) updatePhoneVerify,
-    required TResult Function(String email, int otp) updateEmailRequest,
+    required TResult Function(String email) updateEmailRequest,
     required TResult Function(String email, int otp) updateEmailVerify,
     required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
   }) {
     return getProfileData();
   }
@@ -154,11 +229,24 @@ class _$GetProfileDataImpl implements GetProfileData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getProfileData,
-    TResult? Function(String phone, int otp)? updatePhoneRequest,
+    TResult? Function(String phone)? updatePhoneRequest,
     TResult? Function(String phone, int otp)? updatePhoneVerify,
-    TResult? Function(String email, int otp)? updateEmailRequest,
+    TResult? Function(String email)? updateEmailRequest,
     TResult? Function(String email, int otp)? updateEmailVerify,
     TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
   }) {
     return getProfileData?.call();
   }
@@ -167,11 +255,24 @@ class _$GetProfileDataImpl implements GetProfileData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfileData,
-    TResult Function(String phone, int otp)? updatePhoneRequest,
+    TResult Function(String phone)? updatePhoneRequest,
     TResult Function(String phone, int otp)? updatePhoneVerify,
-    TResult Function(String email, int otp)? updateEmailRequest,
+    TResult Function(String email)? updateEmailRequest,
     TResult Function(String email, int otp)? updateEmailVerify,
     TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (getProfileData != null) {
@@ -189,6 +290,17 @@ class _$GetProfileDataImpl implements GetProfileData {
     required TResult Function(UpdateEmailRequest value) updateEmailRequest,
     required TResult Function(UpdateEmailVerify value) updateEmailVerify,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
   }) {
     return getProfileData(this);
   }
@@ -202,6 +314,12 @@ class _$GetProfileDataImpl implements GetProfileData {
     TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
   }) {
     return getProfileData?.call(this);
   }
@@ -215,6 +333,12 @@ class _$GetProfileDataImpl implements GetProfileData {
     TResult Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (getProfileData != null) {
@@ -235,7 +359,7 @@ abstract class _$$UpdatePhoneRequestImplCopyWith<$Res> {
     $Res Function(_$UpdatePhoneRequestImpl) then,
   ) = __$$UpdatePhoneRequestImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String phone, int otp});
+  $Res call({String phone});
 }
 
 /// @nodoc
@@ -251,17 +375,13 @@ class __$$UpdatePhoneRequestImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? phone = null, Object? otp = null}) {
+  $Res call({Object? phone = null}) {
     return _then(
       _$UpdatePhoneRequestImpl(
         phone: null == phone
             ? _value.phone
             : phone // ignore: cast_nullable_to_non_nullable
                   as String,
-        otp: null == otp
-            ? _value.otp
-            : otp // ignore: cast_nullable_to_non_nullable
-                  as int,
       ),
     );
   }
@@ -270,16 +390,14 @@ class __$$UpdatePhoneRequestImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdatePhoneRequestImpl implements UpdatePhoneRequest {
-  const _$UpdatePhoneRequestImpl({required this.phone, required this.otp});
+  const _$UpdatePhoneRequestImpl({required this.phone});
 
   @override
   final String phone;
-  @override
-  final int otp;
 
   @override
   String toString() {
-    return 'ProfileEvent.updatePhoneRequest(phone: $phone, otp: $otp)';
+    return 'ProfileEvent.updatePhoneRequest(phone: $phone)';
   }
 
   @override
@@ -287,12 +405,11 @@ class _$UpdatePhoneRequestImpl implements UpdatePhoneRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdatePhoneRequestImpl &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.otp, otp) || other.otp == otp));
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, phone, otp);
+  int get hashCode => Object.hash(runtimeType, phone);
 
   /// Create a copy of ProfileEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -309,41 +426,80 @@ class _$UpdatePhoneRequestImpl implements UpdatePhoneRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfileData,
-    required TResult Function(String phone, int otp) updatePhoneRequest,
+    required TResult Function(String phone) updatePhoneRequest,
     required TResult Function(String phone, int otp) updatePhoneVerify,
-    required TResult Function(String email, int otp) updateEmailRequest,
+    required TResult Function(String email) updateEmailRequest,
     required TResult Function(String email, int otp) updateEmailVerify,
     required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
   }) {
-    return updatePhoneRequest(phone, otp);
+    return updatePhoneRequest(phone);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getProfileData,
-    TResult? Function(String phone, int otp)? updatePhoneRequest,
+    TResult? Function(String phone)? updatePhoneRequest,
     TResult? Function(String phone, int otp)? updatePhoneVerify,
-    TResult? Function(String email, int otp)? updateEmailRequest,
+    TResult? Function(String email)? updateEmailRequest,
     TResult? Function(String email, int otp)? updateEmailVerify,
     TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
   }) {
-    return updatePhoneRequest?.call(phone, otp);
+    return updatePhoneRequest?.call(phone);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfileData,
-    TResult Function(String phone, int otp)? updatePhoneRequest,
+    TResult Function(String phone)? updatePhoneRequest,
     TResult Function(String phone, int otp)? updatePhoneVerify,
-    TResult Function(String email, int otp)? updateEmailRequest,
+    TResult Function(String email)? updateEmailRequest,
     TResult Function(String email, int otp)? updateEmailVerify,
     TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updatePhoneRequest != null) {
-      return updatePhoneRequest(phone, otp);
+      return updatePhoneRequest(phone);
     }
     return orElse();
   }
@@ -357,6 +513,17 @@ class _$UpdatePhoneRequestImpl implements UpdatePhoneRequest {
     required TResult Function(UpdateEmailRequest value) updateEmailRequest,
     required TResult Function(UpdateEmailVerify value) updateEmailVerify,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
   }) {
     return updatePhoneRequest(this);
   }
@@ -370,6 +537,12 @@ class _$UpdatePhoneRequestImpl implements UpdatePhoneRequest {
     TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
   }) {
     return updatePhoneRequest?.call(this);
   }
@@ -383,6 +556,12 @@ class _$UpdatePhoneRequestImpl implements UpdatePhoneRequest {
     TResult Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updatePhoneRequest != null) {
@@ -393,13 +572,10 @@ class _$UpdatePhoneRequestImpl implements UpdatePhoneRequest {
 }
 
 abstract class UpdatePhoneRequest implements ProfileEvent {
-  const factory UpdatePhoneRequest({
-    required final String phone,
-    required final int otp,
-  }) = _$UpdatePhoneRequestImpl;
+  const factory UpdatePhoneRequest({required final String phone}) =
+      _$UpdatePhoneRequestImpl;
 
   String get phone;
-  int get otp;
 
   /// Create a copy of ProfileEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -489,11 +665,24 @@ class _$UpdatePhoneVerifyImpl implements UpdatePhoneVerify {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfileData,
-    required TResult Function(String phone, int otp) updatePhoneRequest,
+    required TResult Function(String phone) updatePhoneRequest,
     required TResult Function(String phone, int otp) updatePhoneVerify,
-    required TResult Function(String email, int otp) updateEmailRequest,
+    required TResult Function(String email) updateEmailRequest,
     required TResult Function(String email, int otp) updateEmailVerify,
     required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
   }) {
     return updatePhoneVerify(phone, otp);
   }
@@ -502,11 +691,24 @@ class _$UpdatePhoneVerifyImpl implements UpdatePhoneVerify {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getProfileData,
-    TResult? Function(String phone, int otp)? updatePhoneRequest,
+    TResult? Function(String phone)? updatePhoneRequest,
     TResult? Function(String phone, int otp)? updatePhoneVerify,
-    TResult? Function(String email, int otp)? updateEmailRequest,
+    TResult? Function(String email)? updateEmailRequest,
     TResult? Function(String email, int otp)? updateEmailVerify,
     TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
   }) {
     return updatePhoneVerify?.call(phone, otp);
   }
@@ -515,11 +717,24 @@ class _$UpdatePhoneVerifyImpl implements UpdatePhoneVerify {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfileData,
-    TResult Function(String phone, int otp)? updatePhoneRequest,
+    TResult Function(String phone)? updatePhoneRequest,
     TResult Function(String phone, int otp)? updatePhoneVerify,
-    TResult Function(String email, int otp)? updateEmailRequest,
+    TResult Function(String email)? updateEmailRequest,
     TResult Function(String email, int otp)? updateEmailVerify,
     TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updatePhoneVerify != null) {
@@ -537,6 +752,17 @@ class _$UpdatePhoneVerifyImpl implements UpdatePhoneVerify {
     required TResult Function(UpdateEmailRequest value) updateEmailRequest,
     required TResult Function(UpdateEmailVerify value) updateEmailVerify,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
   }) {
     return updatePhoneVerify(this);
   }
@@ -550,6 +776,12 @@ class _$UpdatePhoneVerifyImpl implements UpdatePhoneVerify {
     TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
   }) {
     return updatePhoneVerify?.call(this);
   }
@@ -563,6 +795,12 @@ class _$UpdatePhoneVerifyImpl implements UpdatePhoneVerify {
     TResult Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updatePhoneVerify != null) {
@@ -595,7 +833,7 @@ abstract class _$$UpdateEmailRequestImplCopyWith<$Res> {
     $Res Function(_$UpdateEmailRequestImpl) then,
   ) = __$$UpdateEmailRequestImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, int otp});
+  $Res call({String email});
 }
 
 /// @nodoc
@@ -611,17 +849,13 @@ class __$$UpdateEmailRequestImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? email = null, Object? otp = null}) {
+  $Res call({Object? email = null}) {
     return _then(
       _$UpdateEmailRequestImpl(
         email: null == email
             ? _value.email
             : email // ignore: cast_nullable_to_non_nullable
                   as String,
-        otp: null == otp
-            ? _value.otp
-            : otp // ignore: cast_nullable_to_non_nullable
-                  as int,
       ),
     );
   }
@@ -630,16 +864,14 @@ class __$$UpdateEmailRequestImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateEmailRequestImpl implements UpdateEmailRequest {
-  const _$UpdateEmailRequestImpl({required this.email, required this.otp});
+  const _$UpdateEmailRequestImpl({required this.email});
 
   @override
   final String email;
-  @override
-  final int otp;
 
   @override
   String toString() {
-    return 'ProfileEvent.updateEmailRequest(email: $email, otp: $otp)';
+    return 'ProfileEvent.updateEmailRequest(email: $email)';
   }
 
   @override
@@ -647,12 +879,11 @@ class _$UpdateEmailRequestImpl implements UpdateEmailRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateEmailRequestImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.otp, otp) || other.otp == otp));
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, otp);
+  int get hashCode => Object.hash(runtimeType, email);
 
   /// Create a copy of ProfileEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -669,41 +900,80 @@ class _$UpdateEmailRequestImpl implements UpdateEmailRequest {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfileData,
-    required TResult Function(String phone, int otp) updatePhoneRequest,
+    required TResult Function(String phone) updatePhoneRequest,
     required TResult Function(String phone, int otp) updatePhoneVerify,
-    required TResult Function(String email, int otp) updateEmailRequest,
+    required TResult Function(String email) updateEmailRequest,
     required TResult Function(String email, int otp) updateEmailVerify,
     required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
   }) {
-    return updateEmailRequest(email, otp);
+    return updateEmailRequest(email);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getProfileData,
-    TResult? Function(String phone, int otp)? updatePhoneRequest,
+    TResult? Function(String phone)? updatePhoneRequest,
     TResult? Function(String phone, int otp)? updatePhoneVerify,
-    TResult? Function(String email, int otp)? updateEmailRequest,
+    TResult? Function(String email)? updateEmailRequest,
     TResult? Function(String email, int otp)? updateEmailVerify,
     TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
   }) {
-    return updateEmailRequest?.call(email, otp);
+    return updateEmailRequest?.call(email);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfileData,
-    TResult Function(String phone, int otp)? updatePhoneRequest,
+    TResult Function(String phone)? updatePhoneRequest,
     TResult Function(String phone, int otp)? updatePhoneVerify,
-    TResult Function(String email, int otp)? updateEmailRequest,
+    TResult Function(String email)? updateEmailRequest,
     TResult Function(String email, int otp)? updateEmailVerify,
     TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updateEmailRequest != null) {
-      return updateEmailRequest(email, otp);
+      return updateEmailRequest(email);
     }
     return orElse();
   }
@@ -717,6 +987,17 @@ class _$UpdateEmailRequestImpl implements UpdateEmailRequest {
     required TResult Function(UpdateEmailRequest value) updateEmailRequest,
     required TResult Function(UpdateEmailVerify value) updateEmailVerify,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
   }) {
     return updateEmailRequest(this);
   }
@@ -730,6 +1011,12 @@ class _$UpdateEmailRequestImpl implements UpdateEmailRequest {
     TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
   }) {
     return updateEmailRequest?.call(this);
   }
@@ -743,6 +1030,12 @@ class _$UpdateEmailRequestImpl implements UpdateEmailRequest {
     TResult Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updateEmailRequest != null) {
@@ -753,13 +1046,10 @@ class _$UpdateEmailRequestImpl implements UpdateEmailRequest {
 }
 
 abstract class UpdateEmailRequest implements ProfileEvent {
-  const factory UpdateEmailRequest({
-    required final String email,
-    required final int otp,
-  }) = _$UpdateEmailRequestImpl;
+  const factory UpdateEmailRequest({required final String email}) =
+      _$UpdateEmailRequestImpl;
 
   String get email;
-  int get otp;
 
   /// Create a copy of ProfileEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -849,11 +1139,24 @@ class _$UpdateEmailVerifyImpl implements UpdateEmailVerify {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfileData,
-    required TResult Function(String phone, int otp) updatePhoneRequest,
+    required TResult Function(String phone) updatePhoneRequest,
     required TResult Function(String phone, int otp) updatePhoneVerify,
-    required TResult Function(String email, int otp) updateEmailRequest,
+    required TResult Function(String email) updateEmailRequest,
     required TResult Function(String email, int otp) updateEmailVerify,
     required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
   }) {
     return updateEmailVerify(email, otp);
   }
@@ -862,11 +1165,24 @@ class _$UpdateEmailVerifyImpl implements UpdateEmailVerify {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getProfileData,
-    TResult? Function(String phone, int otp)? updatePhoneRequest,
+    TResult? Function(String phone)? updatePhoneRequest,
     TResult? Function(String phone, int otp)? updatePhoneVerify,
-    TResult? Function(String email, int otp)? updateEmailRequest,
+    TResult? Function(String email)? updateEmailRequest,
     TResult? Function(String email, int otp)? updateEmailVerify,
     TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
   }) {
     return updateEmailVerify?.call(email, otp);
   }
@@ -875,11 +1191,24 @@ class _$UpdateEmailVerifyImpl implements UpdateEmailVerify {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfileData,
-    TResult Function(String phone, int otp)? updatePhoneRequest,
+    TResult Function(String phone)? updatePhoneRequest,
     TResult Function(String phone, int otp)? updatePhoneVerify,
-    TResult Function(String email, int otp)? updateEmailRequest,
+    TResult Function(String email)? updateEmailRequest,
     TResult Function(String email, int otp)? updateEmailVerify,
     TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updateEmailVerify != null) {
@@ -897,6 +1226,17 @@ class _$UpdateEmailVerifyImpl implements UpdateEmailVerify {
     required TResult Function(UpdateEmailRequest value) updateEmailRequest,
     required TResult Function(UpdateEmailVerify value) updateEmailVerify,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
   }) {
     return updateEmailVerify(this);
   }
@@ -910,6 +1250,12 @@ class _$UpdateEmailVerifyImpl implements UpdateEmailVerify {
     TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
   }) {
     return updateEmailVerify?.call(this);
   }
@@ -923,6 +1269,12 @@ class _$UpdateEmailVerifyImpl implements UpdateEmailVerify {
     TResult Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (updateEmailVerify != null) {
@@ -992,11 +1344,24 @@ class _$DeleteAccountImpl implements DeleteAccount {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getProfileData,
-    required TResult Function(String phone, int otp) updatePhoneRequest,
+    required TResult Function(String phone) updatePhoneRequest,
     required TResult Function(String phone, int otp) updatePhoneVerify,
-    required TResult Function(String email, int otp) updateEmailRequest,
+    required TResult Function(String email) updateEmailRequest,
     required TResult Function(String email, int otp) updateEmailVerify,
     required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
   }) {
     return deleteAccount();
   }
@@ -1005,11 +1370,24 @@ class _$DeleteAccountImpl implements DeleteAccount {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getProfileData,
-    TResult? Function(String phone, int otp)? updatePhoneRequest,
+    TResult? Function(String phone)? updatePhoneRequest,
     TResult? Function(String phone, int otp)? updatePhoneVerify,
-    TResult? Function(String email, int otp)? updateEmailRequest,
+    TResult? Function(String email)? updateEmailRequest,
     TResult? Function(String email, int otp)? updateEmailVerify,
     TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
   }) {
     return deleteAccount?.call();
   }
@@ -1018,11 +1396,24 @@ class _$DeleteAccountImpl implements DeleteAccount {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getProfileData,
-    TResult Function(String phone, int otp)? updatePhoneRequest,
+    TResult Function(String phone)? updatePhoneRequest,
     TResult Function(String phone, int otp)? updatePhoneVerify,
-    TResult Function(String email, int otp)? updateEmailRequest,
+    TResult Function(String email)? updateEmailRequest,
     TResult Function(String email, int otp)? updateEmailVerify,
     TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (deleteAccount != null) {
@@ -1040,6 +1431,17 @@ class _$DeleteAccountImpl implements DeleteAccount {
     required TResult Function(UpdateEmailRequest value) updateEmailRequest,
     required TResult Function(UpdateEmailVerify value) updateEmailVerify,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
   }) {
     return deleteAccount(this);
   }
@@ -1053,6 +1455,12 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
   }) {
     return deleteAccount?.call(this);
   }
@@ -1066,6 +1474,12 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult Function(UpdateEmailRequest value)? updateEmailRequest,
     TResult Function(UpdateEmailVerify value)? updateEmailVerify,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
     required TResult orElse(),
   }) {
     if (deleteAccount != null) {
@@ -1080,6 +1494,1264 @@ abstract class DeleteAccount implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$ResetPhoneRequestStatusImplCopyWith<$Res> {
+  factory _$$ResetPhoneRequestStatusImplCopyWith(
+    _$ResetPhoneRequestStatusImpl value,
+    $Res Function(_$ResetPhoneRequestStatusImpl) then,
+  ) = __$$ResetPhoneRequestStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetPhoneRequestStatusImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ResetPhoneRequestStatusImpl>
+    implements _$$ResetPhoneRequestStatusImplCopyWith<$Res> {
+  __$$ResetPhoneRequestStatusImplCopyWithImpl(
+    _$ResetPhoneRequestStatusImpl _value,
+    $Res Function(_$ResetPhoneRequestStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetPhoneRequestStatusImpl implements ResetPhoneRequestStatus {
+  const _$ResetPhoneRequestStatusImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.resetPhoneRequestStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetPhoneRequestStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfileData,
+    required TResult Function(String phone) updatePhoneRequest,
+    required TResult Function(String phone, int otp) updatePhoneVerify,
+    required TResult Function(String email) updateEmailRequest,
+    required TResult Function(String email, int otp) updateEmailVerify,
+    required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
+  }) {
+    return resetPhoneRequestStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getProfileData,
+    TResult? Function(String phone)? updatePhoneRequest,
+    TResult? Function(String phone, int otp)? updatePhoneVerify,
+    TResult? Function(String email)? updateEmailRequest,
+    TResult? Function(String email, int otp)? updateEmailVerify,
+    TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
+  }) {
+    return resetPhoneRequestStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfileData,
+    TResult Function(String phone)? updatePhoneRequest,
+    TResult Function(String phone, int otp)? updatePhoneVerify,
+    TResult Function(String email)? updateEmailRequest,
+    TResult Function(String email, int otp)? updateEmailVerify,
+    TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetPhoneRequestStatus != null) {
+      return resetPhoneRequestStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetProfileData value) getProfileData,
+    required TResult Function(UpdatePhoneRequest value) updatePhoneRequest,
+    required TResult Function(UpdatePhoneVerify value) updatePhoneVerify,
+    required TResult Function(UpdateEmailRequest value) updateEmailRequest,
+    required TResult Function(UpdateEmailVerify value) updateEmailVerify,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
+  }) {
+    return resetPhoneRequestStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetProfileData value)? getProfileData,
+    TResult? Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult? Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+  }) {
+    return resetPhoneRequestStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetProfileData value)? getProfileData,
+    TResult Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetPhoneRequestStatus != null) {
+      return resetPhoneRequestStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetPhoneRequestStatus implements ProfileEvent {
+  const factory ResetPhoneRequestStatus() = _$ResetPhoneRequestStatusImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetPhoneVerifyStatusImplCopyWith<$Res> {
+  factory _$$ResetPhoneVerifyStatusImplCopyWith(
+    _$ResetPhoneVerifyStatusImpl value,
+    $Res Function(_$ResetPhoneVerifyStatusImpl) then,
+  ) = __$$ResetPhoneVerifyStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetPhoneVerifyStatusImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ResetPhoneVerifyStatusImpl>
+    implements _$$ResetPhoneVerifyStatusImplCopyWith<$Res> {
+  __$$ResetPhoneVerifyStatusImplCopyWithImpl(
+    _$ResetPhoneVerifyStatusImpl _value,
+    $Res Function(_$ResetPhoneVerifyStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetPhoneVerifyStatusImpl implements ResetPhoneVerifyStatus {
+  const _$ResetPhoneVerifyStatusImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.resetPhoneVerifyStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetPhoneVerifyStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfileData,
+    required TResult Function(String phone) updatePhoneRequest,
+    required TResult Function(String phone, int otp) updatePhoneVerify,
+    required TResult Function(String email) updateEmailRequest,
+    required TResult Function(String email, int otp) updateEmailVerify,
+    required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
+  }) {
+    return resetPhoneVerifyStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getProfileData,
+    TResult? Function(String phone)? updatePhoneRequest,
+    TResult? Function(String phone, int otp)? updatePhoneVerify,
+    TResult? Function(String email)? updateEmailRequest,
+    TResult? Function(String email, int otp)? updateEmailVerify,
+    TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
+  }) {
+    return resetPhoneVerifyStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfileData,
+    TResult Function(String phone)? updatePhoneRequest,
+    TResult Function(String phone, int otp)? updatePhoneVerify,
+    TResult Function(String email)? updateEmailRequest,
+    TResult Function(String email, int otp)? updateEmailVerify,
+    TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetPhoneVerifyStatus != null) {
+      return resetPhoneVerifyStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetProfileData value) getProfileData,
+    required TResult Function(UpdatePhoneRequest value) updatePhoneRequest,
+    required TResult Function(UpdatePhoneVerify value) updatePhoneVerify,
+    required TResult Function(UpdateEmailRequest value) updateEmailRequest,
+    required TResult Function(UpdateEmailVerify value) updateEmailVerify,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
+  }) {
+    return resetPhoneVerifyStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetProfileData value)? getProfileData,
+    TResult? Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult? Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+  }) {
+    return resetPhoneVerifyStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetProfileData value)? getProfileData,
+    TResult Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetPhoneVerifyStatus != null) {
+      return resetPhoneVerifyStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetPhoneVerifyStatus implements ProfileEvent {
+  const factory ResetPhoneVerifyStatus() = _$ResetPhoneVerifyStatusImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetEmailRequestStatusImplCopyWith<$Res> {
+  factory _$$ResetEmailRequestStatusImplCopyWith(
+    _$ResetEmailRequestStatusImpl value,
+    $Res Function(_$ResetEmailRequestStatusImpl) then,
+  ) = __$$ResetEmailRequestStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetEmailRequestStatusImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ResetEmailRequestStatusImpl>
+    implements _$$ResetEmailRequestStatusImplCopyWith<$Res> {
+  __$$ResetEmailRequestStatusImplCopyWithImpl(
+    _$ResetEmailRequestStatusImpl _value,
+    $Res Function(_$ResetEmailRequestStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetEmailRequestStatusImpl implements ResetEmailRequestStatus {
+  const _$ResetEmailRequestStatusImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.resetEmailRequestStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetEmailRequestStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfileData,
+    required TResult Function(String phone) updatePhoneRequest,
+    required TResult Function(String phone, int otp) updatePhoneVerify,
+    required TResult Function(String email) updateEmailRequest,
+    required TResult Function(String email, int otp) updateEmailVerify,
+    required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
+  }) {
+    return resetEmailRequestStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getProfileData,
+    TResult? Function(String phone)? updatePhoneRequest,
+    TResult? Function(String phone, int otp)? updatePhoneVerify,
+    TResult? Function(String email)? updateEmailRequest,
+    TResult? Function(String email, int otp)? updateEmailVerify,
+    TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
+  }) {
+    return resetEmailRequestStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfileData,
+    TResult Function(String phone)? updatePhoneRequest,
+    TResult Function(String phone, int otp)? updatePhoneVerify,
+    TResult Function(String email)? updateEmailRequest,
+    TResult Function(String email, int otp)? updateEmailVerify,
+    TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetEmailRequestStatus != null) {
+      return resetEmailRequestStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetProfileData value) getProfileData,
+    required TResult Function(UpdatePhoneRequest value) updatePhoneRequest,
+    required TResult Function(UpdatePhoneVerify value) updatePhoneVerify,
+    required TResult Function(UpdateEmailRequest value) updateEmailRequest,
+    required TResult Function(UpdateEmailVerify value) updateEmailVerify,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
+  }) {
+    return resetEmailRequestStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetProfileData value)? getProfileData,
+    TResult? Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult? Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+  }) {
+    return resetEmailRequestStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetProfileData value)? getProfileData,
+    TResult Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetEmailRequestStatus != null) {
+      return resetEmailRequestStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetEmailRequestStatus implements ProfileEvent {
+  const factory ResetEmailRequestStatus() = _$ResetEmailRequestStatusImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetEmailVerifyStatusImplCopyWith<$Res> {
+  factory _$$ResetEmailVerifyStatusImplCopyWith(
+    _$ResetEmailVerifyStatusImpl value,
+    $Res Function(_$ResetEmailVerifyStatusImpl) then,
+  ) = __$$ResetEmailVerifyStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetEmailVerifyStatusImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ResetEmailVerifyStatusImpl>
+    implements _$$ResetEmailVerifyStatusImplCopyWith<$Res> {
+  __$$ResetEmailVerifyStatusImplCopyWithImpl(
+    _$ResetEmailVerifyStatusImpl _value,
+    $Res Function(_$ResetEmailVerifyStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetEmailVerifyStatusImpl implements ResetEmailVerifyStatus {
+  const _$ResetEmailVerifyStatusImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.resetEmailVerifyStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetEmailVerifyStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfileData,
+    required TResult Function(String phone) updatePhoneRequest,
+    required TResult Function(String phone, int otp) updatePhoneVerify,
+    required TResult Function(String email) updateEmailRequest,
+    required TResult Function(String email, int otp) updateEmailVerify,
+    required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
+  }) {
+    return resetEmailVerifyStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getProfileData,
+    TResult? Function(String phone)? updatePhoneRequest,
+    TResult? Function(String phone, int otp)? updatePhoneVerify,
+    TResult? Function(String email)? updateEmailRequest,
+    TResult? Function(String email, int otp)? updateEmailVerify,
+    TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
+  }) {
+    return resetEmailVerifyStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfileData,
+    TResult Function(String phone)? updatePhoneRequest,
+    TResult Function(String phone, int otp)? updatePhoneVerify,
+    TResult Function(String email)? updateEmailRequest,
+    TResult Function(String email, int otp)? updateEmailVerify,
+    TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetEmailVerifyStatus != null) {
+      return resetEmailVerifyStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetProfileData value) getProfileData,
+    required TResult Function(UpdatePhoneRequest value) updatePhoneRequest,
+    required TResult Function(UpdatePhoneVerify value) updatePhoneVerify,
+    required TResult Function(UpdateEmailRequest value) updateEmailRequest,
+    required TResult Function(UpdateEmailVerify value) updateEmailVerify,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
+  }) {
+    return resetEmailVerifyStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetProfileData value)? getProfileData,
+    TResult? Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult? Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+  }) {
+    return resetEmailVerifyStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetProfileData value)? getProfileData,
+    TResult Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetEmailVerifyStatus != null) {
+      return resetEmailVerifyStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetEmailVerifyStatus implements ProfileEvent {
+  const factory ResetEmailVerifyStatus() = _$ResetEmailVerifyStatusImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateProfileImplCopyWith<$Res> {
+  factory _$$UpdateProfileImplCopyWith(
+    _$UpdateProfileImpl value,
+    $Res Function(_$UpdateProfileImpl) then,
+  ) = __$$UpdateProfileImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({
+    String firstName,
+    String lastName,
+    int? age,
+    String? gender,
+    File? profileImage,
+  });
+}
+
+/// @nodoc
+class __$$UpdateProfileImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$UpdateProfileImpl>
+    implements _$$UpdateProfileImplCopyWith<$Res> {
+  __$$UpdateProfileImplCopyWithImpl(
+    _$UpdateProfileImpl _value,
+    $Res Function(_$UpdateProfileImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? age = freezed,
+    Object? gender = freezed,
+    Object? profileImage = freezed,
+  }) {
+    return _then(
+      _$UpdateProfileImpl(
+        firstName: null == firstName
+            ? _value.firstName
+            : firstName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        lastName: null == lastName
+            ? _value.lastName
+            : lastName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        age: freezed == age
+            ? _value.age
+            : age // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        gender: freezed == gender
+            ? _value.gender
+            : gender // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        profileImage: freezed == profileImage
+            ? _value.profileImage
+            : profileImage // ignore: cast_nullable_to_non_nullable
+                  as File?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$UpdateProfileImpl implements UpdateProfile {
+  const _$UpdateProfileImpl({
+    required this.firstName,
+    required this.lastName,
+    this.age,
+    this.gender,
+    this.profileImage,
+  });
+
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+  @override
+  final int? age;
+  @override
+  final String? gender;
+  @override
+  final File? profileImage;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.updateProfile(firstName: $firstName, lastName: $lastName, age: $age, gender: $gender, profileImage: $profileImage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfileImpl &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.profileImage, profileImage) ||
+                other.profileImage == profileImage));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, firstName, lastName, age, gender, profileImage);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateProfileImplCopyWith<_$UpdateProfileImpl> get copyWith =>
+      __$$UpdateProfileImplCopyWithImpl<_$UpdateProfileImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfileData,
+    required TResult Function(String phone) updatePhoneRequest,
+    required TResult Function(String phone, int otp) updatePhoneVerify,
+    required TResult Function(String email) updateEmailRequest,
+    required TResult Function(String email, int otp) updateEmailVerify,
+    required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
+  }) {
+    return updateProfile(firstName, lastName, age, gender, profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getProfileData,
+    TResult? Function(String phone)? updatePhoneRequest,
+    TResult? Function(String phone, int otp)? updatePhoneVerify,
+    TResult? Function(String email)? updateEmailRequest,
+    TResult? Function(String email, int otp)? updateEmailVerify,
+    TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
+  }) {
+    return updateProfile?.call(firstName, lastName, age, gender, profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfileData,
+    TResult Function(String phone)? updatePhoneRequest,
+    TResult Function(String phone, int otp)? updatePhoneVerify,
+    TResult Function(String email)? updateEmailRequest,
+    TResult Function(String email, int otp)? updateEmailVerify,
+    TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (updateProfile != null) {
+      return updateProfile(firstName, lastName, age, gender, profileImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetProfileData value) getProfileData,
+    required TResult Function(UpdatePhoneRequest value) updatePhoneRequest,
+    required TResult Function(UpdatePhoneVerify value) updatePhoneVerify,
+    required TResult Function(UpdateEmailRequest value) updateEmailRequest,
+    required TResult Function(UpdateEmailVerify value) updateEmailVerify,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
+  }) {
+    return updateProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetProfileData value)? getProfileData,
+    TResult? Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult? Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+  }) {
+    return updateProfile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetProfileData value)? getProfileData,
+    TResult Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (updateProfile != null) {
+      return updateProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfile implements ProfileEvent {
+  const factory UpdateProfile({
+    required final String firstName,
+    required final String lastName,
+    final int? age,
+    final String? gender,
+    final File? profileImage,
+  }) = _$UpdateProfileImpl;
+
+  String get firstName;
+  String get lastName;
+  int? get age;
+  String? get gender;
+  File? get profileImage;
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateProfileImplCopyWith<_$UpdateProfileImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetUpdateProfileStatusImplCopyWith<$Res> {
+  factory _$$ResetUpdateProfileStatusImplCopyWith(
+    _$ResetUpdateProfileStatusImpl value,
+    $Res Function(_$ResetUpdateProfileStatusImpl) then,
+  ) = __$$ResetUpdateProfileStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetUpdateProfileStatusImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ResetUpdateProfileStatusImpl>
+    implements _$$ResetUpdateProfileStatusImplCopyWith<$Res> {
+  __$$ResetUpdateProfileStatusImplCopyWithImpl(
+    _$ResetUpdateProfileStatusImpl _value,
+    $Res Function(_$ResetUpdateProfileStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ProfileEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetUpdateProfileStatusImpl implements ResetUpdateProfileStatus {
+  const _$ResetUpdateProfileStatusImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.resetUpdateProfileStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetUpdateProfileStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getProfileData,
+    required TResult Function(String phone) updatePhoneRequest,
+    required TResult Function(String phone, int otp) updatePhoneVerify,
+    required TResult Function(String email) updateEmailRequest,
+    required TResult Function(String email, int otp) updateEmailVerify,
+    required TResult Function() deleteAccount,
+    required TResult Function() resetPhoneRequestStatus,
+    required TResult Function() resetPhoneVerifyStatus,
+    required TResult Function() resetEmailRequestStatus,
+    required TResult Function() resetEmailVerifyStatus,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    updateProfile,
+    required TResult Function() resetUpdateProfileStatus,
+  }) {
+    return resetUpdateProfileStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getProfileData,
+    TResult? Function(String phone)? updatePhoneRequest,
+    TResult? Function(String phone, int otp)? updatePhoneVerify,
+    TResult? Function(String email)? updateEmailRequest,
+    TResult? Function(String email, int otp)? updateEmailVerify,
+    TResult? Function()? deleteAccount,
+    TResult? Function()? resetPhoneRequestStatus,
+    TResult? Function()? resetPhoneVerifyStatus,
+    TResult? Function()? resetEmailRequestStatus,
+    TResult? Function()? resetEmailVerifyStatus,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult? Function()? resetUpdateProfileStatus,
+  }) {
+    return resetUpdateProfileStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getProfileData,
+    TResult Function(String phone)? updatePhoneRequest,
+    TResult Function(String phone, int otp)? updatePhoneVerify,
+    TResult Function(String email)? updateEmailRequest,
+    TResult Function(String email, int otp)? updateEmailVerify,
+    TResult Function()? deleteAccount,
+    TResult Function()? resetPhoneRequestStatus,
+    TResult Function()? resetPhoneVerifyStatus,
+    TResult Function()? resetEmailRequestStatus,
+    TResult Function()? resetEmailVerifyStatus,
+    TResult Function(
+      String firstName,
+      String lastName,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    updateProfile,
+    TResult Function()? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetUpdateProfileStatus != null) {
+      return resetUpdateProfileStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetProfileData value) getProfileData,
+    required TResult Function(UpdatePhoneRequest value) updatePhoneRequest,
+    required TResult Function(UpdatePhoneVerify value) updatePhoneVerify,
+    required TResult Function(UpdateEmailRequest value) updateEmailRequest,
+    required TResult Function(UpdateEmailVerify value) updateEmailVerify,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(ResetPhoneRequestStatus value)
+    resetPhoneRequestStatus,
+    required TResult Function(ResetPhoneVerifyStatus value)
+    resetPhoneVerifyStatus,
+    required TResult Function(ResetEmailRequestStatus value)
+    resetEmailRequestStatus,
+    required TResult Function(ResetEmailVerifyStatus value)
+    resetEmailVerifyStatus,
+    required TResult Function(UpdateProfile value) updateProfile,
+    required TResult Function(ResetUpdateProfileStatus value)
+    resetUpdateProfileStatus,
+  }) {
+    return resetUpdateProfileStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetProfileData value)? getProfileData,
+    TResult? Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult? Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult? Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult? Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult? Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult? Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult? Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult? Function(UpdateProfile value)? updateProfile,
+    TResult? Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+  }) {
+    return resetUpdateProfileStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetProfileData value)? getProfileData,
+    TResult Function(UpdatePhoneRequest value)? updatePhoneRequest,
+    TResult Function(UpdatePhoneVerify value)? updatePhoneVerify,
+    TResult Function(UpdateEmailRequest value)? updateEmailRequest,
+    TResult Function(UpdateEmailVerify value)? updateEmailVerify,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(ResetPhoneRequestStatus value)? resetPhoneRequestStatus,
+    TResult Function(ResetPhoneVerifyStatus value)? resetPhoneVerifyStatus,
+    TResult Function(ResetEmailRequestStatus value)? resetEmailRequestStatus,
+    TResult Function(ResetEmailVerifyStatus value)? resetEmailVerifyStatus,
+    TResult Function(UpdateProfile value)? updateProfile,
+    TResult Function(ResetUpdateProfileStatus value)? resetUpdateProfileStatus,
+    required TResult orElse(),
+  }) {
+    if (resetUpdateProfileStatus != null) {
+      return resetUpdateProfileStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetUpdateProfileStatus implements ProfileEvent {
+  const factory ResetUpdateProfileStatus() = _$ResetUpdateProfileStatusImpl;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   ApiStatus get getProfileStatus => throw _privateConstructorUsedError;
   ApiStatus get updatePhoneRequestStatus => throw _privateConstructorUsedError;
@@ -1087,6 +2759,7 @@ mixin _$ProfileState {
   ApiStatus get updateEmailRequestStatus => throw _privateConstructorUsedError;
   ApiStatus get updateEmailVerifyStatus => throw _privateConstructorUsedError;
   ApiStatus get deleteAccountStatus => throw _privateConstructorUsedError;
+  ApiStatus get updateProfileStatus => throw _privateConstructorUsedError;
   ProfileResponse? get profileResponse => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
@@ -1111,6 +2784,7 @@ abstract class $ProfileStateCopyWith<$Res> {
     ApiStatus updateEmailRequestStatus,
     ApiStatus updateEmailVerifyStatus,
     ApiStatus deleteAccountStatus,
+    ApiStatus updateProfileStatus,
     ProfileResponse? profileResponse,
     String? errorMessage,
   });
@@ -1137,6 +2811,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? updateEmailRequestStatus = null,
     Object? updateEmailVerifyStatus = null,
     Object? deleteAccountStatus = null,
+    Object? updateProfileStatus = null,
     Object? profileResponse = freezed,
     Object? errorMessage = freezed,
   }) {
@@ -1165,6 +2840,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
             deleteAccountStatus: null == deleteAccountStatus
                 ? _value.deleteAccountStatus
                 : deleteAccountStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
+            updateProfileStatus: null == updateProfileStatus
+                ? _value.updateProfileStatus
+                : updateProfileStatus // ignore: cast_nullable_to_non_nullable
                       as ApiStatus,
             profileResponse: freezed == profileResponse
                 ? _value.profileResponse
@@ -1196,6 +2875,7 @@ abstract class _$$ProfileStateImplCopyWith<$Res>
     ApiStatus updateEmailRequestStatus,
     ApiStatus updateEmailVerifyStatus,
     ApiStatus deleteAccountStatus,
+    ApiStatus updateProfileStatus,
     ProfileResponse? profileResponse,
     String? errorMessage,
   });
@@ -1221,6 +2901,7 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
     Object? updateEmailRequestStatus = null,
     Object? updateEmailVerifyStatus = null,
     Object? deleteAccountStatus = null,
+    Object? updateProfileStatus = null,
     Object? profileResponse = freezed,
     Object? errorMessage = freezed,
   }) {
@@ -1250,6 +2931,10 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
             ? _value.deleteAccountStatus
             : deleteAccountStatus // ignore: cast_nullable_to_non_nullable
                   as ApiStatus,
+        updateProfileStatus: null == updateProfileStatus
+            ? _value.updateProfileStatus
+            : updateProfileStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
         profileResponse: freezed == profileResponse
             ? _value.profileResponse
             : profileResponse // ignore: cast_nullable_to_non_nullable
@@ -1273,6 +2958,7 @@ class _$ProfileStateImpl implements _ProfileState {
     required this.updateEmailRequestStatus,
     required this.updateEmailVerifyStatus,
     required this.deleteAccountStatus,
+    required this.updateProfileStatus,
     this.profileResponse,
     this.errorMessage,
   });
@@ -1290,13 +2976,15 @@ class _$ProfileStateImpl implements _ProfileState {
   @override
   final ApiStatus deleteAccountStatus;
   @override
+  final ApiStatus updateProfileStatus;
+  @override
   final ProfileResponse? profileResponse;
   @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'ProfileState(getProfileStatus: $getProfileStatus, updatePhoneRequestStatus: $updatePhoneRequestStatus, updatePhoneVerifyStatus: $updatePhoneVerifyStatus, updateEmailRequestStatus: $updateEmailRequestStatus, updateEmailVerifyStatus: $updateEmailVerifyStatus, deleteAccountStatus: $deleteAccountStatus, profileResponse: $profileResponse, errorMessage: $errorMessage)';
+    return 'ProfileState(getProfileStatus: $getProfileStatus, updatePhoneRequestStatus: $updatePhoneRequestStatus, updatePhoneVerifyStatus: $updatePhoneVerifyStatus, updateEmailRequestStatus: $updateEmailRequestStatus, updateEmailVerifyStatus: $updateEmailVerifyStatus, deleteAccountStatus: $deleteAccountStatus, updateProfileStatus: $updateProfileStatus, profileResponse: $profileResponse, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1328,6 +3016,8 @@ class _$ProfileStateImpl implements _ProfileState {
                 other.updateEmailVerifyStatus == updateEmailVerifyStatus) &&
             (identical(other.deleteAccountStatus, deleteAccountStatus) ||
                 other.deleteAccountStatus == deleteAccountStatus) &&
+            (identical(other.updateProfileStatus, updateProfileStatus) ||
+                other.updateProfileStatus == updateProfileStatus) &&
             (identical(other.profileResponse, profileResponse) ||
                 other.profileResponse == profileResponse) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -1343,6 +3033,7 @@ class _$ProfileStateImpl implements _ProfileState {
     updateEmailRequestStatus,
     updateEmailVerifyStatus,
     deleteAccountStatus,
+    updateProfileStatus,
     profileResponse,
     errorMessage,
   );
@@ -1364,6 +3055,7 @@ abstract class _ProfileState implements ProfileState {
     required final ApiStatus updateEmailRequestStatus,
     required final ApiStatus updateEmailVerifyStatus,
     required final ApiStatus deleteAccountStatus,
+    required final ApiStatus updateProfileStatus,
     final ProfileResponse? profileResponse,
     final String? errorMessage,
   }) = _$ProfileStateImpl;
@@ -1380,6 +3072,8 @@ abstract class _ProfileState implements ProfileState {
   ApiStatus get updateEmailVerifyStatus;
   @override
   ApiStatus get deleteAccountStatus;
+  @override
+  ApiStatus get updateProfileStatus;
   @override
   ProfileResponse? get profileResponse;
   @override

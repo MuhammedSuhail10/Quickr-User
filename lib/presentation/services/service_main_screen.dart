@@ -1,25 +1,48 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
+import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
+import 'package:quickr_user_flutter_app/domain/home/models/all_categories_response.dart';
 import 'package:quickr_user_flutter_app/presentation/services/service_details_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
-class ServiceMainScreen extends StatelessWidget {
+class ServiceMainScreen extends StatefulWidget {
   const ServiceMainScreen({super.key});
 
-  // List of all services
-  final List<Map<String, dynamic>> services = const [
-    {'title': 'Plumber', 'imagePath': AppAssets.plumber},
-    {'title': 'Electrician', 'imagePath': AppAssets.electrician},
-    {'title': 'Carpenter', 'imagePath': null},
-    {'title': 'Painter', 'imagePath': null},
-    {'title': 'Cleaner', 'imagePath': null},
-    {'title': 'Gardener', 'imagePath': null},
-  ];
+  @override
+  State<ServiceMainScreen> createState() => _ServiceMainScreenState();
+}
+
+class _ServiceMainScreenState extends State<ServiceMainScreen> {
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchCategories();
+  }
+
+  void _fetchCategories() {
+    context.read<HomeBloc>().add(
+      HomeEvent.getAllCategories(
+        lastId: 0,
+        searchQuery: _searchController.text,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,73 +64,120 @@ class ServiceMainScreen extends StatelessWidget {
                   color: ColorResources.secondaryColor,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search for services',
-                    hintStyle: context.textStyle1.w300.s12,
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset(
-                        AppAssets.search,
-                        height: 20,
-                        width: 20,
+                child: BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) {
+                    final isLoading =
+                        state.getAllCategoriesStatus == ApiStatus.loading;
+                    return TextField(
+                      controller: _searchController,
+                      onChanged: (value) {
+                        _fetchCategories();
+                      },
+                      decoration: InputDecoration(
+                        hintText: 'Search for services',
+                        hintStyle: context.textStyle1.w300.s12,
+                        prefixIcon: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Image.asset(
+                            AppAssets.search,
+                            height: 20,
+                            width: 20,
+                          ),
+                        ),
+                        suffixIcon: isLoading
+                            ? const Padding(
+                                padding: EdgeInsets.all(12.0),
+                                child: SizedBox(
+                                  height: 20,
+                                  width: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                              )
+                            : null,
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 16,
+                        ),
                       ),
-                    ),
-                    border: InputBorder.none,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 16,
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ),
             gap20,
             // Service Cards Grid
             Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    // Service Cards Grid
-                    GestureDetector(
-                      onTap: () {
-                        AppRoute.pushNamed(ServiceDetailsScreen.routeName);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: _buildServiceCard(),
-                      ),
-                    ),
-                    // Suggestion Section
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
+              child: BlocBuilder<HomeBloc, HomeState>(
+                builder: (context, state) {
+                  if (state.getAllCategoriesStatus == ApiStatus.loading &&
+                      state.allCategoriesResponse == null) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+
+                  final categories =
+                      state.allCategoriesResponse?.categories ?? [];
+
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        // Service Cards Grid
+                        if (categories.isEmpty &&
+                            state.getAllCategoriesStatus == ApiStatus.success)
+                          const Padding(
+                            padding: EdgeInsets.all(32.0),
+                            child: Text('No services found'),
+                          )
+                        else
+                          GestureDetector(
+                            onTap: () {
+                              AppRoute.pushNamed(
+                                ServiceDetailsScreen.routeName,
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                              ),
+                              child: _buildServiceCard(categories),
+                            ),
+                          ),
+                        // Suggestion Section
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              gap16,
-                              Text(
-                                "Couldn't find what you\nare looking for, let us\nknow...",
-                                style: context.heading.w400.s24,
+                              Row(
+                                children: [
+                                  gap16,
+                                  Expanded(
+                                    child: Text(
+                                      "Couldn't find what you\nare looking for, let us\nknow...",
+                                      style: context.heading.w400.s24,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              gap12,
+                              CommonButton(
+                                text: 'Suggest',
+                                textStyle: context.textStyle1.w700.s24.copyWith(
+                                  color: ColorResources.primary,
+                                ),
+                                backgroundColor: ColorResources.secondaryColor,
+                                borderWidth: 1,
+                                onPressed: () {},
                               ),
                             ],
                           ),
-                          gap12,
-                          CommonButton(
-                            text: 'Suggest',
-                            textStyle: context.textStyle1.w700.s24.copyWith(
-                              color: ColorResources.primary,
-                            ),
-                            backgroundColor: ColorResources.secondaryColor,
-                            borderWidth: 1,
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
             ),
           ],
@@ -116,7 +186,7 @@ class ServiceMainScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildServiceCard() {
+  Widget _buildServiceCard(List<Category> categories) {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -126,46 +196,33 @@ class ServiceMainScreen extends StatelessWidget {
         mainAxisSpacing: 18,
         childAspectRatio: 0.85,
       ),
-      itemCount: services.length,
+      itemCount: categories.length,
       itemBuilder: (context, index) {
-        final service = services[index];
-        final imagePath = service['imagePath'];
-
+        final category = categories[index];
+        const mediaBaseUrl = 'https://fixifybackend.pythonanywhere.com/media/';
         return ClipRRect(
           borderRadius: BorderRadius.circular(25),
           child: Container(
             decoration: BoxDecoration(
-              color: imagePath == null ? ColorResources.secondary : null,
-              image: imagePath != null
+              color: category.image.isEmpty ? ColorResources.secondary : null,
+              image: category.image.isNotEmpty
                   ? DecorationImage(
-                      image: AssetImage(imagePath),
+                      image: CachedNetworkImageProvider(
+                        '$mediaBaseUrl${category.image}',
+                      ),
                       fit: BoxFit.cover,
                     )
                   : null,
             ),
             child: Stack(
               children: [
-                // Semi-transparent overlay for better text visibility
-                // Container(
-                //   decoration: BoxDecoration(
-                //     gradient: LinearGradient(
-                //       begin: Alignment.topCenter,
-                //       end: Alignment.bottomCenter,
-                //       colors: [
-                //         ColorResources.transparent,
-                //         ColorResources.black.withOpacity(0.3),
-                //       ],
-                //     ),
-                //   ),
-                // ),
-
                 // Title at bottom
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      service['title'],
+                      category.name,
                       style: context.textStyle1.w300.s14.white,
                     ),
                   ),

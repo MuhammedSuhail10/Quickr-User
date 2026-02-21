@@ -23,6 +23,16 @@ mixin _$AuthEvent {
     required TResult Function(String mobile, String otp) verifyOtp,
     required TResult Function() resetSendOtp,
     required TResult Function() resetVerifyOtp,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    register,
+    required TResult Function() resetRegisterStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -30,6 +40,16 @@ mixin _$AuthEvent {
     TResult? Function(String mobile, String otp)? verifyOtp,
     TResult? Function()? resetSendOtp,
     TResult? Function()? resetVerifyOtp,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult? Function()? resetRegisterStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -37,6 +57,16 @@ mixin _$AuthEvent {
     TResult Function(String mobile, String otp)? verifyOtp,
     TResult Function()? resetSendOtp,
     TResult Function()? resetVerifyOtp,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult Function()? resetRegisterStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +75,8 @@ mixin _$AuthEvent {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(ResetSendOtp value) resetSendOtp,
     required TResult Function(ResetVerifyOtp value) resetVerifyOtp,
+    required TResult Function(Register value) register,
+    required TResult Function(ResetRegisterStatus value) resetRegisterStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -52,6 +84,8 @@ mixin _$AuthEvent {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(ResetSendOtp value)? resetSendOtp,
     TResult? Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult? Function(Register value)? register,
+    TResult? Function(ResetRegisterStatus value)? resetRegisterStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -59,6 +93,8 @@ mixin _$AuthEvent {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(ResetSendOtp value)? resetSendOtp,
     TResult Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult Function(Register value)? register,
+    TResult Function(ResetRegisterStatus value)? resetRegisterStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -157,6 +193,16 @@ class _$SendOtpImpl implements SendOtp {
     required TResult Function(String mobile, String otp) verifyOtp,
     required TResult Function() resetSendOtp,
     required TResult Function() resetVerifyOtp,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    register,
+    required TResult Function() resetRegisterStatus,
   }) {
     return sendOtp(mobile);
   }
@@ -168,6 +214,16 @@ class _$SendOtpImpl implements SendOtp {
     TResult? Function(String mobile, String otp)? verifyOtp,
     TResult? Function()? resetSendOtp,
     TResult? Function()? resetVerifyOtp,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult? Function()? resetRegisterStatus,
   }) {
     return sendOtp?.call(mobile);
   }
@@ -179,6 +235,16 @@ class _$SendOtpImpl implements SendOtp {
     TResult Function(String mobile, String otp)? verifyOtp,
     TResult Function()? resetSendOtp,
     TResult Function()? resetVerifyOtp,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult Function()? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (sendOtp != null) {
@@ -194,6 +260,8 @@ class _$SendOtpImpl implements SendOtp {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(ResetSendOtp value) resetSendOtp,
     required TResult Function(ResetVerifyOtp value) resetVerifyOtp,
+    required TResult Function(Register value) register,
+    required TResult Function(ResetRegisterStatus value) resetRegisterStatus,
   }) {
     return sendOtp(this);
   }
@@ -205,6 +273,8 @@ class _$SendOtpImpl implements SendOtp {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(ResetSendOtp value)? resetSendOtp,
     TResult? Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult? Function(Register value)? register,
+    TResult? Function(ResetRegisterStatus value)? resetRegisterStatus,
   }) {
     return sendOtp?.call(this);
   }
@@ -216,6 +286,8 @@ class _$SendOtpImpl implements SendOtp {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(ResetSendOtp value)? resetSendOtp,
     TResult Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult Function(Register value)? register,
+    TResult Function(ResetRegisterStatus value)? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (sendOtp != null) {
@@ -318,6 +390,16 @@ class _$VerifyOtpImpl implements VerifyOtp {
     required TResult Function(String mobile, String otp) verifyOtp,
     required TResult Function() resetSendOtp,
     required TResult Function() resetVerifyOtp,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    register,
+    required TResult Function() resetRegisterStatus,
   }) {
     return verifyOtp(mobile, otp);
   }
@@ -329,6 +411,16 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult? Function(String mobile, String otp)? verifyOtp,
     TResult? Function()? resetSendOtp,
     TResult? Function()? resetVerifyOtp,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult? Function()? resetRegisterStatus,
   }) {
     return verifyOtp?.call(mobile, otp);
   }
@@ -340,6 +432,16 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult Function(String mobile, String otp)? verifyOtp,
     TResult Function()? resetSendOtp,
     TResult Function()? resetVerifyOtp,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult Function()? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (verifyOtp != null) {
@@ -355,6 +457,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(ResetSendOtp value) resetSendOtp,
     required TResult Function(ResetVerifyOtp value) resetVerifyOtp,
+    required TResult Function(Register value) register,
+    required TResult Function(ResetRegisterStatus value) resetRegisterStatus,
   }) {
     return verifyOtp(this);
   }
@@ -366,6 +470,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(ResetSendOtp value)? resetSendOtp,
     TResult? Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult? Function(Register value)? register,
+    TResult? Function(ResetRegisterStatus value)? resetRegisterStatus,
   }) {
     return verifyOtp?.call(this);
   }
@@ -377,6 +483,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(ResetSendOtp value)? resetSendOtp,
     TResult Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult Function(Register value)? register,
+    TResult Function(ResetRegisterStatus value)? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (verifyOtp != null) {
@@ -449,6 +557,16 @@ class _$ResetSendOtpImpl implements ResetSendOtp {
     required TResult Function(String mobile, String otp) verifyOtp,
     required TResult Function() resetSendOtp,
     required TResult Function() resetVerifyOtp,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    register,
+    required TResult Function() resetRegisterStatus,
   }) {
     return resetSendOtp();
   }
@@ -460,6 +578,16 @@ class _$ResetSendOtpImpl implements ResetSendOtp {
     TResult? Function(String mobile, String otp)? verifyOtp,
     TResult? Function()? resetSendOtp,
     TResult? Function()? resetVerifyOtp,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult? Function()? resetRegisterStatus,
   }) {
     return resetSendOtp?.call();
   }
@@ -471,6 +599,16 @@ class _$ResetSendOtpImpl implements ResetSendOtp {
     TResult Function(String mobile, String otp)? verifyOtp,
     TResult Function()? resetSendOtp,
     TResult Function()? resetVerifyOtp,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult Function()? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (resetSendOtp != null) {
@@ -486,6 +624,8 @@ class _$ResetSendOtpImpl implements ResetSendOtp {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(ResetSendOtp value) resetSendOtp,
     required TResult Function(ResetVerifyOtp value) resetVerifyOtp,
+    required TResult Function(Register value) register,
+    required TResult Function(ResetRegisterStatus value) resetRegisterStatus,
   }) {
     return resetSendOtp(this);
   }
@@ -497,6 +637,8 @@ class _$ResetSendOtpImpl implements ResetSendOtp {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(ResetSendOtp value)? resetSendOtp,
     TResult? Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult? Function(Register value)? register,
+    TResult? Function(ResetRegisterStatus value)? resetRegisterStatus,
   }) {
     return resetSendOtp?.call(this);
   }
@@ -508,6 +650,8 @@ class _$ResetSendOtpImpl implements ResetSendOtp {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(ResetSendOtp value)? resetSendOtp,
     TResult Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult Function(Register value)? register,
+    TResult Function(ResetRegisterStatus value)? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (resetSendOtp != null) {
@@ -568,6 +712,16 @@ class _$ResetVerifyOtpImpl implements ResetVerifyOtp {
     required TResult Function(String mobile, String otp) verifyOtp,
     required TResult Function() resetSendOtp,
     required TResult Function() resetVerifyOtp,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    register,
+    required TResult Function() resetRegisterStatus,
   }) {
     return resetVerifyOtp();
   }
@@ -579,6 +733,16 @@ class _$ResetVerifyOtpImpl implements ResetVerifyOtp {
     TResult? Function(String mobile, String otp)? verifyOtp,
     TResult? Function()? resetSendOtp,
     TResult? Function()? resetVerifyOtp,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult? Function()? resetRegisterStatus,
   }) {
     return resetVerifyOtp?.call();
   }
@@ -590,6 +754,16 @@ class _$ResetVerifyOtpImpl implements ResetVerifyOtp {
     TResult Function(String mobile, String otp)? verifyOtp,
     TResult Function()? resetSendOtp,
     TResult Function()? resetVerifyOtp,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult Function()? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (resetVerifyOtp != null) {
@@ -605,6 +779,8 @@ class _$ResetVerifyOtpImpl implements ResetVerifyOtp {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(ResetSendOtp value) resetSendOtp,
     required TResult Function(ResetVerifyOtp value) resetVerifyOtp,
+    required TResult Function(Register value) register,
+    required TResult Function(ResetRegisterStatus value) resetRegisterStatus,
   }) {
     return resetVerifyOtp(this);
   }
@@ -616,6 +792,8 @@ class _$ResetVerifyOtpImpl implements ResetVerifyOtp {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(ResetSendOtp value)? resetSendOtp,
     TResult? Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult? Function(Register value)? register,
+    TResult? Function(ResetRegisterStatus value)? resetRegisterStatus,
   }) {
     return resetVerifyOtp?.call(this);
   }
@@ -627,6 +805,8 @@ class _$ResetVerifyOtpImpl implements ResetVerifyOtp {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(ResetSendOtp value)? resetSendOtp,
     TResult Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult Function(Register value)? register,
+    TResult Function(ResetRegisterStatus value)? resetRegisterStatus,
     required TResult orElse(),
   }) {
     if (resetVerifyOtp != null) {
@@ -641,11 +821,445 @@ abstract class ResetVerifyOtp implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$RegisterImplCopyWith<$Res> {
+  factory _$$RegisterImplCopyWith(
+    _$RegisterImpl value,
+    $Res Function(_$RegisterImpl) then,
+  ) = __$$RegisterImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({
+    String firstName,
+    String lastName,
+    String email,
+    int? age,
+    String? gender,
+    File? profileImage,
+  });
+}
+
+/// @nodoc
+class __$$RegisterImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$RegisterImpl>
+    implements _$$RegisterImplCopyWith<$Res> {
+  __$$RegisterImplCopyWithImpl(
+    _$RegisterImpl _value,
+    $Res Function(_$RegisterImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? email = null,
+    Object? age = freezed,
+    Object? gender = freezed,
+    Object? profileImage = freezed,
+  }) {
+    return _then(
+      _$RegisterImpl(
+        firstName: null == firstName
+            ? _value.firstName
+            : firstName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        lastName: null == lastName
+            ? _value.lastName
+            : lastName // ignore: cast_nullable_to_non_nullable
+                  as String,
+        email: null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                  as String,
+        age: freezed == age
+            ? _value.age
+            : age // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        gender: freezed == gender
+            ? _value.gender
+            : gender // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        profileImage: freezed == profileImage
+            ? _value.profileImage
+            : profileImage // ignore: cast_nullable_to_non_nullable
+                  as File?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$RegisterImpl implements Register {
+  const _$RegisterImpl({
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    this.age,
+    this.gender,
+    this.profileImage,
+  });
+
+  @override
+  final String firstName;
+  @override
+  final String lastName;
+  @override
+  final String email;
+  @override
+  final int? age;
+  @override
+  final String? gender;
+  @override
+  final File? profileImage;
+
+  @override
+  String toString() {
+    return 'AuthEvent.register(firstName: $firstName, lastName: $lastName, email: $email, age: $age, gender: $gender, profileImage: $profileImage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterImpl &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.profileImage, profileImage) ||
+                other.profileImage == profileImage));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    firstName,
+    lastName,
+    email,
+    age,
+    gender,
+    profileImage,
+  );
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegisterImplCopyWith<_$RegisterImpl> get copyWith =>
+      __$$RegisterImplCopyWithImpl<_$RegisterImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String mobile) sendOtp,
+    required TResult Function(String mobile, String otp) verifyOtp,
+    required TResult Function() resetSendOtp,
+    required TResult Function() resetVerifyOtp,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    register,
+    required TResult Function() resetRegisterStatus,
+  }) {
+    return register(firstName, lastName, email, age, gender, profileImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String mobile)? sendOtp,
+    TResult? Function(String mobile, String otp)? verifyOtp,
+    TResult? Function()? resetSendOtp,
+    TResult? Function()? resetVerifyOtp,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult? Function()? resetRegisterStatus,
+  }) {
+    return register?.call(
+      firstName,
+      lastName,
+      email,
+      age,
+      gender,
+      profileImage,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String mobile)? sendOtp,
+    TResult Function(String mobile, String otp)? verifyOtp,
+    TResult Function()? resetSendOtp,
+    TResult Function()? resetVerifyOtp,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult Function()? resetRegisterStatus,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register(firstName, lastName, email, age, gender, profileImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendOtp value) sendOtp,
+    required TResult Function(VerifyOtp value) verifyOtp,
+    required TResult Function(ResetSendOtp value) resetSendOtp,
+    required TResult Function(ResetVerifyOtp value) resetVerifyOtp,
+    required TResult Function(Register value) register,
+    required TResult Function(ResetRegisterStatus value) resetRegisterStatus,
+  }) {
+    return register(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SendOtp value)? sendOtp,
+    TResult? Function(VerifyOtp value)? verifyOtp,
+    TResult? Function(ResetSendOtp value)? resetSendOtp,
+    TResult? Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult? Function(Register value)? register,
+    TResult? Function(ResetRegisterStatus value)? resetRegisterStatus,
+  }) {
+    return register?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendOtp value)? sendOtp,
+    TResult Function(VerifyOtp value)? verifyOtp,
+    TResult Function(ResetSendOtp value)? resetSendOtp,
+    TResult Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult Function(Register value)? register,
+    TResult Function(ResetRegisterStatus value)? resetRegisterStatus,
+    required TResult orElse(),
+  }) {
+    if (register != null) {
+      return register(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Register implements AuthEvent {
+  const factory Register({
+    required final String firstName,
+    required final String lastName,
+    required final String email,
+    final int? age,
+    final String? gender,
+    final File? profileImage,
+  }) = _$RegisterImpl;
+
+  String get firstName;
+  String get lastName;
+  String get email;
+  int? get age;
+  String? get gender;
+  File? get profileImage;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RegisterImplCopyWith<_$RegisterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetRegisterStatusImplCopyWith<$Res> {
+  factory _$$ResetRegisterStatusImplCopyWith(
+    _$ResetRegisterStatusImpl value,
+    $Res Function(_$ResetRegisterStatusImpl) then,
+  ) = __$$ResetRegisterStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetRegisterStatusImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$ResetRegisterStatusImpl>
+    implements _$$ResetRegisterStatusImplCopyWith<$Res> {
+  __$$ResetRegisterStatusImplCopyWithImpl(
+    _$ResetRegisterStatusImpl _value,
+    $Res Function(_$ResetRegisterStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetRegisterStatusImpl implements ResetRegisterStatus {
+  const _$ResetRegisterStatusImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.resetRegisterStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetRegisterStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String mobile) sendOtp,
+    required TResult Function(String mobile, String otp) verifyOtp,
+    required TResult Function() resetSendOtp,
+    required TResult Function() resetVerifyOtp,
+    required TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )
+    register,
+    required TResult Function() resetRegisterStatus,
+  }) {
+    return resetRegisterStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String mobile)? sendOtp,
+    TResult? Function(String mobile, String otp)? verifyOtp,
+    TResult? Function()? resetSendOtp,
+    TResult? Function()? resetVerifyOtp,
+    TResult? Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult? Function()? resetRegisterStatus,
+  }) {
+    return resetRegisterStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String mobile)? sendOtp,
+    TResult Function(String mobile, String otp)? verifyOtp,
+    TResult Function()? resetSendOtp,
+    TResult Function()? resetVerifyOtp,
+    TResult Function(
+      String firstName,
+      String lastName,
+      String email,
+      int? age,
+      String? gender,
+      File? profileImage,
+    )?
+    register,
+    TResult Function()? resetRegisterStatus,
+    required TResult orElse(),
+  }) {
+    if (resetRegisterStatus != null) {
+      return resetRegisterStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendOtp value) sendOtp,
+    required TResult Function(VerifyOtp value) verifyOtp,
+    required TResult Function(ResetSendOtp value) resetSendOtp,
+    required TResult Function(ResetVerifyOtp value) resetVerifyOtp,
+    required TResult Function(Register value) register,
+    required TResult Function(ResetRegisterStatus value) resetRegisterStatus,
+  }) {
+    return resetRegisterStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SendOtp value)? sendOtp,
+    TResult? Function(VerifyOtp value)? verifyOtp,
+    TResult? Function(ResetSendOtp value)? resetSendOtp,
+    TResult? Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult? Function(Register value)? register,
+    TResult? Function(ResetRegisterStatus value)? resetRegisterStatus,
+  }) {
+    return resetRegisterStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendOtp value)? sendOtp,
+    TResult Function(VerifyOtp value)? verifyOtp,
+    TResult Function(ResetSendOtp value)? resetSendOtp,
+    TResult Function(ResetVerifyOtp value)? resetVerifyOtp,
+    TResult Function(Register value)? register,
+    TResult Function(ResetRegisterStatus value)? resetRegisterStatus,
+    required TResult orElse(),
+  }) {
+    if (resetRegisterStatus != null) {
+      return resetRegisterStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetRegisterStatus implements AuthEvent {
+  const factory ResetRegisterStatus() = _$ResetRegisterStatusImpl;
+}
+
+/// @nodoc
 mixin _$AuthState {
   ApiStatus get sendOtpStatus => throw _privateConstructorUsedError;
   ApiStatus get verifyOtpStatus => throw _privateConstructorUsedError;
+  ApiStatus get registrationStatus => throw _privateConstructorUsedError;
   OTPResponse? get otpResponse => throw _privateConstructorUsedError;
   VerifyResponse? get verifyResponse => throw _privateConstructorUsedError;
+  String? get successMessage => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of AuthState
@@ -663,8 +1277,10 @@ abstract class $AuthStateCopyWith<$Res> {
   $Res call({
     ApiStatus sendOtpStatus,
     ApiStatus verifyOtpStatus,
+    ApiStatus registrationStatus,
     OTPResponse? otpResponse,
     VerifyResponse? verifyResponse,
+    String? successMessage,
     String? errorMessage,
   });
 }
@@ -686,8 +1302,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? sendOtpStatus = null,
     Object? verifyOtpStatus = null,
+    Object? registrationStatus = null,
     Object? otpResponse = freezed,
     Object? verifyResponse = freezed,
+    Object? successMessage = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -700,6 +1318,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
                 ? _value.verifyOtpStatus
                 : verifyOtpStatus // ignore: cast_nullable_to_non_nullable
                       as ApiStatus,
+            registrationStatus: null == registrationStatus
+                ? _value.registrationStatus
+                : registrationStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
             otpResponse: freezed == otpResponse
                 ? _value.otpResponse
                 : otpResponse // ignore: cast_nullable_to_non_nullable
@@ -708,6 +1330,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
                 ? _value.verifyResponse
                 : verifyResponse // ignore: cast_nullable_to_non_nullable
                       as VerifyResponse?,
+            successMessage: freezed == successMessage
+                ? _value.successMessage
+                : successMessage // ignore: cast_nullable_to_non_nullable
+                      as String?,
             errorMessage: freezed == errorMessage
                 ? _value.errorMessage
                 : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -730,8 +1356,10 @@ abstract class _$$AuthStateImplCopyWith<$Res>
   $Res call({
     ApiStatus sendOtpStatus,
     ApiStatus verifyOtpStatus,
+    ApiStatus registrationStatus,
     OTPResponse? otpResponse,
     VerifyResponse? verifyResponse,
+    String? successMessage,
     String? errorMessage,
   });
 }
@@ -752,8 +1380,10 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   $Res call({
     Object? sendOtpStatus = null,
     Object? verifyOtpStatus = null,
+    Object? registrationStatus = null,
     Object? otpResponse = freezed,
     Object? verifyResponse = freezed,
+    Object? successMessage = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -766,6 +1396,10 @@ class __$$AuthStateImplCopyWithImpl<$Res>
             ? _value.verifyOtpStatus
             : verifyOtpStatus // ignore: cast_nullable_to_non_nullable
                   as ApiStatus,
+        registrationStatus: null == registrationStatus
+            ? _value.registrationStatus
+            : registrationStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
         otpResponse: freezed == otpResponse
             ? _value.otpResponse
             : otpResponse // ignore: cast_nullable_to_non_nullable
@@ -774,6 +1408,10 @@ class __$$AuthStateImplCopyWithImpl<$Res>
             ? _value.verifyResponse
             : verifyResponse // ignore: cast_nullable_to_non_nullable
                   as VerifyResponse?,
+        successMessage: freezed == successMessage
+            ? _value.successMessage
+            : successMessage // ignore: cast_nullable_to_non_nullable
+                  as String?,
         errorMessage: freezed == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -789,8 +1427,10 @@ class _$AuthStateImpl implements _AuthState {
   const _$AuthStateImpl({
     required this.sendOtpStatus,
     required this.verifyOtpStatus,
+    required this.registrationStatus,
     this.otpResponse,
     this.verifyResponse,
+    this.successMessage,
     this.errorMessage,
   });
 
@@ -799,15 +1439,19 @@ class _$AuthStateImpl implements _AuthState {
   @override
   final ApiStatus verifyOtpStatus;
   @override
+  final ApiStatus registrationStatus;
+  @override
   final OTPResponse? otpResponse;
   @override
   final VerifyResponse? verifyResponse;
+  @override
+  final String? successMessage;
   @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'AuthState(sendOtpStatus: $sendOtpStatus, verifyOtpStatus: $verifyOtpStatus, otpResponse: $otpResponse, verifyResponse: $verifyResponse, errorMessage: $errorMessage)';
+    return 'AuthState(sendOtpStatus: $sendOtpStatus, verifyOtpStatus: $verifyOtpStatus, registrationStatus: $registrationStatus, otpResponse: $otpResponse, verifyResponse: $verifyResponse, successMessage: $successMessage, errorMessage: $errorMessage)';
   }
 
   @override
@@ -819,10 +1463,14 @@ class _$AuthStateImpl implements _AuthState {
                 other.sendOtpStatus == sendOtpStatus) &&
             (identical(other.verifyOtpStatus, verifyOtpStatus) ||
                 other.verifyOtpStatus == verifyOtpStatus) &&
+            (identical(other.registrationStatus, registrationStatus) ||
+                other.registrationStatus == registrationStatus) &&
             (identical(other.otpResponse, otpResponse) ||
                 other.otpResponse == otpResponse) &&
             (identical(other.verifyResponse, verifyResponse) ||
                 other.verifyResponse == verifyResponse) &&
+            (identical(other.successMessage, successMessage) ||
+                other.successMessage == successMessage) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -832,8 +1480,10 @@ class _$AuthStateImpl implements _AuthState {
     runtimeType,
     sendOtpStatus,
     verifyOtpStatus,
+    registrationStatus,
     otpResponse,
     verifyResponse,
+    successMessage,
     errorMessage,
   );
 
@@ -850,8 +1500,10 @@ abstract class _AuthState implements AuthState {
   const factory _AuthState({
     required final ApiStatus sendOtpStatus,
     required final ApiStatus verifyOtpStatus,
+    required final ApiStatus registrationStatus,
     final OTPResponse? otpResponse,
     final VerifyResponse? verifyResponse,
+    final String? successMessage,
     final String? errorMessage,
   }) = _$AuthStateImpl;
 
@@ -860,9 +1512,13 @@ abstract class _AuthState implements AuthState {
   @override
   ApiStatus get verifyOtpStatus;
   @override
+  ApiStatus get registrationStatus;
+  @override
   OTPResponse? get otpResponse;
   @override
   VerifyResponse? get verifyResponse;
+  @override
+  String? get successMessage;
   @override
   String? get errorMessage;
 

@@ -2,26 +2,26 @@ import 'dart:io';
 import 'package:quickr_user_flutter_app/domain/booking/models/service_item.dart';
 
 class BookingRequest {
-  final File workImage;
+  final File? workImage;
   final List<ServiceItem> services;
   final bool isImmediate;
-  final String scheduledDate;
-  final String scheduledTime;
+  final String? scheduledDate;
+  final String? scheduledTime;
   final int addressId;
-  final String alternateName;
-  final String alternatePhoneNumber;
-  final String notes;
+  final String? alternateName;
+  final String? alternatePhoneNumber;
+  final String? notes;
 
   BookingRequest({
-    required this.workImage,
+    this.workImage,
     required this.services,
     required this.isImmediate,
-    required this.scheduledDate,
-    required this.scheduledTime,
+    this.scheduledDate,
+    this.scheduledTime,
     required this.addressId,
-    required this.alternateName,
-    required this.alternatePhoneNumber,
-    required this.notes,
+    this.alternateName,
+    this.alternatePhoneNumber,
+    this.notes,
   });
 
   Map<String, dynamic> dataToJson() => {

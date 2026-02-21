@@ -58,10 +58,19 @@ class AppRoute {
         return pushRoute(settings, const ServiceBookingScreen());
 
       case AddNewAddress.routeName:
-        return pushRoute(settings, const AddNewAddress());
+        return pushRoute(
+          settings,
+          AddNewAddress(
+            latitude: args?['latitude'],
+            longitude: args?['longitude'],
+          ),
+        );
 
       case ExtraInformationScreen.routeName:
-        return pushRoute(settings, const ExtraInformationScreen());
+        return pushRoute(
+          settings,
+          ExtraInformationScreen(addressid: args?['addressid']),
+        );
 
       case BookingSuccessScreen.routeName:
         return pushRoute(settings, const BookingSuccessScreen());
@@ -82,7 +91,10 @@ class AppRoute {
         return pushRoute(settings, const EditEmailAddress());
 
       case ProfileUpdateScreen.routeName:
-        return pushRoute(settings, const ProfileUpdateScreen());
+        return pushRoute(
+          settings,
+          ProfileUpdateScreen(name: args?['name'], imageUrl: args?['imageUrl']),
+        );
 
       case LocationSelectingScreen.routeName:
         return pushRoute(settings, const LocationSelectingScreen());

@@ -5,18 +5,23 @@ import 'package:injectable/injectable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quickr_user_flutter_app/application/address/address_bloc.dart';
 import 'package:quickr_user_flutter_app/application/auth/auth_bloc.dart';
+import 'package:quickr_user_flutter_app/application/booking/booking_bloc.dart';
 import 'package:quickr_user_flutter_app/application/core/app_details.dart';
 import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/app_theme.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/theme/theme_cubit.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
+import 'package:quickr_user_flutter_app/application/orders/orders_bloc.dart';
+import 'package:quickr_user_flutter_app/application/profile/profile_bloc.dart';
 import 'package:quickr_user_flutter_app/domain/address/i_address_facade.dart';
 import 'package:quickr_user_flutter_app/domain/auth/i_auth_facade.dart';
+import 'package:quickr_user_flutter_app/domain/booking/i_booking_facade.dart';
 import 'package:quickr_user_flutter_app/domain/core/di/injection.dart';
 import 'package:quickr_user_flutter_app/domain/home/i_home_facade.dart';
+import 'package:quickr_user_flutter_app/domain/orders/i_orders_facade.dart';
+import 'package:quickr_user_flutter_app/domain/profile/i_profile_facade.dart';
 import 'package:quickr_user_flutter_app/presentation/splash_screen.dart';
-import 'package:quickr_user_flutter_app/presentation/start_screen/start_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,8 +45,15 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (context) => ThemeCubit()), //Theme
             BlocProvider(create: (context) => HomeBloc(sl<IHomeFacade>())),
             BlocProvider(create: (context) => AuthBloc(sl<IAuthFacade>())),
+            BlocProvider(create: (context) => OrdersBloc(sl<IOrdersFacade>())),
             BlocProvider(
               create: (context) => AddressBloc(sl<IAddressFacade>()),
+            ),
+            BlocProvider(
+              create: (context) => BookingBloc(sl<IBookingFacade>()),
+            ),
+            BlocProvider(
+              create: (context) => ProfileBloc(sl<IProfileFacade>()),
             ),
           ],
           child: BlocBuilder<ThemeCubit, ThemeState>(

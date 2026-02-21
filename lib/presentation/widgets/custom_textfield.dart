@@ -103,16 +103,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   validator: (value) {
                     final text = widget.validator?.call(value);
                     setState(() => _errorText = text);
-                    return null; // prevent default error
+                    return text; // Return actual error to make Form.validate() work
                   },
                   readOnly: widget.isReadOnly,
                   style: baseTextStyle.s14.w300.black,
                   onTap: widget.isReadOnly ? widget.onTap : null,
                   decoration: InputDecoration(
+                    errorStyle: const TextStyle(
+                      height: 0,
+                      fontSize: 0,
+                    ), // Hide default error text
                     hint: RichText(
                       text: TextSpan(
                         text: widget.hintText,
-                        style: widget.hintStyle ?? context.textStyle1.s12.w300,
+                        style: widget.hintStyle ?? context.hintText.s12.w300,
                         children: [
                           TextSpan(
                             text: widget.isMandatory ? '*' : '',

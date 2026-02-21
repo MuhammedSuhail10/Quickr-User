@@ -1,18 +1,34 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
+import 'package:quickr_user_flutter_app/application/profile/profile_bloc.dart';
 import 'package:quickr_user_flutter_app/presentation/orders/order_main_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/profile_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/saved_addresses_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/widgets/logout_bottomsheet.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
+import 'package:shimmer/shimmer.dart';
 
-class ProfileMainScreen extends StatelessWidget {
+class ProfileMainScreen extends StatefulWidget {
   const ProfileMainScreen({super.key});
+
+  @override
+  State<ProfileMainScreen> createState() => _ProfileMainScreenState();
+}
+
+class _ProfileMainScreenState extends State<ProfileMainScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProfileBloc>().add(const ProfileEvent.getProfileData());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,22 +75,63 @@ class ProfileMainScreen extends StatelessWidget {
   }
 
   Widget _buildUserProfile(BuildContext context) {
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 40,
-          backgroundColor: ColorResources.secondaryColor.withOpacity(0.8),
-        ),
-        gap16,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      builder: (context, state) {
+        if (state.getProfileStatus == ApiStatus.loading) {
+          return Shimmer.fromColors(
+            baseColor: Colors.grey[300]!,
+            highlightColor: Colors.grey[100]!,
+            child: Row(
+              children: [
+                const CircleAvatar(radius: 40),
+                gap16,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(width: 150, height: 20, color: Colors.white),
+                    gap4,
+                    Container(width: 100, height: 15, color: Colors.white),
+                  ],
+                ),
+              ],
+            ),
+          );
+        }
+
+        final profile = state.profileResponse;
+        final fullName = state.getProfileStatus == ApiStatus.success
+            ? '${profile?.firstName ?? ''} ${profile?.lastName ?? ''}'.trim()
+            : 'User Name';
+
+        const mediaBaseUrl = 'https://fixifybackend.pythonanywhere.com';
+        return Row(
           children: [
-            Text('Muhammed Suhail', style: context.textStyle1.w400.s18),
-            // gap4,
-            Text('+919048089432', style: context.textStyle1.w400.s14),
+            CircleAvatar(
+              radius: 40,
+              backgroundColor: ColorResources.secondaryColor.withOpacity(0.8),
+              backgroundImage: profile?.profileImage != null
+                  ? CachedNetworkImageProvider(
+                      '$mediaBaseUrl${profile!.profileImage!}',
+                    )
+                  : null,
+            ),
+            gap16,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  fullName.isNotEmpty ? fullName : 'User Name',
+                  style: context.textStyle1.w400.s18,
+                ),
+                Text(
+                  profile?.phoneNumber ?? 'Phone number',
+                  style: context.textStyle1.w400.s14,
+                ),
+              ],
+            ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 

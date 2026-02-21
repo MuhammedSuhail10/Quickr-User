@@ -19,7 +19,7 @@ class IBookingFacadeImpl implements IBookingFacade {
   ResultFuture<bool> createOrder({required BookingRequest request}) {
     return runSafely.runSafely(() async {
       final formData = FormData.fromMap({
-        'work_image': await MultipartFile.fromFile(request.workImage.path),
+        'work_image': await MultipartFile.fromFile(request.workImage!.path),
         'data': jsonEncode(request.dataToJson()),
       });
 

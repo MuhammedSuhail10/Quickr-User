@@ -1,12 +1,12 @@
 class OrdersResponse {
   final bool? status;
   final List<Order>? scheduledOrders;
-  final List<Order>? otherOrders;
+  final List<Order>? completedOrders;
 
   OrdersResponse({
     this.status,
     this.scheduledOrders,
-    this.otherOrders,
+    this.completedOrders,
   });
 
   factory OrdersResponse.fromJson(Map<String, dynamic> json) {
@@ -16,7 +16,7 @@ class OrdersResponse {
           ? List<Order>.from(
               json['scheduled_orders'].map((x) => Order.fromJson(x)))
           : null,
-      otherOrders: json['other_orders'] != null
+      completedOrders: json['other_orders'] != null
           ? List<Order>.from(
               json['other_orders'].map((x) => Order.fromJson(x)))
           : null,
@@ -29,7 +29,7 @@ class OrdersResponse {
       'scheduled_orders':
           scheduledOrders?.map((e) => e.toJson()).toList(),
       'other_orders':
-          otherOrders?.map((e) => e.toJson()).toList(),
+          completedOrders?.map((e) => e.toJson()).toList(),
     };
   }
 }

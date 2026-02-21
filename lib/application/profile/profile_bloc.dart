@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -20,6 +22,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<UpdateEmailRequest>(_updateEmailRequest);
     on<UpdateEmailVerify>(_updateEmailVerify);
     on<DeleteAccount>(_deleteAccount);
+    on<ResetPhoneRequestStatus>(_resetPhoneRequestStatus);
+    on<ResetPhoneVerifyStatus>(_resetPhoneVerifyStatus);
+    on<ResetEmailRequestStatus>(_resetEmailRequestStatus);
+    on<ResetEmailVerifyStatus>(_resetEmailVerifyStatus);
+    on<UpdateProfile>(_updateProfile);
+    on<ResetUpdateProfileStatus>(_resetUpdateProfileStatus);
   }
 
   Future<void> _getProfileData(
@@ -63,10 +71,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ),
     );
 
-    final result = await _profileFacade.updatePhoneRequest(
-      phone: event.phone,
-      otp: event.otp,
-    );
+    final result = await _profileFacade.updatePhoneRequest(phone: event.phone);
 
     result.fold(
       (failure) => emit(
@@ -119,10 +124,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ),
     );
 
-    final result = await _profileFacade.updateEmailRequest(
-      email: event.email,
-      otp: event.otp,
-    );
+    final result = await _profileFacade.updateEmailRequest(email: event.email);
 
     result.fold(
       (failure) => emit(
@@ -186,5 +188,70 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ),
       (success) => emit(state.copyWith(deleteAccountStatus: ApiStatus.success)),
     );
+  }
+
+  void _resetPhoneRequestStatus(
+    ResetPhoneRequestStatus event,
+    Emitter<ProfileState> emit,
+  ) {
+    emit(state.copyWith(updatePhoneRequestStatus: ApiStatus.initial));
+  }
+
+  void _resetPhoneVerifyStatus(
+    ResetPhoneVerifyStatus event,
+    Emitter<ProfileState> emit,
+  ) {
+    emit(state.copyWith(updatePhoneVerifyStatus: ApiStatus.initial));
+  }
+
+  void _resetEmailRequestStatus(
+    ResetEmailRequestStatus event,
+    Emitter<ProfileState> emit,
+  ) {
+    emit(state.copyWith(updateEmailRequestStatus: ApiStatus.initial));
+  }
+
+  void _resetEmailVerifyStatus(
+    ResetEmailVerifyStatus event,
+    Emitter<ProfileState> emit,
+  ) {
+    emit(state.copyWith(updateEmailVerifyStatus: ApiStatus.initial));
+  }
+
+  Future<void> _updateProfile(
+    UpdateProfile event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        updateProfileStatus: ApiStatus.loading,
+        errorMessage: null,
+      ),
+    );
+
+    final result = await _profileFacade.updateProfile(
+      firstName: event.firstName,
+      lastName: event.lastName,
+      age: event.age,
+      gender: event.gender,
+      profileImage: event.profileImage,
+    );
+
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          updateProfileStatus: ApiStatus.error,
+          errorMessage: failure.errorMsg,
+        ),
+      ),
+      (_) => emit(state.copyWith(updateProfileStatus: ApiStatus.success)),
+    );
+  }
+
+  void _resetUpdateProfileStatus(
+    ResetUpdateProfileStatus event,
+    Emitter<ProfileState> emit,
+  ) {
+    emit(state.copyWith(updateProfileStatus: ApiStatus.initial));
   }
 }

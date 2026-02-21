@@ -17,19 +17,19 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$OrdersEvent {
-  int get lastScheduledId => throw _privateConstructorUsedError;
-  int get lastOtherId => throw _privateConstructorUsedError;
+  int? get lastScheduledId => throw _privateConstructorUsedError;
+  int? get lastOtherId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int lastScheduledId, int lastOtherId) getOrders,
+    required TResult Function(int? lastScheduledId, int? lastOtherId) getOrders,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int lastScheduledId, int lastOtherId)? getOrders,
+    TResult? Function(int? lastScheduledId, int? lastOtherId)? getOrders,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int lastScheduledId, int lastOtherId)? getOrders,
+    TResult Function(int? lastScheduledId, int? lastOtherId)? getOrders,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,7 +60,7 @@ abstract class $OrdersEventCopyWith<$Res> {
     $Res Function(OrdersEvent) then,
   ) = _$OrdersEventCopyWithImpl<$Res, OrdersEvent>;
   @useResult
-  $Res call({int lastScheduledId, int lastOtherId});
+  $Res call({int? lastScheduledId, int? lastOtherId});
 }
 
 /// @nodoc
@@ -77,17 +77,20 @@ class _$OrdersEventCopyWithImpl<$Res, $Val extends OrdersEvent>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? lastScheduledId = null, Object? lastOtherId = null}) {
+  $Res call({
+    Object? lastScheduledId = freezed,
+    Object? lastOtherId = freezed,
+  }) {
     return _then(
       _value.copyWith(
-            lastScheduledId: null == lastScheduledId
+            lastScheduledId: freezed == lastScheduledId
                 ? _value.lastScheduledId
                 : lastScheduledId // ignore: cast_nullable_to_non_nullable
-                      as int,
-            lastOtherId: null == lastOtherId
+                      as int?,
+            lastOtherId: freezed == lastOtherId
                 ? _value.lastOtherId
                 : lastOtherId // ignore: cast_nullable_to_non_nullable
-                      as int,
+                      as int?,
           )
           as $Val,
     );
@@ -103,7 +106,7 @@ abstract class _$$GetOrdersImplCopyWith<$Res>
   ) = __$$GetOrdersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int lastScheduledId, int lastOtherId});
+  $Res call({int? lastScheduledId, int? lastOtherId});
 }
 
 /// @nodoc
@@ -119,17 +122,20 @@ class __$$GetOrdersImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? lastScheduledId = null, Object? lastOtherId = null}) {
+  $Res call({
+    Object? lastScheduledId = freezed,
+    Object? lastOtherId = freezed,
+  }) {
     return _then(
       _$GetOrdersImpl(
-        lastScheduledId: null == lastScheduledId
+        lastScheduledId: freezed == lastScheduledId
             ? _value.lastScheduledId
             : lastScheduledId // ignore: cast_nullable_to_non_nullable
-                  as int,
-        lastOtherId: null == lastOtherId
+                  as int?,
+        lastOtherId: freezed == lastOtherId
             ? _value.lastOtherId
             : lastOtherId // ignore: cast_nullable_to_non_nullable
-                  as int,
+                  as int?,
       ),
     );
   }
@@ -138,14 +144,12 @@ class __$$GetOrdersImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetOrdersImpl implements GetOrders {
-  const _$GetOrdersImpl({this.lastScheduledId = 0, this.lastOtherId = 0});
+  const _$GetOrdersImpl({this.lastScheduledId, this.lastOtherId});
 
   @override
-  @JsonKey()
-  final int lastScheduledId;
+  final int? lastScheduledId;
   @override
-  @JsonKey()
-  final int lastOtherId;
+  final int? lastOtherId;
 
   @override
   String toString() {
@@ -177,7 +181,7 @@ class _$GetOrdersImpl implements GetOrders {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int lastScheduledId, int lastOtherId) getOrders,
+    required TResult Function(int? lastScheduledId, int? lastOtherId) getOrders,
   }) {
     return getOrders(lastScheduledId, lastOtherId);
   }
@@ -185,7 +189,7 @@ class _$GetOrdersImpl implements GetOrders {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int lastScheduledId, int lastOtherId)? getOrders,
+    TResult? Function(int? lastScheduledId, int? lastOtherId)? getOrders,
   }) {
     return getOrders?.call(lastScheduledId, lastOtherId);
   }
@@ -193,7 +197,7 @@ class _$GetOrdersImpl implements GetOrders {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int lastScheduledId, int lastOtherId)? getOrders,
+    TResult Function(int? lastScheduledId, int? lastOtherId)? getOrders,
     required TResult orElse(),
   }) {
     if (getOrders != null) {
@@ -232,13 +236,15 @@ class _$GetOrdersImpl implements GetOrders {
 }
 
 abstract class GetOrders implements OrdersEvent {
-  const factory GetOrders({final int lastScheduledId, final int lastOtherId}) =
-      _$GetOrdersImpl;
+  const factory GetOrders({
+    final int? lastScheduledId,
+    final int? lastOtherId,
+  }) = _$GetOrdersImpl;
 
   @override
-  int get lastScheduledId;
+  int? get lastScheduledId;
   @override
-  int get lastOtherId;
+  int? get lastOtherId;
 
   /// Create a copy of OrdersEvent
   /// with the given fields replaced by the non-null parameter values.

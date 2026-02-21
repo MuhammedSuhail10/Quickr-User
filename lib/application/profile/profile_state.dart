@@ -9,6 +9,7 @@ class ProfileState with _$ProfileState {
     required ApiStatus updateEmailRequestStatus,
     required ApiStatus updateEmailVerifyStatus,
     required ApiStatus deleteAccountStatus,
+    required ApiStatus updateProfileStatus,
     ProfileResponse? profileResponse,
     String? errorMessage,
   }) = _ProfileState;
@@ -20,6 +21,7 @@ class ProfileState with _$ProfileState {
     updateEmailRequestStatus: ApiStatus.initial,
     updateEmailVerifyStatus: ApiStatus.initial,
     deleteAccountStatus: ApiStatus.initial,
+    updateProfileStatus: ApiStatus.initial,
     profileResponse: null,
     errorMessage: null,
   );

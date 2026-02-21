@@ -15,15 +15,15 @@ class IOrdersFacadeImpl implements IOrdersFacade {
 
   @override
   ResultFuture<OrdersResponse> getOrders({
-    int lastScheduledId = 0,
-    int lastOtherId = 0,
+    int? lastScheduledId,
+    int? lastOtherId,
   }) {
     return runSafely.runSafely(() async {
       final response = await dioClient.get(
         Urls.orders,
         queryParameters: {
-          'last_scheduled_id': lastScheduledId,
-          'last_other_id': lastOtherId,
+          if (lastScheduledId != null) 'last_scheduled_id': lastScheduledId,
+          if (lastOtherId != null) 'last_other_id': lastOtherId,
         },
       );
       return OrdersResponse.fromJson(response.data as Map<String, dynamic>);

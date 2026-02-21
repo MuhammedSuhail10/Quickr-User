@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quickr_user_flutter_app/application/address/address_bloc.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 
-class SavedAddressesScreen extends StatelessWidget {
+class SavedAddressesScreen extends StatefulWidget {
   const SavedAddressesScreen({super.key});
 
   static const routeName = 'saved-address';
+
+  @override
+  State<SavedAddressesScreen> createState() => _SavedAddressesScreenState();
+}
+
+class _SavedAddressesScreenState extends State<SavedAddressesScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<AddressBloc>().add(const AddressEvent.getAddress());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +50,38 @@ class SavedAddressesScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: 2,
-        itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: _AddressCard(
-              label: 'Home',
-              address:
-                  '[House Number/Flat Number],\n[Building Name/Street Name],\nVaishnavi Park Nashik,\nMaharashtra,\n422003',
-            ),
+      body: BlocBuilder<AddressBloc, AddressState>(
+        builder: (context, state) {
+          if (state.getAddressStatus == ApiStatus.loading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          final addresses = state.addressResponse?.address ?? [];
+
+          if (addresses.isEmpty &&
+              state.getAddressStatus == ApiStatus.success) {
+            return Center(
+              child: Text(
+                'No saved addresses',
+                style: context.textStyle1.w400.s16,
+              ),
+            );
+          }
+
+          return ListView.builder(
+            padding: const EdgeInsets.all(16),
+            itemCount: addresses.length,
+            itemBuilder: (context, index) {
+              final address = addresses[index];
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: _AddressCard(
+                  label: address.alternateName ?? 'Home',
+                  address:
+                      '${address.addressLine1 ?? ''},\n${address.landmark ?? ''},\n${address.postalCode ?? ''}',
+                ),
+              );
+            },
           );
         },
       ),
@@ -75,7 +110,10 @@ class _AddressCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label, style: context.textStyle1.w400.s14),
+                Text(
+                  label.isNotEmpty ? label : 'Unknown label',
+                  style: context.textStyle1.w400.s14,
+                ),
                 gap8,
                 Text(address, style: context.textStyle1.w300.s12),
               ],

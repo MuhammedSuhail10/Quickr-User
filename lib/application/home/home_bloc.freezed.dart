@@ -20,27 +20,33 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -109,6 +115,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
   }) {
     return getHomeData();
   }
@@ -117,6 +124,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
   }) {
     return getHomeData?.call();
   }
@@ -125,6 +133,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
     required TResult orElse(),
   }) {
     if (getHomeData != null) {
@@ -137,6 +146,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
   }) {
     return getHomeData(this);
   }
@@ -145,6 +155,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
   }) {
     return getHomeData?.call(this);
   }
@@ -153,6 +164,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
     required TResult orElse(),
   }) {
     if (getHomeData != null) {
@@ -167,9 +179,169 @@ abstract class GetHomeData implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$GetAllCategoriesImplCopyWith<$Res> {
+  factory _$$GetAllCategoriesImplCopyWith(
+    _$GetAllCategoriesImpl value,
+    $Res Function(_$GetAllCategoriesImpl) then,
+  ) = __$$GetAllCategoriesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int lastId, String? searchQuery});
+}
+
+/// @nodoc
+class __$$GetAllCategoriesImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetAllCategoriesImpl>
+    implements _$$GetAllCategoriesImplCopyWith<$Res> {
+  __$$GetAllCategoriesImplCopyWithImpl(
+    _$GetAllCategoriesImpl _value,
+    $Res Function(_$GetAllCategoriesImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? lastId = null, Object? searchQuery = freezed}) {
+    return _then(
+      _$GetAllCategoriesImpl(
+        lastId: null == lastId
+            ? _value.lastId
+            : lastId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        searchQuery: freezed == searchQuery
+            ? _value.searchQuery
+            : searchQuery // ignore: cast_nullable_to_non_nullable
+                  as String?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$GetAllCategoriesImpl implements GetAllCategories {
+  const _$GetAllCategoriesImpl({required this.lastId, this.searchQuery});
+
+  @override
+  final int lastId;
+  @override
+  final String? searchQuery;
+
+  @override
+  String toString() {
+    return 'HomeEvent.getAllCategories(lastId: $lastId, searchQuery: $searchQuery)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetAllCategoriesImpl &&
+            (identical(other.lastId, lastId) || other.lastId == lastId) &&
+            (identical(other.searchQuery, searchQuery) ||
+                other.searchQuery == searchQuery));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, lastId, searchQuery);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetAllCategoriesImplCopyWith<_$GetAllCategoriesImpl> get copyWith =>
+      __$$GetAllCategoriesImplCopyWithImpl<_$GetAllCategoriesImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
+  }) {
+    return getAllCategories(lastId, searchQuery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+  }) {
+    return getAllCategories?.call(lastId, searchQuery);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    required TResult orElse(),
+  }) {
+    if (getAllCategories != null) {
+      return getAllCategories(lastId, searchQuery);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
+  }) {
+    return getAllCategories(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
+  }) {
+    return getAllCategories?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
+    required TResult orElse(),
+  }) {
+    if (getAllCategories != null) {
+      return getAllCategories(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetAllCategories implements HomeEvent {
+  const factory GetAllCategories({
+    required final int lastId,
+    final String? searchQuery,
+  }) = _$GetAllCategoriesImpl;
+
+  int get lastId;
+  String? get searchQuery;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetAllCategoriesImplCopyWith<_$GetAllCategoriesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   ApiStatus get getHomeStatus => throw _privateConstructorUsedError;
   HomeResponse? get homeResponse => throw _privateConstructorUsedError;
+  ApiStatus get getAllCategoriesStatus => throw _privateConstructorUsedError;
+  AllCategoriesResponse? get allCategoriesResponse =>
+      throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of HomeState
@@ -187,6 +359,8 @@ abstract class $HomeStateCopyWith<$Res> {
   $Res call({
     ApiStatus getHomeStatus,
     HomeResponse? homeResponse,
+    ApiStatus getAllCategoriesStatus,
+    AllCategoriesResponse? allCategoriesResponse,
     String? errorMessage,
   });
 }
@@ -208,6 +382,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   $Res call({
     Object? getHomeStatus = null,
     Object? homeResponse = freezed,
+    Object? getAllCategoriesStatus = null,
+    Object? allCategoriesResponse = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -220,6 +396,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
                 ? _value.homeResponse
                 : homeResponse // ignore: cast_nullable_to_non_nullable
                       as HomeResponse?,
+            getAllCategoriesStatus: null == getAllCategoriesStatus
+                ? _value.getAllCategoriesStatus
+                : getAllCategoriesStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
+            allCategoriesResponse: freezed == allCategoriesResponse
+                ? _value.allCategoriesResponse
+                : allCategoriesResponse // ignore: cast_nullable_to_non_nullable
+                      as AllCategoriesResponse?,
             errorMessage: freezed == errorMessage
                 ? _value.errorMessage
                 : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -242,6 +426,8 @@ abstract class _$$HomeStateImplCopyWith<$Res>
   $Res call({
     ApiStatus getHomeStatus,
     HomeResponse? homeResponse,
+    ApiStatus getAllCategoriesStatus,
+    AllCategoriesResponse? allCategoriesResponse,
     String? errorMessage,
   });
 }
@@ -262,6 +448,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   $Res call({
     Object? getHomeStatus = null,
     Object? homeResponse = freezed,
+    Object? getAllCategoriesStatus = null,
+    Object? allCategoriesResponse = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -274,6 +462,14 @@ class __$$HomeStateImplCopyWithImpl<$Res>
             ? _value.homeResponse
             : homeResponse // ignore: cast_nullable_to_non_nullable
                   as HomeResponse?,
+        getAllCategoriesStatus: null == getAllCategoriesStatus
+            ? _value.getAllCategoriesStatus
+            : getAllCategoriesStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
+        allCategoriesResponse: freezed == allCategoriesResponse
+            ? _value.allCategoriesResponse
+            : allCategoriesResponse // ignore: cast_nullable_to_non_nullable
+                  as AllCategoriesResponse?,
         errorMessage: freezed == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -289,6 +485,8 @@ class _$HomeStateImpl implements _HomeState {
   const _$HomeStateImpl({
     required this.getHomeStatus,
     this.homeResponse,
+    required this.getAllCategoriesStatus,
+    this.allCategoriesResponse,
     this.errorMessage,
   });
 
@@ -297,11 +495,15 @@ class _$HomeStateImpl implements _HomeState {
   @override
   final HomeResponse? homeResponse;
   @override
+  final ApiStatus getAllCategoriesStatus;
+  @override
+  final AllCategoriesResponse? allCategoriesResponse;
+  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(getHomeStatus: $getHomeStatus, homeResponse: $homeResponse, errorMessage: $errorMessage)';
+    return 'HomeState(getHomeStatus: $getHomeStatus, homeResponse: $homeResponse, getAllCategoriesStatus: $getAllCategoriesStatus, allCategoriesResponse: $allCategoriesResponse, errorMessage: $errorMessage)';
   }
 
   @override
@@ -313,13 +515,23 @@ class _$HomeStateImpl implements _HomeState {
                 other.getHomeStatus == getHomeStatus) &&
             (identical(other.homeResponse, homeResponse) ||
                 other.homeResponse == homeResponse) &&
+            (identical(other.getAllCategoriesStatus, getAllCategoriesStatus) ||
+                other.getAllCategoriesStatus == getAllCategoriesStatus) &&
+            (identical(other.allCategoriesResponse, allCategoriesResponse) ||
+                other.allCategoriesResponse == allCategoriesResponse) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, getHomeStatus, homeResponse, errorMessage);
+  int get hashCode => Object.hash(
+    runtimeType,
+    getHomeStatus,
+    homeResponse,
+    getAllCategoriesStatus,
+    allCategoriesResponse,
+    errorMessage,
+  );
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -334,6 +546,8 @@ abstract class _HomeState implements HomeState {
   const factory _HomeState({
     required final ApiStatus getHomeStatus,
     final HomeResponse? homeResponse,
+    required final ApiStatus getAllCategoriesStatus,
+    final AllCategoriesResponse? allCategoriesResponse,
     final String? errorMessage,
   }) = _$HomeStateImpl;
 
@@ -341,6 +555,10 @@ abstract class _HomeState implements HomeState {
   ApiStatus get getHomeStatus;
   @override
   HomeResponse? get homeResponse;
+  @override
+  ApiStatus get getAllCategoriesStatus;
+  @override
+  AllCategoriesResponse? get allCategoriesResponse;
   @override
   String? get errorMessage;
 

@@ -1,16 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dropdown_alert/model/data_alert.dart';
+import 'package:quickr_user_flutter_app/application/address/address_bloc.dart';
 import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/alert_dialog.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/presentation/services/extra_information_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/services/location_selecting_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
-class ServiceBookingScreen extends StatelessWidget {
+class ServiceBookingScreen extends StatefulWidget {
   const ServiceBookingScreen({super.key});
   static const routeName = 'service-booking';
+
+  @override
+  State<ServiceBookingScreen> createState() => _ServiceBookingScreenState();
+}
+
+class _ServiceBookingScreenState extends State<ServiceBookingScreen> {
+  int? selectedAddressId;
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<AddressBloc>().add(const AddressEvent.getAddress());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,23 +65,47 @@ class ServiceBookingScreen extends StatelessWidget {
                 children: [
                   Text('Select Address', style: context.textStyle1.w300.s14),
                   gap16,
+                  BlocBuilder<AddressBloc, AddressState>(
+                    builder: (context, state) {
+                      if (state.getAddressStatus == ApiStatus.loading) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
 
-                  // Home Address Card
-                  const _AddressCard(
-                    label: 'Home',
-                    address:
-                        '[House Number/Flat Number],\n[Building Name/Street Name],\nYashwant Park Nashik,\nMaharashtra,\n422003',
-                    isSelected: true,
-                  ),
+                      final addresses = state.addressResponse?.address ?? [];
 
-                  gap16,
+                      if (addresses.isEmpty &&
+                          state.getAddressStatus == ApiStatus.success) {
+                        return const Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Center(child: Text('No saved addresses')),
+                        );
+                      }
 
-                  // Work Address Card
-                  const _AddressCard(
-                    label: 'Work',
-                    address:
-                        '[House Number/Flat Number],\n[Building Name/Street Name],\nYashwant Park Nashik,\nMaharashtra,\n422003',
-                    isSelected: false,
+                      return ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: addresses.length,
+                        separatorBuilder: (context, index) => gap16,
+                        itemBuilder: (context, index) {
+                          final address = addresses[index];
+                          final isSelected = selectedAddressId == address.id;
+
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedAddressId = address.id;
+                              });
+                            },
+                            child: _AddressCard(
+                              label: address.alternateName ?? 'N/A',
+                              address:
+                                  '${address.addressLine1 ?? ''},\n${address.landmark ?? ''},\n${address.postalCode ?? ''}',
+                              isSelected: isSelected,
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                   gap24,
                   // Add New Address Button
@@ -78,6 +120,7 @@ class ServiceBookingScreen extends StatelessWidget {
                       AppRoute.pushNamed(LocationSelectingScreen.routeName);
                     },
                   ),
+                  gap100,
                 ],
               ),
             ),
@@ -89,7 +132,17 @@ class ServiceBookingScreen extends StatelessWidget {
         child: CommonButton(
           text: 'Next',
           onPressed: () {
-            AppRoute.pushNamed(ExtraInformationScreen.routeName);
+            if (selectedAddressId != null) {
+              AppRoute.pushNamed(
+                ExtraInformationScreen.routeName,
+                arguments: {'addressid': selectedAddressId},
+              );
+            } else {
+              CustomAlertDialog.showCustomDialog(
+                title: 'Please select an address',
+                typeAlert: TypeAlert.warning,
+              );
+            }
           },
           backgroundColor: ColorResources.secondary,
           textStyle: context.textStyle1.w600.s24.white,
@@ -126,7 +179,10 @@ class _AddressCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label, style: context.textStyle1.w300.s14),
+                Text(
+                  label.isNotEmpty ? label : 'Unknown label',
+                  style: context.textStyle1.w300.s14,
+                ),
                 gap8,
                 Text(address, style: context.textStyle1.w300.s12),
               ],
@@ -139,6 +195,9 @@ class _AddressCard extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: isSelected ? ColorResources.primary : ColorResources.white,
+              border: isSelected
+                  ? null
+                  : Border.all(color: ColorResources.primary, width: 1),
             ),
             child: isSelected
                 ? const Icon(Icons.check, size: 16, color: ColorResources.white)

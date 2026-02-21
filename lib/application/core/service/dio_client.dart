@@ -164,6 +164,41 @@ class DioClient {
     }
   }
 
+  Future<Response> patch(
+    String uri, {
+    data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    try {
+      var response = await dio.patch(
+        uri,
+        data: data,
+        queryParameters: queryParameters,
+        options: options,
+        cancelToken: cancelToken,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+      );
+      return response;
+    } on FormatException catch (_) {
+      throw CustomException(errMsg: "Unable to process the data");
+    } catch (e) {
+      if (e is DioException && e.message == "No internet connection") {
+        throw CustomException(errMsg: e.message ?? '');
+      }
+      if (e is DioException) {
+        final message = e.response?.data['message'];
+
+        throw CustomException(errMsg: '$message'.capitalize);
+      }
+      rethrow;
+    }
+  }
+
   Future<Response> delete(
     String uri, {
     data,

@@ -69,6 +69,10 @@ class _OtpScreenState extends State<OtpScreen> {
               response.status == true &&
               response.access.isNotEmpty) {
             if (response.newUser) {
+              sl<IAuthLocalFacade>().saveToken(
+                accessToken: response.access,
+                refreshToken: response.refresh,
+              );
               CustomAlertDialog.showCustomDialog(
                 title: 'OTP verified successfully',
               );

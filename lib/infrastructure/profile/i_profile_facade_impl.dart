@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:quickr_user_flutter_app/application/core/service/dio_client.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/typedefs.dart';
@@ -22,15 +26,34 @@ class IProfileFacadeImpl implements IProfileFacade {
   }
 
   @override
-  ResultFuture<bool> updatePhoneRequest({
-    required String phone,
-    required int otp,
+  ResultFuture<bool> updateProfile({
+    required String firstName,
+    required String lastName,
+    int? age,
+    String? gender,
+    File? profileImage,
   }) {
     return runSafely.runSafely(() async {
-      await dioClient.post(
-        Urls.updatePhoneRequest,
-        data: {"new_phone": phone, "otp": otp},
-      );
+      final formData = FormData.fromMap({
+        if (profileImage != null)
+          'profile_image': await MultipartFile.fromFile(profileImage.path),
+        'data': jsonEncode({
+          'first_name': firstName,
+          'last_name': lastName,
+          if (age != null) 'age': age,
+          if (gender != null) 'gender': gender,
+        }),
+      });
+
+      await dioClient.patch(Urls.updateProfile, data: formData);
+      return true;
+    });
+  }
+
+  @override
+  ResultFuture<bool> updatePhoneRequest({required String phone}) {
+    return runSafely.runSafely(() async {
+      await dioClient.post(Urls.updatePhoneRequest, data: {"new_phone": phone});
       return true;
     });
   }
@@ -50,15 +73,9 @@ class IProfileFacadeImpl implements IProfileFacade {
   }
 
   @override
-  ResultFuture<bool> updateEmailRequest({
-    required String email,
-    required int otp,
-  }) {
+  ResultFuture<bool> updateEmailRequest({required String email}) {
     return runSafely.runSafely(() async {
-      await dioClient.post(
-        Urls.updateEmailRequest,
-        data: {"new_email": email, "otp": otp},
-      );
+      await dioClient.post(Urls.updateEmailRequest, data: {"new_email": email});
       return true;
     });
   }

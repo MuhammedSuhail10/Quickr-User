@@ -3,7 +3,7 @@ import 'package:quickr_user_flutter_app/domain/orders/models/orders_response.dar
 
 abstract interface class IOrdersFacade {
   ResultFuture<OrdersResponse> getOrders({
-    int lastScheduledId = 0,
-    int lastOtherId = 0,
+    int? lastScheduledId,
+    int? lastOtherId,
   });
 }
