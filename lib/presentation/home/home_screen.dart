@@ -9,7 +9,9 @@ import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/home_response.dart';
-import 'package:quickr_user_flutter_app/presentation/services/service_details_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/home/widgets/home_screen_shimmer.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_selection_screen.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -60,120 +62,139 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          body: RefreshIndicator(
-            onRefresh: () async {
-              context.read<HomeBloc>().add(const HomeEvent.getHomeData());
-            },
-            child: CustomScrollView(
-              slivers: [
-                SliverPadding(
-                  padding: const EdgeInsets.all(16.0),
-                  sliver: SliverList(
-                    delegate: SliverChildListDelegate([
-                      // Service Categories Grid
-                      _buildServiceCards(context, categories),
-                      gap24,
-                      // Top Services Section
-                      if (topServices.isNotEmpty) ...[
-                        Text(
-                          'Top services',
-                          style: context.textStyle1.bold.s20,
-                        ),
-                        gap16,
-                        // Top Services Cards
-                        SizedBox(
-                          height: 230,
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: topServices.length,
-                            separatorBuilder: (context, index) => gap12,
-                            itemBuilder: (context, index) {
-                              final service = topServices[index];
-                              const mediaBaseUrl =
-                                  'https://fixifybackend.pythonanywhere.com';
-                              return Container(
-                                width:
-                                    (MediaQuery.of(context).size.width - 44) /
-                                    2,
-                                decoration: BoxDecoration(
-                                  color: ColorResources.secondary,
-                                  borderRadius: BorderRadius.circular(25),
-                                  image: service.image != null
-                                      ? DecorationImage(
-                                          image: CachedNetworkImageProvider(
-                                            '$mediaBaseUrl${service.image!}',
-                                          ),
-                                          fit: BoxFit.cover,
-                                        )
-                                      : null,
+          body: state.getHomeStatus == ApiStatus.loading
+              ? const HomeScreenShimmer()
+              : RefreshIndicator(
+                  color: ColorResources.primary,
+                  onRefresh: () async {
+                    context.read<HomeBloc>().add(const HomeEvent.getHomeData());
+                  },
+                  child: CustomScrollView(
+                    slivers: [
+                      SliverPadding(
+                        padding: const EdgeInsets.all(16.0),
+                        sliver: SliverList(
+                          delegate: SliverChildListDelegate([
+                            // Service Categories Grid
+                            _buildServiceCards(context, categories),
+                            gap24,
+                            // Container(
+                            //   width: double.infinity,
+                            //   height: 160,
+                            //   decoration: BoxDecoration(
+                            //     color: ColorResources.secondaryColor,
+                            //     borderRadius: BorderRadius.circular(25),
+                            //     image: const DecorationImage(
+                            //       image: NetworkImage(
+                            //         'https://img.freepik.com/free-photo/construction-tools-wooden-table_23-2148110300.jpg',
+                            //       ),
+                            //       fit: BoxFit.cover,
+                            //     ),
+                            //   ),
+                            // ),
+                            // gap24,
+                            // Top Services Section
+                            if (topServices.isNotEmpty) ...[
+                              Text(
+                                'Top services',
+                                style: context.textStyle1.bold.s20,
+                              ),
+                              gap16,
+                              // Top Services Cards
+                              SizedBox(
+                                height: 230,
+                                child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: topServices.length,
+                                  separatorBuilder: (context, index) => gap12,
+                                  itemBuilder: (context, index) {
+                                    final service = topServices[index];
+                                    const mediaBaseUrl =
+                                        'https://fixifybackend.pythonanywhere.com';
+                                    return Container(
+                                      width:
+                                          (MediaQuery.of(context).size.width -
+                                              44) /
+                                          2,
+                                      decoration: BoxDecoration(
+                                        color: ColorResources.secondary,
+                                        borderRadius: BorderRadius.circular(25),
+                                        image: service.image != null
+                                            ? DecorationImage(
+                                                image: CachedNetworkImageProvider(
+                                                  '$mediaBaseUrl${service.image!}',
+                                                ),
+                                                fit: BoxFit.cover,
+                                              )
+                                            : null,
+                                      ),
+                                    );
+                                  },
                                 ),
-                              );
-                            },
-                          ),
-                        ),
-                        gap24,
-                      ],
+                              ),
+                              gap24,
+                            ],
 
-                      // Promotional Text
-                      RichText(
-                        text: TextSpan(
-                          style: const TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            height: 1.3,
-                            letterSpacing: 0.5,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: 'Hire ',
-                              style: context.heading.w400.s24,
-                            ),
-                            TextSpan(
-                              text: 'professionals',
-                              style: context.heading.w400.s24.copyWith(
-                                color: const Color(0XFF69AE95),
+                            // Promotional Text
+                            RichText(
+                              text: TextSpan(
+                                style: const TextStyle(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.3,
+                                  letterSpacing: 0.5,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Hire ',
+                                    style: context.heading.w400.s24,
+                                  ),
+                                  TextSpan(
+                                    text: 'professionals',
+                                    style: context.heading.w400.s24.copyWith(
+                                      color: const Color(0XFF69AE95),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: ' in a\nclick...',
+                                    style: context.heading.w400.s24,
+                                  ),
+                                ],
                               ),
                             ),
-                            TextSpan(
-                              text: ' in a\nclick...',
-                              style: context.heading.w400.s24,
-                            ),
-                          ],
-                        ),
-                      ),
-                      gap4,
-                      RichText(
-                        text: TextSpan(
-                          style: const TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                            height: 1.3,
-                            letterSpacing: 0.5,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: 'Get ',
-                              style: context.heading.w400.s24,
-                            ),
-                            TextSpan(
-                              text: 'services',
-                              style: context.heading.w400.s24.copyWith(
-                                color: const Color(0XFF69AE95),
+                            gap4,
+                            RichText(
+                              text: TextSpan(
+                                style: const TextStyle(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.3,
+                                  letterSpacing: 0.5,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Get ',
+                                    style: context.heading.w400.s24,
+                                  ),
+                                  TextSpan(
+                                    text: 'services',
+                                    style: context.heading.w400.s24.copyWith(
+                                      color: const Color(0XFF69AE95),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: ' at your\ndoorstep...',
+                                    style: context.heading.w400.s24,
+                                  ),
+                                ],
                               ),
                             ),
-                            TextSpan(
-                              text: ' at your\ndoorstep...',
-                              style: context.heading.w400.s24,
-                            ),
-                          ],
+                          ]),
                         ),
                       ),
-                    ]),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
         );
       },
     );
@@ -200,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // Professional "More Services" card
           return GestureDetector(
             onTap: () {
-              AppRoute.pushNamed(ServiceDetailsScreen.routeName);
+              // AppRoute.pushNamed(ServiceDetailsScreen.routeName);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -254,7 +275,10 @@ class _HomeScreenState extends State<HomeScreen> {
         return GestureDetector(
           onTap: () {
             // Handle specific category tap if needed, or navigate to details
-            AppRoute.pushNamed(ServiceDetailsScreen.routeName);
+            AppRoute.pushNamed(
+              ServiceSelectionScreen.routeName,
+              arguments: {'categoryName': title, 'categoryId': category.id},
+            );
           },
           child: Container(
             decoration: BoxDecoration(

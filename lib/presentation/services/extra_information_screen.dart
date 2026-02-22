@@ -20,7 +20,20 @@ import 'package:quickr_user_flutter_app/presentation/widgets/custom_textfield.da
 
 class ExtraInformationScreen extends StatefulWidget {
   final int? addressid;
-  const ExtraInformationScreen({super.key, this.addressid});
+  final List<ServiceItem>? services;
+  final bool? isImmediate;
+  final String? scheduledDate;
+  final String? scheduledTime;
+
+  const ExtraInformationScreen({
+    super.key,
+    this.addressid,
+    this.services,
+    this.isImmediate,
+    this.scheduledDate,
+    this.scheduledTime,
+  });
+
   static const routeName = 'extra-information';
 
   @override
@@ -289,8 +302,10 @@ class _ExtraInformationScreenState extends State<ExtraInformationScreen> {
                 if (formKey.currentState!.validate()) {
                   final request = BookingRequest(
                     workImage: _image!,
-                    services: [ServiceItem(serviceId: 2, quantity: 3)],
-                    isImmediate: true,
+                    services: widget.services ?? [],
+                    isImmediate: widget.isImmediate ?? false,
+                    scheduledDate: widget.scheduledDate,
+                    scheduledTime: widget.scheduledTime,
                     addressId: widget.addressid ?? 0,
                     alternateName: _nameController.text,
                     alternatePhoneNumber: _phoneController.text,

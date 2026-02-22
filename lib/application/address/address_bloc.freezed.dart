@@ -23,6 +23,9 @@ mixin _$AddressEvent {
     required TResult Function(Address address) addAddress,
     required TResult Function(Address address) updateAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -30,6 +33,9 @@ mixin _$AddressEvent {
     TResult? Function(Address address)? addAddress,
     TResult? Function(Address address)? updateAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -37,6 +43,9 @@ mixin _$AddressEvent {
     TResult Function(Address address)? addAddress,
     TResult Function(Address address)? updateAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +54,12 @@ mixin _$AddressEvent {
     required TResult Function(AddAddress value) addAddress,
     required TResult Function(UpdateAddress value) updateAddress,
     required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -52,6 +67,9 @@ mixin _$AddressEvent {
     TResult? Function(AddAddress value)? addAddress,
     TResult? Function(UpdateAddress value)? updateAddress,
     TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -59,6 +77,9 @@ mixin _$AddressEvent {
     TResult Function(AddAddress value)? addAddress,
     TResult Function(UpdateAddress value)? updateAddress,
     TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -132,6 +153,9 @@ class _$GetAddressImpl implements GetAddress {
     required TResult Function(Address address) addAddress,
     required TResult Function(Address address) updateAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
   }) {
     return getAddress();
   }
@@ -143,6 +167,9 @@ class _$GetAddressImpl implements GetAddress {
     TResult? Function(Address address)? addAddress,
     TResult? Function(Address address)? updateAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
   }) {
     return getAddress?.call();
   }
@@ -154,6 +181,9 @@ class _$GetAddressImpl implements GetAddress {
     TResult Function(Address address)? addAddress,
     TResult Function(Address address)? updateAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (getAddress != null) {
@@ -169,6 +199,12 @@ class _$GetAddressImpl implements GetAddress {
     required TResult Function(AddAddress value) addAddress,
     required TResult Function(UpdateAddress value) updateAddress,
     required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
   }) {
     return getAddress(this);
   }
@@ -180,6 +216,9 @@ class _$GetAddressImpl implements GetAddress {
     TResult? Function(AddAddress value)? addAddress,
     TResult? Function(UpdateAddress value)? updateAddress,
     TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
   }) {
     return getAddress?.call(this);
   }
@@ -191,6 +230,9 @@ class _$GetAddressImpl implements GetAddress {
     TResult Function(AddAddress value)? addAddress,
     TResult Function(UpdateAddress value)? updateAddress,
     TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (getAddress != null) {
@@ -278,6 +320,9 @@ class _$AddAddressImpl implements AddAddress {
     required TResult Function(Address address) addAddress,
     required TResult Function(Address address) updateAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
   }) {
     return addAddress(address);
   }
@@ -289,6 +334,9 @@ class _$AddAddressImpl implements AddAddress {
     TResult? Function(Address address)? addAddress,
     TResult? Function(Address address)? updateAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
   }) {
     return addAddress?.call(address);
   }
@@ -300,6 +348,9 @@ class _$AddAddressImpl implements AddAddress {
     TResult Function(Address address)? addAddress,
     TResult Function(Address address)? updateAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (addAddress != null) {
@@ -315,6 +366,12 @@ class _$AddAddressImpl implements AddAddress {
     required TResult Function(AddAddress value) addAddress,
     required TResult Function(UpdateAddress value) updateAddress,
     required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
   }) {
     return addAddress(this);
   }
@@ -326,6 +383,9 @@ class _$AddAddressImpl implements AddAddress {
     TResult? Function(AddAddress value)? addAddress,
     TResult? Function(UpdateAddress value)? updateAddress,
     TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
   }) {
     return addAddress?.call(this);
   }
@@ -337,6 +397,9 @@ class _$AddAddressImpl implements AddAddress {
     TResult Function(AddAddress value)? addAddress,
     TResult Function(UpdateAddress value)? updateAddress,
     TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (addAddress != null) {
@@ -432,6 +495,9 @@ class _$UpdateAddressImpl implements UpdateAddress {
     required TResult Function(Address address) addAddress,
     required TResult Function(Address address) updateAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
   }) {
     return updateAddress(address);
   }
@@ -443,6 +509,9 @@ class _$UpdateAddressImpl implements UpdateAddress {
     TResult? Function(Address address)? addAddress,
     TResult? Function(Address address)? updateAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
   }) {
     return updateAddress?.call(address);
   }
@@ -454,6 +523,9 @@ class _$UpdateAddressImpl implements UpdateAddress {
     TResult Function(Address address)? addAddress,
     TResult Function(Address address)? updateAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (updateAddress != null) {
@@ -469,6 +541,12 @@ class _$UpdateAddressImpl implements UpdateAddress {
     required TResult Function(AddAddress value) addAddress,
     required TResult Function(UpdateAddress value) updateAddress,
     required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
   }) {
     return updateAddress(this);
   }
@@ -480,6 +558,9 @@ class _$UpdateAddressImpl implements UpdateAddress {
     TResult? Function(AddAddress value)? addAddress,
     TResult? Function(UpdateAddress value)? updateAddress,
     TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
   }) {
     return updateAddress?.call(this);
   }
@@ -491,6 +572,9 @@ class _$UpdateAddressImpl implements UpdateAddress {
     TResult Function(AddAddress value)? addAddress,
     TResult Function(UpdateAddress value)? updateAddress,
     TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (updateAddress != null) {
@@ -587,6 +671,9 @@ class _$DeleteAddressImpl implements DeleteAddress {
     required TResult Function(Address address) addAddress,
     required TResult Function(Address address) updateAddress,
     required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
   }) {
     return deleteAddress(addressId);
   }
@@ -598,6 +685,9 @@ class _$DeleteAddressImpl implements DeleteAddress {
     TResult? Function(Address address)? addAddress,
     TResult? Function(Address address)? updateAddress,
     TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
   }) {
     return deleteAddress?.call(addressId);
   }
@@ -609,6 +699,9 @@ class _$DeleteAddressImpl implements DeleteAddress {
     TResult Function(Address address)? addAddress,
     TResult Function(Address address)? updateAddress,
     TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (deleteAddress != null) {
@@ -624,6 +717,12 @@ class _$DeleteAddressImpl implements DeleteAddress {
     required TResult Function(AddAddress value) addAddress,
     required TResult Function(UpdateAddress value) updateAddress,
     required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
   }) {
     return deleteAddress(this);
   }
@@ -635,6 +734,9 @@ class _$DeleteAddressImpl implements DeleteAddress {
     TResult? Function(AddAddress value)? addAddress,
     TResult? Function(UpdateAddress value)? updateAddress,
     TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
   }) {
     return deleteAddress?.call(this);
   }
@@ -646,6 +748,9 @@ class _$DeleteAddressImpl implements DeleteAddress {
     TResult Function(AddAddress value)? addAddress,
     TResult Function(UpdateAddress value)? updateAddress,
     TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
     required TResult orElse(),
   }) {
     if (deleteAddress != null) {
@@ -665,6 +770,429 @@ abstract class DeleteAddress implements AddressEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteAddressImplCopyWith<_$DeleteAddressImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetAddAddressStatusImplCopyWith<$Res> {
+  factory _$$ResetAddAddressStatusImplCopyWith(
+    _$ResetAddAddressStatusImpl value,
+    $Res Function(_$ResetAddAddressStatusImpl) then,
+  ) = __$$ResetAddAddressStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetAddAddressStatusImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$ResetAddAddressStatusImpl>
+    implements _$$ResetAddAddressStatusImplCopyWith<$Res> {
+  __$$ResetAddAddressStatusImplCopyWithImpl(
+    _$ResetAddAddressStatusImpl _value,
+    $Res Function(_$ResetAddAddressStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AddressEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetAddAddressStatusImpl implements ResetAddAddressStatus {
+  const _$ResetAddAddressStatusImpl();
+
+  @override
+  String toString() {
+    return 'AddressEvent.resetAddAddressStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetAddAddressStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAddress,
+    required TResult Function(Address address) addAddress,
+    required TResult Function(Address address) updateAddress,
+    required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
+  }) {
+    return resetAddAddressStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAddress,
+    TResult? Function(Address address)? addAddress,
+    TResult? Function(Address address)? updateAddress,
+    TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
+  }) {
+    return resetAddAddressStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAddress,
+    TResult Function(Address address)? addAddress,
+    TResult Function(Address address)? updateAddress,
+    TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
+    required TResult orElse(),
+  }) {
+    if (resetAddAddressStatus != null) {
+      return resetAddAddressStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAddress value) getAddress,
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
+  }) {
+    return resetAddAddressStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetAddress value)? getAddress,
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
+  }) {
+    return resetAddAddressStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAddress value)? getAddress,
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
+    required TResult orElse(),
+  }) {
+    if (resetAddAddressStatus != null) {
+      return resetAddAddressStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetAddAddressStatus implements AddressEvent {
+  const factory ResetAddAddressStatus() = _$ResetAddAddressStatusImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetUpdateAddressStatusImplCopyWith<$Res> {
+  factory _$$ResetUpdateAddressStatusImplCopyWith(
+    _$ResetUpdateAddressStatusImpl value,
+    $Res Function(_$ResetUpdateAddressStatusImpl) then,
+  ) = __$$ResetUpdateAddressStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetUpdateAddressStatusImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$ResetUpdateAddressStatusImpl>
+    implements _$$ResetUpdateAddressStatusImplCopyWith<$Res> {
+  __$$ResetUpdateAddressStatusImplCopyWithImpl(
+    _$ResetUpdateAddressStatusImpl _value,
+    $Res Function(_$ResetUpdateAddressStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AddressEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetUpdateAddressStatusImpl implements ResetUpdateAddressStatus {
+  const _$ResetUpdateAddressStatusImpl();
+
+  @override
+  String toString() {
+    return 'AddressEvent.resetUpdateAddressStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetUpdateAddressStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAddress,
+    required TResult Function(Address address) addAddress,
+    required TResult Function(Address address) updateAddress,
+    required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
+  }) {
+    return resetUpdateAddressStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAddress,
+    TResult? Function(Address address)? addAddress,
+    TResult? Function(Address address)? updateAddress,
+    TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
+  }) {
+    return resetUpdateAddressStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAddress,
+    TResult Function(Address address)? addAddress,
+    TResult Function(Address address)? updateAddress,
+    TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
+    required TResult orElse(),
+  }) {
+    if (resetUpdateAddressStatus != null) {
+      return resetUpdateAddressStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAddress value) getAddress,
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
+  }) {
+    return resetUpdateAddressStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetAddress value)? getAddress,
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
+  }) {
+    return resetUpdateAddressStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAddress value)? getAddress,
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
+    required TResult orElse(),
+  }) {
+    if (resetUpdateAddressStatus != null) {
+      return resetUpdateAddressStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetUpdateAddressStatus implements AddressEvent {
+  const factory ResetUpdateAddressStatus() = _$ResetUpdateAddressStatusImpl;
+}
+
+/// @nodoc
+abstract class _$$ResetDeleteAddressStatusImplCopyWith<$Res> {
+  factory _$$ResetDeleteAddressStatusImplCopyWith(
+    _$ResetDeleteAddressStatusImpl value,
+    $Res Function(_$ResetDeleteAddressStatusImpl) then,
+  ) = __$$ResetDeleteAddressStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetDeleteAddressStatusImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$ResetDeleteAddressStatusImpl>
+    implements _$$ResetDeleteAddressStatusImplCopyWith<$Res> {
+  __$$ResetDeleteAddressStatusImplCopyWithImpl(
+    _$ResetDeleteAddressStatusImpl _value,
+    $Res Function(_$ResetDeleteAddressStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AddressEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetDeleteAddressStatusImpl implements ResetDeleteAddressStatus {
+  const _$ResetDeleteAddressStatusImpl();
+
+  @override
+  String toString() {
+    return 'AddressEvent.resetDeleteAddressStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetDeleteAddressStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAddress,
+    required TResult Function(Address address) addAddress,
+    required TResult Function(Address address) updateAddress,
+    required TResult Function(int addressId) deleteAddress,
+    required TResult Function() resetAddAddressStatus,
+    required TResult Function() resetUpdateAddressStatus,
+    required TResult Function() resetDeleteAddressStatus,
+  }) {
+    return resetDeleteAddressStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAddress,
+    TResult? Function(Address address)? addAddress,
+    TResult? Function(Address address)? updateAddress,
+    TResult? Function(int addressId)? deleteAddress,
+    TResult? Function()? resetAddAddressStatus,
+    TResult? Function()? resetUpdateAddressStatus,
+    TResult? Function()? resetDeleteAddressStatus,
+  }) {
+    return resetDeleteAddressStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAddress,
+    TResult Function(Address address)? addAddress,
+    TResult Function(Address address)? updateAddress,
+    TResult Function(int addressId)? deleteAddress,
+    TResult Function()? resetAddAddressStatus,
+    TResult Function()? resetUpdateAddressStatus,
+    TResult Function()? resetDeleteAddressStatus,
+    required TResult orElse(),
+  }) {
+    if (resetDeleteAddressStatus != null) {
+      return resetDeleteAddressStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAddress value) getAddress,
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(DeleteAddress value) deleteAddress,
+    required TResult Function(ResetAddAddressStatus value)
+    resetAddAddressStatus,
+    required TResult Function(ResetUpdateAddressStatus value)
+    resetUpdateAddressStatus,
+    required TResult Function(ResetDeleteAddressStatus value)
+    resetDeleteAddressStatus,
+  }) {
+    return resetDeleteAddressStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetAddress value)? getAddress,
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(DeleteAddress value)? deleteAddress,
+    TResult? Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult? Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult? Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
+  }) {
+    return resetDeleteAddressStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAddress value)? getAddress,
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(DeleteAddress value)? deleteAddress,
+    TResult Function(ResetAddAddressStatus value)? resetAddAddressStatus,
+    TResult Function(ResetUpdateAddressStatus value)? resetUpdateAddressStatus,
+    TResult Function(ResetDeleteAddressStatus value)? resetDeleteAddressStatus,
+    required TResult orElse(),
+  }) {
+    if (resetDeleteAddressStatus != null) {
+      return resetDeleteAddressStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetDeleteAddressStatus implements AddressEvent {
+  const factory ResetDeleteAddressStatus() = _$ResetDeleteAddressStatusImpl;
 }
 
 /// @nodoc

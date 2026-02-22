@@ -13,8 +13,22 @@ import 'package:quickr_user_flutter_app/presentation/services/extra_information_
 import 'package:quickr_user_flutter_app/presentation/services/location_selecting_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
+import 'package:quickr_user_flutter_app/domain/booking/models/service_item.dart';
+
 class ServiceBookingScreen extends StatefulWidget {
-  const ServiceBookingScreen({super.key});
+  final List<ServiceItem>? services;
+  final bool? isImmediate;
+  final String? scheduledDate;
+  final String? scheduledTime;
+
+  const ServiceBookingScreen({
+    super.key,
+    this.services,
+    this.isImmediate,
+    this.scheduledDate,
+    this.scheduledTime,
+  });
+
   static const routeName = 'service-booking';
 
   @override
@@ -135,7 +149,13 @@ class _ServiceBookingScreenState extends State<ServiceBookingScreen> {
             if (selectedAddressId != null) {
               AppRoute.pushNamed(
                 ExtraInformationScreen.routeName,
-                arguments: {'addressid': selectedAddressId},
+                arguments: {
+                  'addressid': selectedAddressId,
+                  'services': widget.services,
+                  'isImmediate': widget.isImmediate,
+                  'scheduledDate': widget.scheduledDate,
+                  'scheduledTime': widget.scheduledTime,
+                },
               );
             } else {
               CustomAlertDialog.showCustomDialog(

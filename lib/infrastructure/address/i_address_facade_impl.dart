@@ -40,7 +40,10 @@ class IAddressFacadeImpl implements IAddressFacade {
   @override
   ResultFuture<bool> deleteAddress(int addressId) {
     return runSafely.runSafely(() async {
-      await dioClient.post(Urls.deleteAddress, data: {"address_id": addressId});
+      await dioClient.delete(
+        Urls.deleteAddress,
+        queryParameters: {"address_id": addressId},
+      );
       return true;
     });
   }

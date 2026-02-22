@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dropdown_alert/model/data_alert.dart';
 import 'package:quickr_user_flutter_app/application/address/address_bloc.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/colors.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/diamentions.dart';
 import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart';
+import 'package:quickr_user_flutter_app/application/core/utils/alert_dialog.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/widgets/delete_acc_bottomsheet.dart';
 
 class SavedAddressesScreen extends StatefulWidget {
   const SavedAddressesScreen({super.key});
@@ -76,6 +79,7 @@ class _SavedAddressesScreenState extends State<SavedAddressesScreen> {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: _AddressCard(
+                  addressId: address.id!.toInt(),
                   label: address.alternateName ?? 'Home',
                   address:
                       '${address.addressLine1 ?? ''},\n${address.landmark ?? ''},\n${address.postalCode ?? ''}',
@@ -92,8 +96,13 @@ class _SavedAddressesScreenState extends State<SavedAddressesScreen> {
 class _AddressCard extends StatelessWidget {
   final String label;
   final String address;
+  final int addressId;
 
-  const _AddressCard({required this.label, required this.address});
+  const _AddressCard({
+    required this.label,
+    required this.address,
+    required this.addressId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -123,9 +132,22 @@ class _AddressCard extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildIconButton(AppAssets.edit, () {}),
+              _buildIconButton(AppAssets.edit, () {
+                CustomAlertDialog.showCustomDialog(
+                  title: 'Something went wrong',
+                  typeAlert: TypeAlert.error,
+                );
+              }),
               gap12,
-              _buildIconButton(AppAssets.delete, () {}, isDelete: true),
+              _buildIconButton(AppAssets.delete, () {
+                showModalBottomSheet<bool>(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  isScrollControlled: true,
+                  builder: (context) =>
+                      DeleteAccountBottomSheet(addressId: addressId),
+                );
+              }, isDelete: true),
             ],
           ),
         ],

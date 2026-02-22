@@ -7,6 +7,8 @@ class HomeState with _$HomeState {
     HomeResponse? homeResponse,
     required ApiStatus getAllCategoriesStatus,
     AllCategoriesResponse? allCategoriesResponse,
+    required ApiStatus getSubCategoryServicesStatus,
+    ServiceResponse? serviceResponse,
     String? errorMessage,
   }) = _HomeState;
 
@@ -15,6 +17,8 @@ class HomeState with _$HomeState {
     homeResponse: null,
     getAllCategoriesStatus: ApiStatus.initial,
     allCategoriesResponse: null,
+    getSubCategoryServicesStatus: ApiStatus.initial,
+    serviceResponse: null,
     errorMessage: null,
   );
 }

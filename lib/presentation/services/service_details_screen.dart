@@ -8,7 +8,14 @@ import 'package:quickr_user_flutter_app/presentation/services/service_selection_
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
 class ServiceDetailsScreen extends StatelessWidget {
-  const ServiceDetailsScreen({super.key});
+  final String categoryName;
+  final int categoryId;
+
+  const ServiceDetailsScreen({
+    super.key,
+    required this.categoryName,
+    required this.categoryId,
+  });
 
   static const routeName = 'service-detail';
 
@@ -78,7 +85,13 @@ class ServiceDetailsScreen extends StatelessWidget {
         child: CommonButton(
           text: 'Book Now',
           onPressed: () {
-            AppRoute.pushNamed(ServiceSelectionScreen.routeName);
+            AppRoute.pushNamed(
+              ServiceSelectionScreen.routeName,
+              arguments: {
+                'categoryName': categoryName,
+                'categoryId': categoryId,
+              },
+            );
           },
           backgroundColor: ColorResources.secondary,
           textStyle: context.textStyle1.w600.s24.white,

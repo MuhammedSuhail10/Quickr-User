@@ -7,4 +7,6 @@ class HomeEvent with _$HomeEvent {
     required int lastId,
     String? searchQuery,
   }) = GetAllCategories;
+  const factory HomeEvent.getSubCategoryServices({required int categoryId}) =
+      GetSubCategoryServices;
 }

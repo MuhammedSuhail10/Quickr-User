@@ -36,8 +36,8 @@ class AppRoute {
       case MainScreen.routeName:
         return pushRoute(settings, const MainScreen());
 
-      case ServiceDetailsScreen.routeName:
-        return pushRoute(settings, const ServiceDetailsScreen());
+      // case ServiceDetailsScreen.routeName:
+      //   return pushRoute(settings, const ServiceDetailsScreen());
 
       case LoginScreen.routeName:
         return pushRoute(settings, const LoginScreen());
@@ -52,10 +52,24 @@ class AppRoute {
         return pushRoute(settings, const RegistrationScreen());
 
       case ServiceSelectionScreen.routeName:
-        return pushRoute(settings, const ServiceSelectionScreen());
+        return pushRoute(
+          settings,
+          ServiceSelectionScreen(
+            categoryName: args!['categoryName'],
+            categoryId: args['categoryId'],
+          ),
+        );
 
       case ServiceBookingScreen.routeName:
-        return pushRoute(settings, const ServiceBookingScreen());
+        return pushRoute(
+          settings,
+          ServiceBookingScreen(
+            services: args?['services'],
+            isImmediate: args?['isImmediate'],
+            scheduledDate: args?['scheduledDate'],
+            scheduledTime: args?['scheduledTime'],
+          ),
+        );
 
       case AddNewAddress.routeName:
         return pushRoute(
@@ -69,7 +83,13 @@ class AppRoute {
       case ExtraInformationScreen.routeName:
         return pushRoute(
           settings,
-          ExtraInformationScreen(addressid: args?['addressid']),
+          ExtraInformationScreen(
+            addressid: args?['addressid'],
+            services: args?['services'],
+            isImmediate: args?['isImmediate'],
+            scheduledDate: args?['scheduledDate'],
+            scheduledTime: args?['scheduledTime'],
+          ),
         );
 
       case BookingSuccessScreen.routeName:

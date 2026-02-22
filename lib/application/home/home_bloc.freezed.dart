@@ -21,32 +21,39 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeData,
     required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeData,
     TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeData,
     TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetHomeData value) getHomeData,
     required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeData value)? getHomeData,
     TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeData value)? getHomeData,
     TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -116,6 +123,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeData,
     required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
   }) {
     return getHomeData();
   }
@@ -125,6 +133,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeData,
     TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
   }) {
     return getHomeData?.call();
   }
@@ -134,6 +143,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeData,
     TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
     required TResult orElse(),
   }) {
     if (getHomeData != null) {
@@ -147,6 +157,8 @@ class _$GetHomeDataImpl implements GetHomeData {
   TResult map<TResult extends Object?>({
     required TResult Function(GetHomeData value) getHomeData,
     required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
   }) {
     return getHomeData(this);
   }
@@ -156,6 +168,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeData value)? getHomeData,
     TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
   }) {
     return getHomeData?.call(this);
   }
@@ -165,6 +178,7 @@ class _$GetHomeDataImpl implements GetHomeData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeData value)? getHomeData,
     TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
     required TResult orElse(),
   }) {
     if (getHomeData != null) {
@@ -261,6 +275,7 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeData,
     required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
   }) {
     return getAllCategories(lastId, searchQuery);
   }
@@ -270,6 +285,7 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeData,
     TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
   }) {
     return getAllCategories?.call(lastId, searchQuery);
   }
@@ -279,6 +295,7 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeData,
     TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
     required TResult orElse(),
   }) {
     if (getAllCategories != null) {
@@ -292,6 +309,8 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
   TResult map<TResult extends Object?>({
     required TResult Function(GetHomeData value) getHomeData,
     required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
   }) {
     return getAllCategories(this);
   }
@@ -301,6 +320,7 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeData value)? getHomeData,
     TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
   }) {
     return getAllCategories?.call(this);
   }
@@ -310,6 +330,7 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeData value)? getHomeData,
     TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
     required TResult orElse(),
   }) {
     if (getAllCategories != null) {
@@ -336,12 +357,170 @@ abstract class GetAllCategories implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$GetSubCategoryServicesImplCopyWith<$Res> {
+  factory _$$GetSubCategoryServicesImplCopyWith(
+    _$GetSubCategoryServicesImpl value,
+    $Res Function(_$GetSubCategoryServicesImpl) then,
+  ) = __$$GetSubCategoryServicesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int categoryId});
+}
+
+/// @nodoc
+class __$$GetSubCategoryServicesImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetSubCategoryServicesImpl>
+    implements _$$GetSubCategoryServicesImplCopyWith<$Res> {
+  __$$GetSubCategoryServicesImplCopyWithImpl(
+    _$GetSubCategoryServicesImpl _value,
+    $Res Function(_$GetSubCategoryServicesImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? categoryId = null}) {
+    return _then(
+      _$GetSubCategoryServicesImpl(
+        categoryId: null == categoryId
+            ? _value.categoryId
+            : categoryId // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$GetSubCategoryServicesImpl implements GetSubCategoryServices {
+  const _$GetSubCategoryServicesImpl({required this.categoryId});
+
+  @override
+  final int categoryId;
+
+  @override
+  String toString() {
+    return 'HomeEvent.getSubCategoryServices(categoryId: $categoryId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetSubCategoryServicesImpl &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, categoryId);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetSubCategoryServicesImplCopyWith<_$GetSubCategoryServicesImpl>
+  get copyWith =>
+      __$$GetSubCategoryServicesImplCopyWithImpl<_$GetSubCategoryServicesImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
+  }) {
+    return getSubCategoryServices(categoryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
+  }) {
+    return getSubCategoryServices?.call(categoryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
+    required TResult orElse(),
+  }) {
+    if (getSubCategoryServices != null) {
+      return getSubCategoryServices(categoryId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
+  }) {
+    return getSubCategoryServices(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+  }) {
+    return getSubCategoryServices?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    required TResult orElse(),
+  }) {
+    if (getSubCategoryServices != null) {
+      return getSubCategoryServices(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetSubCategoryServices implements HomeEvent {
+  const factory GetSubCategoryServices({required final int categoryId}) =
+      _$GetSubCategoryServicesImpl;
+
+  int get categoryId;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetSubCategoryServicesImplCopyWith<_$GetSubCategoryServicesImpl>
+  get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   ApiStatus get getHomeStatus => throw _privateConstructorUsedError;
   HomeResponse? get homeResponse => throw _privateConstructorUsedError;
   ApiStatus get getAllCategoriesStatus => throw _privateConstructorUsedError;
   AllCategoriesResponse? get allCategoriesResponse =>
       throw _privateConstructorUsedError;
+  ApiStatus get getSubCategoryServicesStatus =>
+      throw _privateConstructorUsedError;
+  ServiceResponse? get serviceResponse => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of HomeState
@@ -361,6 +540,8 @@ abstract class $HomeStateCopyWith<$Res> {
     HomeResponse? homeResponse,
     ApiStatus getAllCategoriesStatus,
     AllCategoriesResponse? allCategoriesResponse,
+    ApiStatus getSubCategoryServicesStatus,
+    ServiceResponse? serviceResponse,
     String? errorMessage,
   });
 }
@@ -384,6 +565,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? homeResponse = freezed,
     Object? getAllCategoriesStatus = null,
     Object? allCategoriesResponse = freezed,
+    Object? getSubCategoryServicesStatus = null,
+    Object? serviceResponse = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -404,6 +587,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
                 ? _value.allCategoriesResponse
                 : allCategoriesResponse // ignore: cast_nullable_to_non_nullable
                       as AllCategoriesResponse?,
+            getSubCategoryServicesStatus: null == getSubCategoryServicesStatus
+                ? _value.getSubCategoryServicesStatus
+                : getSubCategoryServicesStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
+            serviceResponse: freezed == serviceResponse
+                ? _value.serviceResponse
+                : serviceResponse // ignore: cast_nullable_to_non_nullable
+                      as ServiceResponse?,
             errorMessage: freezed == errorMessage
                 ? _value.errorMessage
                 : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -428,6 +619,8 @@ abstract class _$$HomeStateImplCopyWith<$Res>
     HomeResponse? homeResponse,
     ApiStatus getAllCategoriesStatus,
     AllCategoriesResponse? allCategoriesResponse,
+    ApiStatus getSubCategoryServicesStatus,
+    ServiceResponse? serviceResponse,
     String? errorMessage,
   });
 }
@@ -450,6 +643,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? homeResponse = freezed,
     Object? getAllCategoriesStatus = null,
     Object? allCategoriesResponse = freezed,
+    Object? getSubCategoryServicesStatus = null,
+    Object? serviceResponse = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -470,6 +665,14 @@ class __$$HomeStateImplCopyWithImpl<$Res>
             ? _value.allCategoriesResponse
             : allCategoriesResponse // ignore: cast_nullable_to_non_nullable
                   as AllCategoriesResponse?,
+        getSubCategoryServicesStatus: null == getSubCategoryServicesStatus
+            ? _value.getSubCategoryServicesStatus
+            : getSubCategoryServicesStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
+        serviceResponse: freezed == serviceResponse
+            ? _value.serviceResponse
+            : serviceResponse // ignore: cast_nullable_to_non_nullable
+                  as ServiceResponse?,
         errorMessage: freezed == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -487,6 +690,8 @@ class _$HomeStateImpl implements _HomeState {
     this.homeResponse,
     required this.getAllCategoriesStatus,
     this.allCategoriesResponse,
+    required this.getSubCategoryServicesStatus,
+    this.serviceResponse,
     this.errorMessage,
   });
 
@@ -499,11 +704,15 @@ class _$HomeStateImpl implements _HomeState {
   @override
   final AllCategoriesResponse? allCategoriesResponse;
   @override
+  final ApiStatus getSubCategoryServicesStatus;
+  @override
+  final ServiceResponse? serviceResponse;
+  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(getHomeStatus: $getHomeStatus, homeResponse: $homeResponse, getAllCategoriesStatus: $getAllCategoriesStatus, allCategoriesResponse: $allCategoriesResponse, errorMessage: $errorMessage)';
+    return 'HomeState(getHomeStatus: $getHomeStatus, homeResponse: $homeResponse, getAllCategoriesStatus: $getAllCategoriesStatus, allCategoriesResponse: $allCategoriesResponse, getSubCategoryServicesStatus: $getSubCategoryServicesStatus, serviceResponse: $serviceResponse, errorMessage: $errorMessage)';
   }
 
   @override
@@ -519,6 +728,14 @@ class _$HomeStateImpl implements _HomeState {
                 other.getAllCategoriesStatus == getAllCategoriesStatus) &&
             (identical(other.allCategoriesResponse, allCategoriesResponse) ||
                 other.allCategoriesResponse == allCategoriesResponse) &&
+            (identical(
+                  other.getSubCategoryServicesStatus,
+                  getSubCategoryServicesStatus,
+                ) ||
+                other.getSubCategoryServicesStatus ==
+                    getSubCategoryServicesStatus) &&
+            (identical(other.serviceResponse, serviceResponse) ||
+                other.serviceResponse == serviceResponse) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -530,6 +747,8 @@ class _$HomeStateImpl implements _HomeState {
     homeResponse,
     getAllCategoriesStatus,
     allCategoriesResponse,
+    getSubCategoryServicesStatus,
+    serviceResponse,
     errorMessage,
   );
 
@@ -548,6 +767,8 @@ abstract class _HomeState implements HomeState {
     final HomeResponse? homeResponse,
     required final ApiStatus getAllCategoriesStatus,
     final AllCategoriesResponse? allCategoriesResponse,
+    required final ApiStatus getSubCategoryServicesStatus,
+    final ServiceResponse? serviceResponse,
     final String? errorMessage,
   }) = _$HomeStateImpl;
 
@@ -559,6 +780,10 @@ abstract class _HomeState implements HomeState {
   ApiStatus get getAllCategoriesStatus;
   @override
   AllCategoriesResponse? get allCategoriesResponse;
+  @override
+  ApiStatus get getSubCategoryServicesStatus;
+  @override
+  ServiceResponse? get serviceResponse;
   @override
   String? get errorMessage;
 

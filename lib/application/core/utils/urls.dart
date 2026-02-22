@@ -19,6 +19,7 @@ class Urls {
   static const String deleteAddress = 'user/delete-address';
   static const String allCategories = 'service/all-categories';
   static const String subCategories = 'service/sub-categories';
+  static const String getSubCategoryServices = 'service/services';
   static const String availableDistricts = 'common/available-districts';
   static const String orders = 'orders';
   static const String createOrder = 'orders/create-order';

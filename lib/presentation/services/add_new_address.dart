@@ -57,12 +57,18 @@ class _AddNewAddressState extends State<AddNewAddress> {
             typeAlert: TypeAlert.success,
           );
           context.read<AddressBloc>().add(const AddressEvent.getAddress());
+          context.read<AddressBloc>().add(
+            const AddressEvent.resetAddAddressStatus(),
+          );
           AppRoute.pop();
           AppRoute.pop();
         } else if (state.addAddressStatus == ApiStatus.error) {
           CustomAlertDialog.showCustomDialog(
             title: state.errorMessage ?? 'Failed to add address',
             typeAlert: TypeAlert.error,
+          );
+          context.read<AddressBloc>().add(
+            const AddressEvent.resetAddAddressStatus(),
           );
         }
       },

@@ -6,6 +6,7 @@ import 'package:quickr_user_flutter_app/domain/core/base/run_safely.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/all_categories_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/home_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/i_home_facade.dart';
+import 'package:quickr_user_flutter_app/domain/home/models/services_response.dart';
 
 @LazySingleton(as: IHomeFacade)
 class IHomeFacadeImpl implements IHomeFacade {
@@ -39,6 +40,19 @@ class IHomeFacadeImpl implements IHomeFacade {
       return AllCategoriesResponse.fromJson(
         response.data as Map<String, dynamic>,
       );
+    });
+  }
+
+  @override
+  ResultFuture<ServiceResponse> getSubCategoryServices({
+    required int categoryId,
+  }) {
+    return runSafely.runSafely(() async {
+      final response = await dioClient.get(
+        Urls.getSubCategoryServices,
+        queryParameters: {'category_id': categoryId},
+      );
+      return ServiceResponse.fromJson(response.data as Map<String, dynamic>);
     });
   }
 }

@@ -6,6 +6,7 @@ import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/all_categories_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/home_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/i_home_facade.dart';
+import 'package:quickr_user_flutter_app/domain/home/models/services_response.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -21,6 +22,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       _getAllCategories,
       transformer: debounce(const Duration(milliseconds: 300)),
     );
+    on<GetSubCategoryServices>(_getSubCategoryServices);
   }
 
   Future<void> _getHomeData(GetHomeData event, Emitter<HomeState> emit) async {
@@ -77,6 +79,38 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         state.copyWith(
           getAllCategoriesStatus: ApiStatus.success,
           allCategoriesResponse: response,
+        ),
+      ),
+    );
+  }
+
+  Future<void> _getSubCategoryServices(
+    GetSubCategoryServices event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        getSubCategoryServicesStatus: ApiStatus.loading,
+        errorMessage: null,
+        serviceResponse: null,
+      ),
+    );
+
+    final result = await _homeFacade.getSubCategoryServices(
+      categoryId: event.categoryId,
+    );
+
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          getSubCategoryServicesStatus: ApiStatus.error,
+          errorMessage: failure.errorMsg,
+        ),
+      ),
+      (response) => emit(
+        state.copyWith(
+          getSubCategoryServicesStatus: ApiStatus.success,
+          serviceResponse: response,
         ),
       ),
     );

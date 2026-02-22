@@ -18,6 +18,42 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     on<AddAddress>(_addAddress);
     on<UpdateAddress>(_updateAddress);
     on<DeleteAddress>(_deleteAddress);
+    on<ResetAddAddressStatus>(_resetAddAddressStatus);
+    on<ResetUpdateAddressStatus>(_resetUpdateAddressStatus);
+    on<ResetDeleteAddressStatus>(_resetDeleteAddressStatus);
+  }
+
+  void _resetAddAddressStatus(
+    ResetAddAddressStatus event,
+    Emitter<AddressState> emit,
+  ) {
+    emit(
+      state.copyWith(addAddressStatus: ApiStatus.initial, errorMessage: null),
+    );
+  }
+
+  void _resetUpdateAddressStatus(
+    ResetUpdateAddressStatus event,
+    Emitter<AddressState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        updateAddressStatus: ApiStatus.initial,
+        errorMessage: null,
+      ),
+    );
+  }
+
+  void _resetDeleteAddressStatus(
+    ResetDeleteAddressStatus event,
+    Emitter<AddressState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        deleteAddressStatus: ApiStatus.initial,
+        errorMessage: null,
+      ),
+    );
   }
 
   Future<void> _getAddress(GetAddress event, Emitter<AddressState> emit) async {

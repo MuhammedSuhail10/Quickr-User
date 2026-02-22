@@ -10,7 +10,7 @@ import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/all_categories_response.dart';
-import 'package:quickr_user_flutter_app/presentation/services/service_details_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/services/service_selection_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
 class ServiceMainScreen extends StatefulWidget {
@@ -131,18 +131,11 @@ class _ServiceMainScreenState extends State<ServiceMainScreen> {
                             child: Text('No services found'),
                           )
                         else
-                          GestureDetector(
-                            onTap: () {
-                              AppRoute.pushNamed(
-                                ServiceDetailsScreen.routeName,
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0,
-                              ),
-                              child: _buildServiceCard(categories),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16.0,
                             ),
+                            child: _buildServiceCard(categories),
                           ),
                         // Suggestion Section
                         Padding(
@@ -200,34 +193,45 @@ class _ServiceMainScreenState extends State<ServiceMainScreen> {
       itemBuilder: (context, index) {
         final category = categories[index];
         const mediaBaseUrl = 'https://fixifybackend.pythonanywhere.com/media/';
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(25),
-          child: Container(
-            decoration: BoxDecoration(
-              color: category.image.isEmpty ? ColorResources.secondary : null,
-              image: category.image.isNotEmpty
-                  ? DecorationImage(
-                      image: CachedNetworkImageProvider(
-                        '$mediaBaseUrl${category.image}',
+        return GestureDetector(
+          onTap: () {
+            AppRoute.pushNamed(
+              ServiceSelectionScreen.routeName,
+              arguments: {
+                'categoryName': category.name,
+                'categoryId': category.id,
+              },
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: Container(
+              decoration: BoxDecoration(
+                color: category.image.isEmpty ? ColorResources.secondary : null,
+                image: category.image.isNotEmpty
+                    ? DecorationImage(
+                        image: CachedNetworkImageProvider(
+                          '$mediaBaseUrl${category.image}',
+                        ),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+              ),
+              child: Stack(
+                children: [
+                  // Title at bottom
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        category.name,
+                        style: context.textStyle1.w300.s14.white,
                       ),
-                      fit: BoxFit.cover,
-                    )
-                  : null,
-            ),
-            child: Stack(
-              children: [
-                // Title at bottom
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      category.name,
-                      style: context.textStyle1.w300.s14.white,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );
