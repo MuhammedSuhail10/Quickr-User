@@ -104,7 +104,7 @@ class CommonButton extends StatelessWidget {
                     ],
                     Text(
                       text,
-                      style: textStyle ?? context.heading.w400.s24.white,
+                      style: textStyle ?? context.heading.w300.s24.white,
                     ),
                   ],
                 ),

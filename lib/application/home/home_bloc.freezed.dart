@@ -22,18 +22,30 @@ mixin _$HomeEvent {
     required TResult Function() getHomeData,
     required TResult Function(int lastId, String? searchQuery) getAllCategories,
     required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeData,
     TResult? Function(int lastId, String? searchQuery)? getAllCategories,
     TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeData,
     TResult Function(int lastId, String? searchQuery)? getAllCategories,
     TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,18 +54,31 @@ mixin _$HomeEvent {
     required TResult Function(GetAllCategories value) getAllCategories,
     required TResult Function(GetSubCategoryServices value)
     getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeData value)? getHomeData,
     TResult? Function(GetAllCategories value)? getAllCategories,
     TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeData value)? getHomeData,
     TResult Function(GetAllCategories value)? getAllCategories,
     TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -124,6 +149,10 @@ class _$GetHomeDataImpl implements GetHomeData {
     required TResult Function() getHomeData,
     required TResult Function(int lastId, String? searchQuery) getAllCategories,
     required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
   }) {
     return getHomeData();
   }
@@ -134,6 +163,10 @@ class _$GetHomeDataImpl implements GetHomeData {
     TResult? Function()? getHomeData,
     TResult? Function(int lastId, String? searchQuery)? getAllCategories,
     TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
   }) {
     return getHomeData?.call();
   }
@@ -144,6 +177,10 @@ class _$GetHomeDataImpl implements GetHomeData {
     TResult Function()? getHomeData,
     TResult Function(int lastId, String? searchQuery)? getAllCategories,
     TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
     required TResult orElse(),
   }) {
     if (getHomeData != null) {
@@ -159,6 +196,11 @@ class _$GetHomeDataImpl implements GetHomeData {
     required TResult Function(GetAllCategories value) getAllCategories,
     required TResult Function(GetSubCategoryServices value)
     getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
   }) {
     return getHomeData(this);
   }
@@ -169,6 +211,10 @@ class _$GetHomeDataImpl implements GetHomeData {
     TResult? Function(GetHomeData value)? getHomeData,
     TResult? Function(GetAllCategories value)? getAllCategories,
     TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
   }) {
     return getHomeData?.call(this);
   }
@@ -179,6 +225,10 @@ class _$GetHomeDataImpl implements GetHomeData {
     TResult Function(GetHomeData value)? getHomeData,
     TResult Function(GetAllCategories value)? getAllCategories,
     TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
     required TResult orElse(),
   }) {
     if (getHomeData != null) {
@@ -276,6 +326,10 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
     required TResult Function() getHomeData,
     required TResult Function(int lastId, String? searchQuery) getAllCategories,
     required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
   }) {
     return getAllCategories(lastId, searchQuery);
   }
@@ -286,6 +340,10 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
     TResult? Function()? getHomeData,
     TResult? Function(int lastId, String? searchQuery)? getAllCategories,
     TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
   }) {
     return getAllCategories?.call(lastId, searchQuery);
   }
@@ -296,6 +354,10 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
     TResult Function()? getHomeData,
     TResult Function(int lastId, String? searchQuery)? getAllCategories,
     TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
     required TResult orElse(),
   }) {
     if (getAllCategories != null) {
@@ -311,6 +373,11 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
     required TResult Function(GetAllCategories value) getAllCategories,
     required TResult Function(GetSubCategoryServices value)
     getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
   }) {
     return getAllCategories(this);
   }
@@ -321,6 +388,10 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
     TResult? Function(GetHomeData value)? getHomeData,
     TResult? Function(GetAllCategories value)? getAllCategories,
     TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
   }) {
     return getAllCategories?.call(this);
   }
@@ -331,6 +402,10 @@ class _$GetAllCategoriesImpl implements GetAllCategories {
     TResult Function(GetHomeData value)? getHomeData,
     TResult Function(GetAllCategories value)? getAllCategories,
     TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
     required TResult orElse(),
   }) {
     if (getAllCategories != null) {
@@ -434,6 +509,10 @@ class _$GetSubCategoryServicesImpl implements GetSubCategoryServices {
     required TResult Function() getHomeData,
     required TResult Function(int lastId, String? searchQuery) getAllCategories,
     required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
   }) {
     return getSubCategoryServices(categoryId);
   }
@@ -444,6 +523,10 @@ class _$GetSubCategoryServicesImpl implements GetSubCategoryServices {
     TResult? Function()? getHomeData,
     TResult? Function(int lastId, String? searchQuery)? getAllCategories,
     TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
   }) {
     return getSubCategoryServices?.call(categoryId);
   }
@@ -454,6 +537,10 @@ class _$GetSubCategoryServicesImpl implements GetSubCategoryServices {
     TResult Function()? getHomeData,
     TResult Function(int lastId, String? searchQuery)? getAllCategories,
     TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
     required TResult orElse(),
   }) {
     if (getSubCategoryServices != null) {
@@ -469,6 +556,11 @@ class _$GetSubCategoryServicesImpl implements GetSubCategoryServices {
     required TResult Function(GetAllCategories value) getAllCategories,
     required TResult Function(GetSubCategoryServices value)
     getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
   }) {
     return getSubCategoryServices(this);
   }
@@ -479,6 +571,10 @@ class _$GetSubCategoryServicesImpl implements GetSubCategoryServices {
     TResult? Function(GetHomeData value)? getHomeData,
     TResult? Function(GetAllCategories value)? getAllCategories,
     TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
   }) {
     return getSubCategoryServices?.call(this);
   }
@@ -489,6 +585,10 @@ class _$GetSubCategoryServicesImpl implements GetSubCategoryServices {
     TResult Function(GetHomeData value)? getHomeData,
     TResult Function(GetAllCategories value)? getAllCategories,
     TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
     required TResult orElse(),
   }) {
     if (getSubCategoryServices != null) {
@@ -512,6 +612,648 @@ abstract class GetSubCategoryServices implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$GetScheduledOrdersImplCopyWith<$Res> {
+  factory _$$GetScheduledOrdersImplCopyWith(
+    _$GetScheduledOrdersImpl value,
+    $Res Function(_$GetScheduledOrdersImpl) then,
+  ) = __$$GetScheduledOrdersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetScheduledOrdersImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetScheduledOrdersImpl>
+    implements _$$GetScheduledOrdersImplCopyWith<$Res> {
+  __$$GetScheduledOrdersImplCopyWithImpl(
+    _$GetScheduledOrdersImpl _value,
+    $Res Function(_$GetScheduledOrdersImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetScheduledOrdersImpl implements GetScheduledOrders {
+  const _$GetScheduledOrdersImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.getScheduledOrders()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetScheduledOrdersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
+  }) {
+    return getScheduledOrders();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
+  }) {
+    return getScheduledOrders?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (getScheduledOrders != null) {
+      return getScheduledOrders();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
+  }) {
+    return getScheduledOrders(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+  }) {
+    return getScheduledOrders?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (getScheduledOrders != null) {
+      return getScheduledOrders(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetScheduledOrders implements HomeEvent {
+  const factory GetScheduledOrders() = _$GetScheduledOrdersImpl;
+}
+
+/// @nodoc
+abstract class _$$VerifyOrderImplCopyWith<$Res> {
+  factory _$$VerifyOrderImplCopyWith(
+    _$VerifyOrderImpl value,
+    $Res Function(_$VerifyOrderImpl) then,
+  ) = __$$VerifyOrderImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int orderId, int otp});
+}
+
+/// @nodoc
+class __$$VerifyOrderImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$VerifyOrderImpl>
+    implements _$$VerifyOrderImplCopyWith<$Res> {
+  __$$VerifyOrderImplCopyWithImpl(
+    _$VerifyOrderImpl _value,
+    $Res Function(_$VerifyOrderImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? orderId = null, Object? otp = null}) {
+    return _then(
+      _$VerifyOrderImpl(
+        orderId: null == orderId
+            ? _value.orderId
+            : orderId // ignore: cast_nullable_to_non_nullable
+                  as int,
+        otp: null == otp
+            ? _value.otp
+            : otp // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$VerifyOrderImpl implements VerifyOrder {
+  const _$VerifyOrderImpl({required this.orderId, required this.otp});
+
+  @override
+  final int orderId;
+  @override
+  final int otp;
+
+  @override
+  String toString() {
+    return 'HomeEvent.verifyOrder(orderId: $orderId, otp: $otp)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyOrderImpl &&
+            (identical(other.orderId, orderId) || other.orderId == orderId) &&
+            (identical(other.otp, otp) || other.otp == otp));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, orderId, otp);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyOrderImplCopyWith<_$VerifyOrderImpl> get copyWith =>
+      __$$VerifyOrderImplCopyWithImpl<_$VerifyOrderImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
+  }) {
+    return verifyOrder(orderId, otp);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
+  }) {
+    return verifyOrder?.call(orderId, otp);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (verifyOrder != null) {
+      return verifyOrder(orderId, otp);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
+  }) {
+    return verifyOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+  }) {
+    return verifyOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (verifyOrder != null) {
+      return verifyOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class VerifyOrder implements HomeEvent {
+  const factory VerifyOrder({
+    required final int orderId,
+    required final int otp,
+  }) = _$VerifyOrderImpl;
+
+  int get orderId;
+  int get otp;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$VerifyOrderImplCopyWith<_$VerifyOrderImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetWorkerDetailsImplCopyWith<$Res> {
+  factory _$$GetWorkerDetailsImplCopyWith(
+    _$GetWorkerDetailsImpl value,
+    $Res Function(_$GetWorkerDetailsImpl) then,
+  ) = __$$GetWorkerDetailsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int orderId});
+}
+
+/// @nodoc
+class __$$GetWorkerDetailsImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$GetWorkerDetailsImpl>
+    implements _$$GetWorkerDetailsImplCopyWith<$Res> {
+  __$$GetWorkerDetailsImplCopyWithImpl(
+    _$GetWorkerDetailsImpl _value,
+    $Res Function(_$GetWorkerDetailsImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? orderId = null}) {
+    return _then(
+      _$GetWorkerDetailsImpl(
+        orderId: null == orderId
+            ? _value.orderId
+            : orderId // ignore: cast_nullable_to_non_nullable
+                  as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$GetWorkerDetailsImpl implements GetWorkerDetails {
+  const _$GetWorkerDetailsImpl({required this.orderId});
+
+  @override
+  final int orderId;
+
+  @override
+  String toString() {
+    return 'HomeEvent.getWorkerDetails(orderId: $orderId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetWorkerDetailsImpl &&
+            (identical(other.orderId, orderId) || other.orderId == orderId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, orderId);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetWorkerDetailsImplCopyWith<_$GetWorkerDetailsImpl> get copyWith =>
+      __$$GetWorkerDetailsImplCopyWithImpl<_$GetWorkerDetailsImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
+  }) {
+    return getWorkerDetails(orderId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
+  }) {
+    return getWorkerDetails?.call(orderId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (getWorkerDetails != null) {
+      return getWorkerDetails(orderId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
+  }) {
+    return getWorkerDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+  }) {
+    return getWorkerDetails?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (getWorkerDetails != null) {
+      return getWorkerDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetWorkerDetails implements HomeEvent {
+  const factory GetWorkerDetails({required final int orderId}) =
+      _$GetWorkerDetailsImpl;
+
+  int get orderId;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetWorkerDetailsImplCopyWith<_$GetWorkerDetailsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResetVerifyOrderStatusImplCopyWith<$Res> {
+  factory _$$ResetVerifyOrderStatusImplCopyWith(
+    _$ResetVerifyOrderStatusImpl value,
+    $Res Function(_$ResetVerifyOrderStatusImpl) then,
+  ) = __$$ResetVerifyOrderStatusImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ResetVerifyOrderStatusImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ResetVerifyOrderStatusImpl>
+    implements _$$ResetVerifyOrderStatusImplCopyWith<$Res> {
+  __$$ResetVerifyOrderStatusImplCopyWithImpl(
+    _$ResetVerifyOrderStatusImpl _value,
+    $Res Function(_$ResetVerifyOrderStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ResetVerifyOrderStatusImpl implements ResetVerifyOrderStatus {
+  const _$ResetVerifyOrderStatusImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.resetVerifyOrderStatus()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResetVerifyOrderStatusImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeData,
+    required TResult Function(int lastId, String? searchQuery) getAllCategories,
+    required TResult Function(int categoryId) getSubCategoryServices,
+    required TResult Function() getScheduledOrders,
+    required TResult Function(int orderId, int otp) verifyOrder,
+    required TResult Function(int orderId) getWorkerDetails,
+    required TResult Function() resetVerifyOrderStatus,
+  }) {
+    return resetVerifyOrderStatus();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeData,
+    TResult? Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult? Function(int categoryId)? getSubCategoryServices,
+    TResult? Function()? getScheduledOrders,
+    TResult? Function(int orderId, int otp)? verifyOrder,
+    TResult? Function(int orderId)? getWorkerDetails,
+    TResult? Function()? resetVerifyOrderStatus,
+  }) {
+    return resetVerifyOrderStatus?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getHomeData,
+    TResult Function(int lastId, String? searchQuery)? getAllCategories,
+    TResult Function(int categoryId)? getSubCategoryServices,
+    TResult Function()? getScheduledOrders,
+    TResult Function(int orderId, int otp)? verifyOrder,
+    TResult Function(int orderId)? getWorkerDetails,
+    TResult Function()? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (resetVerifyOrderStatus != null) {
+      return resetVerifyOrderStatus();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetHomeData value) getHomeData,
+    required TResult Function(GetAllCategories value) getAllCategories,
+    required TResult Function(GetSubCategoryServices value)
+    getSubCategoryServices,
+    required TResult Function(GetScheduledOrders value) getScheduledOrders,
+    required TResult Function(VerifyOrder value) verifyOrder,
+    required TResult Function(GetWorkerDetails value) getWorkerDetails,
+    required TResult Function(ResetVerifyOrderStatus value)
+    resetVerifyOrderStatus,
+  }) {
+    return resetVerifyOrderStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetHomeData value)? getHomeData,
+    TResult? Function(GetAllCategories value)? getAllCategories,
+    TResult? Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult? Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult? Function(VerifyOrder value)? verifyOrder,
+    TResult? Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult? Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+  }) {
+    return resetVerifyOrderStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetHomeData value)? getHomeData,
+    TResult Function(GetAllCategories value)? getAllCategories,
+    TResult Function(GetSubCategoryServices value)? getSubCategoryServices,
+    TResult Function(GetScheduledOrders value)? getScheduledOrders,
+    TResult Function(VerifyOrder value)? verifyOrder,
+    TResult Function(GetWorkerDetails value)? getWorkerDetails,
+    TResult Function(ResetVerifyOrderStatus value)? resetVerifyOrderStatus,
+    required TResult orElse(),
+  }) {
+    if (resetVerifyOrderStatus != null) {
+      return resetVerifyOrderStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetVerifyOrderStatus implements HomeEvent {
+  const factory ResetVerifyOrderStatus() = _$ResetVerifyOrderStatusImpl;
+}
+
+/// @nodoc
 mixin _$HomeState {
   ApiStatus get getHomeStatus => throw _privateConstructorUsedError;
   HomeResponse? get homeResponse => throw _privateConstructorUsedError;
@@ -521,6 +1263,13 @@ mixin _$HomeState {
   ApiStatus get getSubCategoryServicesStatus =>
       throw _privateConstructorUsedError;
   ServiceResponse? get serviceResponse => throw _privateConstructorUsedError;
+  ApiStatus get getScheduledOrdersStatus => throw _privateConstructorUsedError;
+  ScheduledOrderResponse? get scheduledOrderResponse =>
+      throw _privateConstructorUsedError;
+  ApiStatus get verifyOrderStatus => throw _privateConstructorUsedError;
+  ApiStatus get getWorkerDetailsStatus => throw _privateConstructorUsedError;
+  WorkerDetailsResponse? get workerDetailsResponse =>
+      throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of HomeState
@@ -542,6 +1291,11 @@ abstract class $HomeStateCopyWith<$Res> {
     AllCategoriesResponse? allCategoriesResponse,
     ApiStatus getSubCategoryServicesStatus,
     ServiceResponse? serviceResponse,
+    ApiStatus getScheduledOrdersStatus,
+    ScheduledOrderResponse? scheduledOrderResponse,
+    ApiStatus verifyOrderStatus,
+    ApiStatus getWorkerDetailsStatus,
+    WorkerDetailsResponse? workerDetailsResponse,
     String? errorMessage,
   });
 }
@@ -567,6 +1321,11 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? allCategoriesResponse = freezed,
     Object? getSubCategoryServicesStatus = null,
     Object? serviceResponse = freezed,
+    Object? getScheduledOrdersStatus = null,
+    Object? scheduledOrderResponse = freezed,
+    Object? verifyOrderStatus = null,
+    Object? getWorkerDetailsStatus = null,
+    Object? workerDetailsResponse = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -595,6 +1354,26 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
                 ? _value.serviceResponse
                 : serviceResponse // ignore: cast_nullable_to_non_nullable
                       as ServiceResponse?,
+            getScheduledOrdersStatus: null == getScheduledOrdersStatus
+                ? _value.getScheduledOrdersStatus
+                : getScheduledOrdersStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
+            scheduledOrderResponse: freezed == scheduledOrderResponse
+                ? _value.scheduledOrderResponse
+                : scheduledOrderResponse // ignore: cast_nullable_to_non_nullable
+                      as ScheduledOrderResponse?,
+            verifyOrderStatus: null == verifyOrderStatus
+                ? _value.verifyOrderStatus
+                : verifyOrderStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
+            getWorkerDetailsStatus: null == getWorkerDetailsStatus
+                ? _value.getWorkerDetailsStatus
+                : getWorkerDetailsStatus // ignore: cast_nullable_to_non_nullable
+                      as ApiStatus,
+            workerDetailsResponse: freezed == workerDetailsResponse
+                ? _value.workerDetailsResponse
+                : workerDetailsResponse // ignore: cast_nullable_to_non_nullable
+                      as WorkerDetailsResponse?,
             errorMessage: freezed == errorMessage
                 ? _value.errorMessage
                 : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -621,6 +1400,11 @@ abstract class _$$HomeStateImplCopyWith<$Res>
     AllCategoriesResponse? allCategoriesResponse,
     ApiStatus getSubCategoryServicesStatus,
     ServiceResponse? serviceResponse,
+    ApiStatus getScheduledOrdersStatus,
+    ScheduledOrderResponse? scheduledOrderResponse,
+    ApiStatus verifyOrderStatus,
+    ApiStatus getWorkerDetailsStatus,
+    WorkerDetailsResponse? workerDetailsResponse,
     String? errorMessage,
   });
 }
@@ -645,6 +1429,11 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? allCategoriesResponse = freezed,
     Object? getSubCategoryServicesStatus = null,
     Object? serviceResponse = freezed,
+    Object? getScheduledOrdersStatus = null,
+    Object? scheduledOrderResponse = freezed,
+    Object? verifyOrderStatus = null,
+    Object? getWorkerDetailsStatus = null,
+    Object? workerDetailsResponse = freezed,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -673,6 +1462,26 @@ class __$$HomeStateImplCopyWithImpl<$Res>
             ? _value.serviceResponse
             : serviceResponse // ignore: cast_nullable_to_non_nullable
                   as ServiceResponse?,
+        getScheduledOrdersStatus: null == getScheduledOrdersStatus
+            ? _value.getScheduledOrdersStatus
+            : getScheduledOrdersStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
+        scheduledOrderResponse: freezed == scheduledOrderResponse
+            ? _value.scheduledOrderResponse
+            : scheduledOrderResponse // ignore: cast_nullable_to_non_nullable
+                  as ScheduledOrderResponse?,
+        verifyOrderStatus: null == verifyOrderStatus
+            ? _value.verifyOrderStatus
+            : verifyOrderStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
+        getWorkerDetailsStatus: null == getWorkerDetailsStatus
+            ? _value.getWorkerDetailsStatus
+            : getWorkerDetailsStatus // ignore: cast_nullable_to_non_nullable
+                  as ApiStatus,
+        workerDetailsResponse: freezed == workerDetailsResponse
+            ? _value.workerDetailsResponse
+            : workerDetailsResponse // ignore: cast_nullable_to_non_nullable
+                  as WorkerDetailsResponse?,
         errorMessage: freezed == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -692,6 +1501,11 @@ class _$HomeStateImpl implements _HomeState {
     this.allCategoriesResponse,
     required this.getSubCategoryServicesStatus,
     this.serviceResponse,
+    required this.getScheduledOrdersStatus,
+    this.scheduledOrderResponse,
+    required this.verifyOrderStatus,
+    required this.getWorkerDetailsStatus,
+    this.workerDetailsResponse,
     this.errorMessage,
   });
 
@@ -708,11 +1522,21 @@ class _$HomeStateImpl implements _HomeState {
   @override
   final ServiceResponse? serviceResponse;
   @override
+  final ApiStatus getScheduledOrdersStatus;
+  @override
+  final ScheduledOrderResponse? scheduledOrderResponse;
+  @override
+  final ApiStatus verifyOrderStatus;
+  @override
+  final ApiStatus getWorkerDetailsStatus;
+  @override
+  final WorkerDetailsResponse? workerDetailsResponse;
+  @override
   final String? errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(getHomeStatus: $getHomeStatus, homeResponse: $homeResponse, getAllCategoriesStatus: $getAllCategoriesStatus, allCategoriesResponse: $allCategoriesResponse, getSubCategoryServicesStatus: $getSubCategoryServicesStatus, serviceResponse: $serviceResponse, errorMessage: $errorMessage)';
+    return 'HomeState(getHomeStatus: $getHomeStatus, homeResponse: $homeResponse, getAllCategoriesStatus: $getAllCategoriesStatus, allCategoriesResponse: $allCategoriesResponse, getSubCategoryServicesStatus: $getSubCategoryServicesStatus, serviceResponse: $serviceResponse, getScheduledOrdersStatus: $getScheduledOrdersStatus, scheduledOrderResponse: $scheduledOrderResponse, verifyOrderStatus: $verifyOrderStatus, getWorkerDetailsStatus: $getWorkerDetailsStatus, workerDetailsResponse: $workerDetailsResponse, errorMessage: $errorMessage)';
   }
 
   @override
@@ -736,6 +1560,19 @@ class _$HomeStateImpl implements _HomeState {
                     getSubCategoryServicesStatus) &&
             (identical(other.serviceResponse, serviceResponse) ||
                 other.serviceResponse == serviceResponse) &&
+            (identical(
+                  other.getScheduledOrdersStatus,
+                  getScheduledOrdersStatus,
+                ) ||
+                other.getScheduledOrdersStatus == getScheduledOrdersStatus) &&
+            (identical(other.scheduledOrderResponse, scheduledOrderResponse) ||
+                other.scheduledOrderResponse == scheduledOrderResponse) &&
+            (identical(other.verifyOrderStatus, verifyOrderStatus) ||
+                other.verifyOrderStatus == verifyOrderStatus) &&
+            (identical(other.getWorkerDetailsStatus, getWorkerDetailsStatus) ||
+                other.getWorkerDetailsStatus == getWorkerDetailsStatus) &&
+            (identical(other.workerDetailsResponse, workerDetailsResponse) ||
+                other.workerDetailsResponse == workerDetailsResponse) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -749,6 +1586,11 @@ class _$HomeStateImpl implements _HomeState {
     allCategoriesResponse,
     getSubCategoryServicesStatus,
     serviceResponse,
+    getScheduledOrdersStatus,
+    scheduledOrderResponse,
+    verifyOrderStatus,
+    getWorkerDetailsStatus,
+    workerDetailsResponse,
     errorMessage,
   );
 
@@ -769,6 +1611,11 @@ abstract class _HomeState implements HomeState {
     final AllCategoriesResponse? allCategoriesResponse,
     required final ApiStatus getSubCategoryServicesStatus,
     final ServiceResponse? serviceResponse,
+    required final ApiStatus getScheduledOrdersStatus,
+    final ScheduledOrderResponse? scheduledOrderResponse,
+    required final ApiStatus verifyOrderStatus,
+    required final ApiStatus getWorkerDetailsStatus,
+    final WorkerDetailsResponse? workerDetailsResponse,
     final String? errorMessage,
   }) = _$HomeStateImpl;
 
@@ -784,6 +1631,16 @@ abstract class _HomeState implements HomeState {
   ApiStatus get getSubCategoryServicesStatus;
   @override
   ServiceResponse? get serviceResponse;
+  @override
+  ApiStatus get getScheduledOrdersStatus;
+  @override
+  ScheduledOrderResponse? get scheduledOrderResponse;
+  @override
+  ApiStatus get verifyOrderStatus;
+  @override
+  ApiStatus get getWorkerDetailsStatus;
+  @override
+  WorkerDetailsResponse? get workerDetailsResponse;
   @override
   String? get errorMessage;
 

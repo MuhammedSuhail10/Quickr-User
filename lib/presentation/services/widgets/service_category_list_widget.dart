@@ -226,7 +226,7 @@ class _ServiceCategoryListWidgetState extends State<ServiceCategoryListWidget> {
                                             Text(
                                               '$quantity',
                                               style:
-                                                  context.textStyle1.w500.s14,
+                                                  context.textStyle1.w300.s14,
                                             ),
                                             gap8,
                                             GestureDetector(

@@ -137,7 +137,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         ),
                       ),
                       gap24,
-                      Text('Phone Number', style: context.textStyle1.w500.s14),
+                      Text('Phone Number', style: context.textStyle1.w300.s14),
                       gap4,
                       CustomTextField(
                         controller: _phoneController,
@@ -149,7 +149,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         },
                       ),
                       gap16,
-                      Text('OTP', style: context.textStyle1.w500.s14),
+                      Text('OTP', style: context.textStyle1.w300.s14),
                       gap4,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

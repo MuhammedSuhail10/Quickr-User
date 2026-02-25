@@ -147,7 +147,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
                   Text('Add Address', style: context.textStyle1.w600.s18),
                   gap16,
                   // House No/ Name field
-                  Text('House No/ Name', style: context.textStyle1.w500.s14),
+                  Text('House No/ Name', style: context.textStyle1.w300.s14),
                   gap4,
                   CustomTextField(
                     controller: _houseNoController,
@@ -166,7 +166,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
                   ),
                   gap16,
                   // Landmark field
-                  Text('Landmark', style: context.textStyle1.w500.s14),
+                  Text('Landmark', style: context.textStyle1.w300.s14),
                   gap4,
                   CustomTextField(
                     controller: _landmarkController,
@@ -185,7 +185,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
                   ),
                   gap16,
                   // Postal Code field
-                  Text('Postal Code', style: context.textStyle1.w500.s14),
+                  Text('Postal Code', style: context.textStyle1.w300.s14),
                   gap4,
                   CustomTextField(
                     controller: _postalcodeController,
@@ -205,7 +205,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
                   ),
                   gap16,
                   // Alternate Number & Name section
-                  Text('Name (Optional)', style: context.textStyle1.w500.s14),
+                  Text('Name (Optional)', style: context.textStyle1.w300.s14),
                   gap4,
                   CustomTextField(
                     controller: _nameController,
@@ -220,7 +220,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
                   // Phone Number field
                   Text(
                     'Alternate Number (Optional)',
-                    style: context.textStyle1.w500.s14,
+                    style: context.textStyle1.w300.s14,
                   ),
                   gap4,
                   CustomTextField(

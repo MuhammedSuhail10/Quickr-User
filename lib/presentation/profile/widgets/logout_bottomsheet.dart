@@ -49,7 +49,7 @@ class LogoutConfirmationBottomSheet extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context, false);
                     },
-                    textStyle: context.textStyle1.s14.w400.red,
+                    textStyle: context.textStyle1.s14.w300.red,
                     borderColor: ColorResources.red,
                     backgroundColor: ColorResources.white,
                   ),
@@ -65,7 +65,7 @@ class LogoutConfirmationBottomSheet extends StatelessWidget {
                     },
                     backgroundColor: ColorResources.red,
                     borderColor: ColorResources.transparent,
-                    textStyle: context.textStyle1.s14.w400.white,
+                    textStyle: context.textStyle1.s14.w300.white,
                   ),
                 ),
               ],

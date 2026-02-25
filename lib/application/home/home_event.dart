@@ -9,4 +9,12 @@ class HomeEvent with _$HomeEvent {
   }) = GetAllCategories;
   const factory HomeEvent.getSubCategoryServices({required int categoryId}) =
       GetSubCategoryServices;
+  const factory HomeEvent.getScheduledOrders() = GetScheduledOrders;
+  const factory HomeEvent.verifyOrder({
+    required int orderId,
+    required int otp,
+  }) = VerifyOrder;
+  const factory HomeEvent.getWorkerDetails({required int orderId}) =
+      GetWorkerDetails;
+  const factory HomeEvent.resetVerifyOrderStatus() = ResetVerifyOrderStatus;
 }

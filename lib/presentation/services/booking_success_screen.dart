@@ -82,7 +82,10 @@ class BookingSuccessScreen extends StatelessWidget {
                   textStyle: context.textStyle1.w600.s18.white,
                   borderRadius: BorderRadius.circular(16),
                   onPressed: () {
-                    // AppRoute.pushNamedAndRemoveUntil(LoginScreen.routeName);
+                    AppRoute.pushNamedAndRemoveUntil(
+                      MainScreen.routeName,
+                      arguments: {'initialIndex': 2},
+                    );
                   },
                 ),
               ),

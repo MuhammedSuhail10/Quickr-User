@@ -11,9 +11,9 @@ import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/presentation/widgets/common_button.dart';
 
-class DeleteAccountBottomSheet extends StatelessWidget {
+class DeleteAddressBottomSheet extends StatelessWidget {
   final int addressId;
-  const DeleteAccountBottomSheet({super.key, required this.addressId});
+  const DeleteAddressBottomSheet({super.key, required this.addressId});
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +55,13 @@ class DeleteAccountBottomSheet extends StatelessWidget {
               gap16,
               // Title
               Text(
-                'Confirm Account Deletion?',
+                'Confirm Address Deletion?',
                 style: context.textStyle1.bold.s20,
               ),
               gap16,
               // Description
               Text(
-                'Are you sure do you want\nto delete your account',
+                'Are you sure do you want\nto delete the Address',
                 textAlign: TextAlign.center,
                 style: context.hintText.w300.s12,
               ),
@@ -75,7 +75,7 @@ class DeleteAccountBottomSheet extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(context, false);
                       },
-                      textStyle: context.textStyle1.s14.w400.red,
+                      textStyle: context.textStyle1.s14.w300.red,
                       borderColor: ColorResources.red,
                       backgroundColor: ColorResources.white,
                     ),
@@ -96,7 +96,7 @@ class DeleteAccountBottomSheet extends StatelessWidget {
                           },
                           backgroundColor: ColorResources.red,
                           borderColor: ColorResources.transparent,
-                          textStyle: context.textStyle1.s14.w400.white,
+                          textStyle: context.textStyle1.s14.w300.white,
                         );
                       },
                     ),

@@ -9,6 +9,8 @@ import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart'
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/application/profile/profile_bloc.dart';
+import 'package:quickr_user_flutter_app/domain/auth_local/i_auth_local_facade.dart';
+import 'package:quickr_user_flutter_app/domain/core/di/injection.dart';
 import 'package:quickr_user_flutter_app/presentation/orders/order_main_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/profile_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/saved_addresses_screen.dart';
@@ -27,7 +29,12 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<ProfileBloc>().add(const ProfileEvent.getProfileData());
+
+    final authLocalFacade = sl<IAuthLocalFacade>();
+    final token = authLocalFacade.getAccessToken();
+    if (token != null) {
+      context.read<ProfileBloc>().add(const ProfileEvent.getProfileData());
+    }
   }
 
   @override
@@ -121,11 +128,11 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
               children: [
                 Text(
                   fullName.isNotEmpty ? fullName : 'User Name',
-                  style: context.textStyle1.w400.s18,
+                  style: context.textStyle1.w300.s18,
                 ),
                 Text(
                   profile?.phoneNumber ?? 'Phone number',
-                  style: context.textStyle1.w400.s14,
+                  style: context.textStyle1.w300.s14,
                 ),
               ],
             ),
@@ -265,7 +272,7 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
           children: [
             Icon(icon, size: 24, color: ColorResources.black),
             const SizedBox(width: 12),
-            Expanded(child: Text(title, style: context.body.w400.s16)),
+            Expanded(child: Text(title, style: context.body.w300.s16)),
             const Icon(
               Icons.chevron_right,
               size: 30,
@@ -298,7 +305,7 @@ class _ProfileMainScreenState extends State<ProfileMainScreen> {
           return Center(
             child: Text(
               'Version $version ($buildNumber)',
-              style: context.textStyle1.w400.s12,
+              style: context.textStyle1.w300.s12,
             ),
           );
         }

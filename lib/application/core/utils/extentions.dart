@@ -138,6 +138,16 @@ extension StringCapitalization on String {
       return this; // return original if parsing fails
     }
   }
+
+  String toOrderDateFormat() {
+    try {
+      DateTime dt = DateTime.parse(this).toLocal(); // convert to local time
+
+      return DateFormat("dd/MM/yyyy hh:mm a").format(dt).toLowerCase();
+    } catch (e) {
+      return this; // return original if parsing fails
+    }
+  }
 }
 
 extension ResponseX on Response {

@@ -9,7 +9,7 @@ import 'package:quickr_user_flutter_app/application/core/utils/alert_dialog.dart
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
-import 'package:quickr_user_flutter_app/presentation/profile/widgets/delete_acc_bottomsheet.dart';
+import 'package:quickr_user_flutter_app/presentation/profile/widgets/delete_address_bottomsheet.dart';
 
 class SavedAddressesScreen extends StatefulWidget {
   const SavedAddressesScreen({super.key});
@@ -66,7 +66,7 @@ class _SavedAddressesScreenState extends State<SavedAddressesScreen> {
             return Center(
               child: Text(
                 'No saved addresses',
-                style: context.textStyle1.w400.s16,
+                style: context.textStyle1.w300.s16,
               ),
             );
           }
@@ -121,7 +121,7 @@ class _AddressCard extends StatelessWidget {
               children: [
                 Text(
                   label.isNotEmpty ? label : 'Unknown label',
-                  style: context.textStyle1.w400.s14,
+                  style: context.textStyle1.w300.s14,
                 ),
                 gap8,
                 Text(address, style: context.textStyle1.w300.s12),
@@ -145,7 +145,7 @@ class _AddressCard extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   isScrollControlled: true,
                   builder: (context) =>
-                      DeleteAccountBottomSheet(addressId: addressId),
+                      DeleteAddressBottomSheet(addressId: addressId),
                 );
               }, isDelete: true),
             ],

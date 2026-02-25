@@ -166,7 +166,7 @@ class _EditEmailAddressState extends State<EditEmailAddress> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Email Address', style: context.textStyle1.w500.s14),
+              Text('Email Address', style: context.textStyle1.w300.s14),
               gap4,
               CustomTextField(
                 controller: _emailController,
@@ -179,7 +179,7 @@ class _EditEmailAddressState extends State<EditEmailAddress> {
               ),
               if (_isOtpSent) ...[
                 gap16,
-                Text('OTP', style: context.textStyle1.w500.s14),
+                Text('OTP', style: context.textStyle1.w300.s14),
                 gap4,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

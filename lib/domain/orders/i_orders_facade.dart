@@ -6,4 +6,14 @@ abstract interface class IOrdersFacade {
     int? lastScheduledId,
     int? lastOtherId,
   });
+  ResultFuture<bool> rescheduleorder({
+    required int orderId,
+    required String scheduledDate,
+    required String scheduledTime,
+  });
+  ResultFuture<bool> cancelOrder({
+    required int orderId,
+    required String cancellationReason,
+  });
+  ResultFuture<bool> verifyOrder({required int orderId, required int otp});
 }

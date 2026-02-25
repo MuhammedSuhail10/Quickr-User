@@ -5,12 +5,16 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:quickr_user_flutter_app/application/core/app_details.dart';
+import 'package:quickr_user_flutter_app/application/core/route/app_route.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/logger.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/urls.dart';
 import 'package:quickr_user_flutter_app/domain/auth_local/i_auth_local_facade.dart';
 import 'package:quickr_user_flutter_app/domain/core/di/injection.dart';
 import 'package:quickr_user_flutter_app/domain/core/exception/custom_exception.dart';
+import 'package:quickr_user_flutter_app/presentation/auth/login_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/widgets/unauthorised_bottomsheet.dart';
 
 @lazySingleton
 class DioClient {
@@ -41,7 +45,10 @@ class DioClient {
       QueuedInterceptorsWrapper(
         onError: (DioException error, ErrorInterceptorHandler handler) async {
           if (error.response?.statusCode == 401) {
-            // TODO Navigate
+            final context = AppDetails.globalNavigatorKey.currentContext;
+            if (context != null) {
+              UnauthorisedBottomsheet.show(context);
+            }
           } else {
             return handler.next(error);
           }

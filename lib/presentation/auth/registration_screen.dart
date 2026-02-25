@@ -90,7 +90,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           ),
                         ),
                         gap24,
-                        Text('Full Name', style: context.textStyle1.w500.s14),
+                        Text('Full Name', style: context.textStyle1.w300.s14),
                         gap4,
                         CustomTextField(
                           controller: _nameController,
@@ -98,7 +98,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           isCountryCodeNeeded: false,
                         ),
                         gap16,
-                        Text('Email', style: context.textStyle1.w500.s14),
+                        Text('Email', style: context.textStyle1.w300.s14),
                         gap4,
                         CustomTextField(
                           controller: _emailController,

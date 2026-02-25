@@ -8,8 +8,14 @@ import 'package:quickr_user_flutter_app/application/core/theme/text_styles.dart'
 import 'package:quickr_user_flutter_app/application/core/utils/app_assets.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/extentions.dart';
 import 'package:quickr_user_flutter_app/application/home/home_bloc.dart';
+import 'package:quickr_user_flutter_app/domain/home/models/scheduled_order_response.dart'
+    as scheduled;
+import 'package:quickr_user_flutter_app/domain/auth_local/i_auth_local_facade.dart';
+import 'package:quickr_user_flutter_app/domain/core/di/injection.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/home_response.dart';
+import 'package:quickr_user_flutter_app/presentation/home/main_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/home/widgets/home_screen_shimmer.dart';
+import 'package:quickr_user_flutter_app/presentation/home/widgets/scheduled_visit_card.dart';
 import 'package:quickr_user_flutter_app/presentation/services/service_selection_screen.dart';
 import 'package:quickr_user_flutter_app/application/core/utils/enums.dart';
 
@@ -25,6 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     context.read<HomeBloc>().add(const HomeEvent.getHomeData());
+
+    final authLocalFacade = sl<IAuthLocalFacade>();
+    final token = authLocalFacade.getAccessToken();
+    if (token != null) {
+      context.read<HomeBloc>().add(const HomeEvent.getScheduledOrders());
+    }
   }
 
   @override
@@ -34,6 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
         final categories = state.homeResponse?.services?.categories ?? [];
         final topServices = state.homeResponse?.topServices ?? [];
 
+        final authLocalFacade = sl<IAuthLocalFacade>();
+        final token = authLocalFacade.getAccessToken();
         return Scaffold(
           appBar: AppBar(
             backgroundColor: ColorResources.white,
@@ -68,6 +82,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: ColorResources.primary,
                   onRefresh: () async {
                     context.read<HomeBloc>().add(const HomeEvent.getHomeData());
+                    context.read<HomeBloc>().add(
+                      const HomeEvent.getScheduledOrders(),
+                    );
                   },
                   child: CustomScrollView(
                     slivers: [
@@ -93,6 +110,64 @@ class _HomeScreenState extends State<HomeScreen> {
                             //   ),
                             // ),
                             // gap24,
+
+                            // Scheduled Visit Section
+                            if (token != null)
+                              BlocBuilder<HomeBloc, HomeState>(
+                                buildWhen: (prev, curr) =>
+                                    prev.scheduledOrderResponse !=
+                                        curr.scheduledOrderResponse ||
+                                    prev.getScheduledOrdersStatus !=
+                                        curr.getScheduledOrdersStatus,
+                                builder: (context, homeState) {
+                                  final scheduledOrders =
+                                      homeState
+                                          .scheduledOrderResponse
+                                          ?.orders ??
+                                      <scheduled.Order>[];
+                                  if (scheduledOrders.isNotEmpty) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: scheduledOrders.length > 1
+                                              ? 230
+                                              : null,
+                                          child: scheduledOrders.length > 1
+                                              ? ListView.separated(
+                                                  scrollDirection:
+                                                      Axis.horizontal,
+                                                  itemCount:
+                                                      scheduledOrders.length,
+                                                  separatorBuilder:
+                                                      (context, index) => gap12,
+                                                  itemBuilder: (context, index) {
+                                                    return SizedBox(
+                                                      width:
+                                                          MediaQuery.of(
+                                                            context,
+                                                          ).size.width -
+                                                          32,
+                                                      child: ScheduledVisitCard(
+                                                        order:
+                                                            scheduledOrders[index],
+                                                      ),
+                                                    );
+                                                  },
+                                                )
+                                              : ScheduledVisitCard(
+                                                  order: scheduledOrders.first,
+                                                ),
+                                        ),
+                                        gap24,
+                                      ],
+                                    );
+                                  }
+                                  return const SizedBox();
+                                },
+                              ),
+
                             // Top Services Section
                             if (topServices.isNotEmpty) ...[
                               Text(
@@ -221,7 +296,10 @@ class _HomeScreenState extends State<HomeScreen> {
           // Professional "More Services" card
           return GestureDetector(
             onTap: () {
-              // AppRoute.pushNamed(ServiceDetailsScreen.routeName);
+              AppRoute.pushNamedAndRemoveUntil(
+                MainScreen.routeName,
+                arguments: {'initialIndex': 1},
+              );
             },
             child: Container(
               decoration: BoxDecoration(

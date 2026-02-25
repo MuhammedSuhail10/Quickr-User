@@ -12,7 +12,7 @@ class Urls {
   static const String verifyOtp = 'user/login';
   static const String register = 'user/create-account';
   static const String getHome = 'user/home';
-  static const String scheduleOrder = 'user/scheduled-order';
+  static const String scheduledOrder = 'user/scheduled-order';
   static const String getAddresses = 'user/user-addresses';
   static const String addAddress = 'user/create-user-address';
   static const String updateAddress = 'user/update-address';

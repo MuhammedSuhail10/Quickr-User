@@ -6,7 +6,9 @@ import 'package:quickr_user_flutter_app/domain/core/base/run_safely.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/all_categories_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/home_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/i_home_facade.dart';
+import 'package:quickr_user_flutter_app/domain/home/models/scheduled_order_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/services_response.dart';
+import 'package:quickr_user_flutter_app/domain/home/models/worker_details_response.dart';
 
 @LazySingleton(as: IHomeFacade)
 class IHomeFacadeImpl implements IHomeFacade {
@@ -53,6 +55,40 @@ class IHomeFacadeImpl implements IHomeFacade {
         queryParameters: {'category_id': categoryId},
       );
       return ServiceResponse.fromJson(response.data as Map<String, dynamic>);
+    });
+  }
+
+  @override
+  ResultFuture<ScheduledOrderResponse> getScheduledOrders() {
+    return runSafely.runSafely(() async {
+      final response = await dioClient.get(Urls.scheduledOrder);
+      return ScheduledOrderResponse.fromJson(
+        response.data as Map<String, dynamic>,
+      );
+    });
+  }
+
+  @override
+  ResultFuture<bool> verifyOrder({required int orderId, required int otp}) {
+    return runSafely.runSafely(() async {
+      await dioClient.post(
+        Urls.verifyOrder,
+        data: {"order_id": orderId, "code": otp},
+      );
+      return true;
+    });
+  }
+
+  @override
+  ResultFuture<WorkerDetailsResponse> getWorkerDetails({required int orderId}) {
+    return runSafely.runSafely(() async {
+      final response = await dioClient.get(
+        Urls.workerDetail,
+        queryParameters: {'order_id': orderId},
+      );
+      return WorkerDetailsResponse.fromJson(
+        response.data as Map<String, dynamic>,
+      );
     });
   }
 }

@@ -9,6 +9,11 @@ class HomeState with _$HomeState {
     AllCategoriesResponse? allCategoriesResponse,
     required ApiStatus getSubCategoryServicesStatus,
     ServiceResponse? serviceResponse,
+    required ApiStatus getScheduledOrdersStatus,
+    ScheduledOrderResponse? scheduledOrderResponse,
+    required ApiStatus verifyOrderStatus,
+    required ApiStatus getWorkerDetailsStatus,
+    WorkerDetailsResponse? workerDetailsResponse,
     String? errorMessage,
   }) = _HomeState;
 
@@ -19,6 +24,11 @@ class HomeState with _$HomeState {
     allCategoriesResponse: null,
     getSubCategoryServicesStatus: ApiStatus.initial,
     serviceResponse: null,
+    getScheduledOrdersStatus: ApiStatus.initial,
+    scheduledOrderResponse: null,
+    verifyOrderStatus: ApiStatus.initial,
+    getWorkerDetailsStatus: ApiStatus.initial,
+    workerDetailsResponse: null,
     errorMessage: null,
   );
 }

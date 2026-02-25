@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
         if (isLoggedIn) {
           AppRoute.pushNamedAndRemoveUntil(MainScreen.routeName);
         } else {
-          AppRoute.pushNamedAndRemoveUntil(StartScreen.routeName);
+          AppRoute.pushNamedAndRemoveUntil(MainScreen.routeName);
         }
       },
     );

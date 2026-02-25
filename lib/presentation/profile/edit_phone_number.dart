@@ -164,7 +164,7 @@ class _EditPhoneNumberState extends State<EditPhoneNumber> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Phone Number', style: context.textStyle1.w500.s14),
+              Text('Phone Number', style: context.textStyle1.w300.s14),
               gap4,
               CustomTextField(
                 controller: _phoneController,
@@ -178,7 +178,7 @@ class _EditPhoneNumberState extends State<EditPhoneNumber> {
               ),
               if (_isOtpSent) ...[
                 gap16,
-                Text('OTP', style: context.textStyle1.w500.s14),
+                Text('OTP', style: context.textStyle1.w300.s14),
                 gap4,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

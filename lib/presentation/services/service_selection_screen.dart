@@ -264,7 +264,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                             color: ColorResources.primary,
                           ),
                           gap12,
-                          Text('Immediate', style: context.textStyle1.w500.s16),
+                          Text('Immediate', style: context.textStyle1.w300.s16),
                         ],
                       ),
                     ),
@@ -299,7 +299,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                           gap12,
                           Text(
                             'Schedule for later',
-                            style: context.textStyle1.w500.s16,
+                            style: context.textStyle1.w300.s16,
                           ),
                         ],
                       ),

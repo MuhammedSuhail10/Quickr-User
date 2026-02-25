@@ -6,6 +6,8 @@ import 'package:quickr_user_flutter_app/presentation/auth/login_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/auth/otp_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/auth/registration_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/home/main_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/home/worker_details_screen.dart';
+import 'package:quickr_user_flutter_app/presentation/orders/order_details_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/orders/order_main_screen.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/edit_email_address.dart';
 import 'package:quickr_user_flutter_app/presentation/profile/edit_phone_number.dart';
@@ -34,7 +36,10 @@ class AppRoute {
         return pushRoute(settings, const StartScreen());
 
       case MainScreen.routeName:
-        return pushRoute(settings, const MainScreen());
+        return pushRoute(
+          settings,
+          MainScreen(initialIndex: args?['initialIndex']),
+        );
 
       // case ServiceDetailsScreen.routeName:
       //   return pushRoute(settings, const ServiceDetailsScreen());
@@ -98,6 +103,9 @@ class AppRoute {
       case OrderMainScreen.routeName:
         return pushRoute(settings, const OrderMainScreen());
 
+      case OrderDetailsScreen.routeName:
+        return pushRoute(settings, OrderDetailsScreen(order: args!['order']));
+
       case SavedAddressesScreen.routeName:
         return pushRoute(settings, const SavedAddressesScreen());
 
@@ -118,6 +126,12 @@ class AppRoute {
 
       case LocationSelectingScreen.routeName:
         return pushRoute(settings, const LocationSelectingScreen());
+
+      case WorkerDetailsScreen.routeName:
+        return pushRoute(
+          settings,
+          WorkerDetailsScreen(orderId: args!['orderId']),
+        );
 
       case SplashScreen.routeName:
       default:

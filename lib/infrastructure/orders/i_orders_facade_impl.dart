@@ -29,4 +29,51 @@ class IOrdersFacadeImpl implements IOrdersFacade {
       return OrdersResponse.fromJson(response.data as Map<String, dynamic>);
     });
   }
+
+  @override
+  ResultFuture<bool> cancelOrder({
+    required int orderId,
+    required String cancellationReason,
+  }) {
+    return runSafely.runSafely(() async {
+      await dioClient.patch(
+        Urls.cancelOrder,
+        queryParameters: {
+          "order_id": orderId,
+          "cancellation_reason": cancellationReason,
+        },
+      );
+      return true;
+    });
+  }
+
+  @override
+  ResultFuture<bool> rescheduleorder({
+    required int orderId,
+    required String scheduledDate,
+    required String scheduledTime,
+  }) {
+    return runSafely.runSafely(() async {
+      await dioClient.patch(
+        Urls.rescheduleOrder,
+        data: {
+          "order_id": orderId,
+          "scheduled_date": scheduledDate,
+          "scheduled_time": scheduledTime,
+        },
+      );
+      return true;
+    });
+  }
+
+  @override
+  ResultFuture<bool> verifyOrder({required int orderId, required int otp}) {
+    return runSafely.runSafely(() async {
+      await dioClient.post(
+        Urls.verifyOrder,
+        data: {"order_id": orderId, "code": otp},
+      );
+      return true;
+    });
+  }
 }

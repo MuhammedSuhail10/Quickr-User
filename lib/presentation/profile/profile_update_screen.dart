@@ -159,7 +159,7 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Profile Picture Section
-              Text('Profile Picture', style: context.textStyle1.w500.s14),
+              Text('Profile Picture', style: context.textStyle1.w300.s14),
               gap16,
               Center(
                 child: GestureDetector(
@@ -223,7 +223,7 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
               ),
               gap32,
               // Name Field Section
-              Text('Name', style: context.textStyle1.w500.s14),
+              Text('Name', style: context.textStyle1.w300.s14),
               gap4,
               CustomTextField(
                 controller: _nameController,

@@ -11,7 +11,9 @@ import 'package:quickr_user_flutter_app/presentation/services/service_main_scree
 import 'package:quickr_user_flutter_app/presentation/widgets/custom_bottom_navbar.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final int? initialIndex;
+
+  const MainScreen({super.key, this.initialIndex});
   static const routeName = 'main';
 
   @override
@@ -23,6 +25,14 @@ class _MainScreenState extends State<MainScreen> {
 
   int selectedIndex = 0;
   DateTime? _lastBackPressTime;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.initialIndex != null) {
+      selectedIndex = widget.initialIndex!;
+    }
+  }
 
   void onItemTapped(int index) {
     scaffoldKey.currentState!.closeDrawer();
@@ -50,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
               const SizedBox(width: 12),
               const Text(
                 'Press back again to exit Quickr-User',
-                style: TextStyle(fontWeight: FontWeight.w500),
+                style: TextStyle(fontWeight: FontWeight.w300),
               ),
             ],
           ),

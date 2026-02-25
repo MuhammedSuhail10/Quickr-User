@@ -161,7 +161,7 @@ class _ExtraInformationScreenState extends State<ExtraInformationScreen> {
                         style: context.textStyle1.w300.s18,
                       ),
                       gap8,
-                      Text('Upload image', style: context.textStyle1.w500.s14),
+                      Text('Upload image', style: context.textStyle1.w300.s14),
                       gap4,
                       if (_image != null)
                         Stack(
@@ -225,7 +225,7 @@ class _ExtraInformationScreenState extends State<ExtraInformationScreen> {
                           ),
                         ),
                       gap16,
-                      Text('Name', style: context.textStyle1.w500.s14),
+                      Text('Name', style: context.textStyle1.w300.s14),
                       gap4,
                       CustomTextField(
                         controller: _nameController,
@@ -244,7 +244,7 @@ class _ExtraInformationScreenState extends State<ExtraInformationScreen> {
                       gap16,
                       Text(
                         'Alternate Number (Optional)',
-                        style: context.textStyle1.w500.s14,
+                        style: context.textStyle1.w300.s14,
                       ),
                       gap4,
                       CustomTextField(
@@ -258,7 +258,7 @@ class _ExtraInformationScreenState extends State<ExtraInformationScreen> {
                         borderRadius: 15,
                       ),
                       gap16,
-                      Text('Notes', style: context.textStyle1.w500.s14),
+                      Text('Notes', style: context.textStyle1.w300.s14),
                       gap4,
                       CustomTextField(
                         controller: _notesController,
@@ -354,7 +354,7 @@ class _SourceOption extends StatelessWidget {
             child: Icon(icon, color: ColorResources.primary, size: 30),
           ),
           gap8,
-          Text(label, style: context.textStyle1.w400.s14),
+          Text(label, style: context.textStyle1.w300.s14),
         ],
       ),
     );

@@ -7,6 +7,9 @@ import 'package:quickr_user_flutter_app/domain/home/models/all_categories_respon
 import 'package:quickr_user_flutter_app/domain/home/models/home_response.dart';
 import 'package:quickr_user_flutter_app/domain/home/i_home_facade.dart';
 import 'package:quickr_user_flutter_app/domain/home/models/services_response.dart';
+import 'package:quickr_user_flutter_app/domain/home/models/scheduled_order_response.dart';
+
+import 'package:quickr_user_flutter_app/domain/home/models/worker_details_response.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -23,6 +26,40 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       transformer: debounce(const Duration(milliseconds: 300)),
     );
     on<GetSubCategoryServices>(_getSubCategoryServices);
+    on<GetScheduledOrders>(_getScheduledOrders);
+    on<VerifyOrder>(_verifyOrder);
+    on<GetWorkerDetails>(_getWorkerDetails);
+    on<ResetVerifyOrderStatus>(_resetVerifyOrderStatus);
+  }
+
+  Future<void> _getWorkerDetails(
+    GetWorkerDetails event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(
+      state.copyWith(
+        getWorkerDetailsStatus: ApiStatus.loading,
+        workerDetailsResponse: null,
+        errorMessage: null,
+      ),
+    );
+
+    final result = await _homeFacade.getWorkerDetails(orderId: event.orderId);
+
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          getWorkerDetailsStatus: ApiStatus.error,
+          errorMessage: failure.errorMsg,
+        ),
+      ),
+      (response) => emit(
+        state.copyWith(
+          getWorkerDetailsStatus: ApiStatus.success,
+          workerDetailsResponse: response,
+        ),
+      ),
+    );
   }
 
   Future<void> _getHomeData(GetHomeData event, Emitter<HomeState> emit) async {
@@ -113,6 +150,58 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           serviceResponse: response,
         ),
       ),
+    );
+  }
+
+  Future<void> _getScheduledOrders(
+    GetScheduledOrders event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(state.copyWith(getScheduledOrdersStatus: ApiStatus.loading));
+
+    final result = await _homeFacade.getScheduledOrders();
+
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          getScheduledOrdersStatus: ApiStatus.error,
+          errorMessage: failure.errorMsg,
+        ),
+      ),
+      (response) => emit(
+        state.copyWith(
+          getScheduledOrdersStatus: ApiStatus.success,
+          scheduledOrderResponse: response,
+        ),
+      ),
+    );
+  }
+
+  Future<void> _verifyOrder(VerifyOrder event, Emitter<HomeState> emit) async {
+    emit(state.copyWith(verifyOrderStatus: ApiStatus.loading));
+
+    final result = await _homeFacade.verifyOrder(
+      orderId: event.orderId,
+      otp: event.otp,
+    );
+
+    result.fold(
+      (failure) => emit(
+        state.copyWith(
+          verifyOrderStatus: ApiStatus.error,
+          errorMessage: failure.errorMsg,
+        ),
+      ),
+      (_) => emit(state.copyWith(verifyOrderStatus: ApiStatus.success)),
+    );
+  }
+
+  void _resetVerifyOrderStatus(
+    ResetVerifyOrderStatus event,
+    Emitter<HomeState> emit,
+  ) {
+    emit(
+      state.copyWith(verifyOrderStatus: ApiStatus.initial, errorMessage: null),
     );
   }
 }
